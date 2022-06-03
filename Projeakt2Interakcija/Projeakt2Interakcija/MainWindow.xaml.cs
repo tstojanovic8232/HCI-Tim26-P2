@@ -21,13 +21,13 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Korisnik> korisnici;
+        List<Klijent> korisnici;
         string text5;
         string text6;
         public MainWindow()
         {
             InitializeComponent();
-            korisnici = new List<Korisnik>();
+            korisnici = new List<Klijent>();
             
         }
 
@@ -44,7 +44,7 @@ namespace Projeakt2Interakcija
 
 
             bool found = false;
-            foreach (Korisnik k in korisnici)
+            foreach (Klijent k in korisnici)
             {
                 if (text5.Equals(k.korisnicko_ime) && text6.Equals(k.lozinka))
                 {
@@ -59,7 +59,7 @@ namespace Projeakt2Interakcija
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
         {
-            using (StreamReader reader = File.OpenText("..\\..\\Korisnici.txt"))
+            using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Korisnici.txt"))
             {
 
                 while (!reader.EndOfStream)
@@ -68,10 +68,6 @@ namespace Projeakt2Interakcija
                     string line = reader.ReadLine();
                     if (line == "") break;
                     string[] korisnik = line.Split('|');
-                    foreach (var item in korisnik)
-                    {
-                        Console.WriteLine(item);
-                    }
 
                     string ime = korisnik[0];
                     string prezime = korisnik[1];
@@ -79,7 +75,7 @@ namespace Projeakt2Interakcija
                     string datum = korisnik[3];
                     string korisnicko_ime = korisnik[4];
                     string lozinka = korisnik[5];
-                    korisnici.Add(new Korisnik(ime, prezime, email, datum, korisnicko_ime, lozinka));
+                    korisnici.Add(new Klijent(ime, prezime, email, datum, korisnicko_ime, lozinka));
                 }
             }
         }

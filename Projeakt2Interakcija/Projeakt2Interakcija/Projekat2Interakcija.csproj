@@ -55,7 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Korisnik.cs" />
+    <Compile Include="Model\Menadzer.cs" />
+    <Compile Include="Model\Linija.cs" />
+    <Compile Include="Model\Klijent.cs" />
+    <Compile Include="Model\RedVoznje.cs" />
+    <Compile Include="Model\Stanica.cs" />
+    <Compile Include="Model\Voz.cs" />
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
@@ -103,7 +108,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Korisnici.txt" />
+    <Resource Include="Podaci\Korisnici.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

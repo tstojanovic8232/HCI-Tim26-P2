@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeakt2Interakcija
+namespace Projeakt2Interakcija.Model
 {
-    class Korisnik
+    internal class Klijent
     {
         public string ime { get; set; }
         public string prezime { get; set; }
@@ -14,13 +14,14 @@ namespace Projeakt2Interakcija
         public string datum_rodjenja { get; set; }
         public string korisnicko_ime { get; set; }
         public string lozinka { get; set; }
+        public List<Karta> kupljeneKarte { get; set; }
+        public List<Karta> rezervisaneKarte { get; set; }
 
-
-        public Korisnik()
+        public Klijent()
         {
 
         }
-        public Korisnik(string i,string b,string c,string d,string e,string f)
+        public Klijent(string i,string b,string c,string d,string e,string f)
         {
             this.ime = i;
             this.prezime = b;

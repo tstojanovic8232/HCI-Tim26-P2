@@ -26,14 +26,14 @@ namespace Projeakt2Interakcija
         String text4 = "";
         String text5 = "";
         String text6 = "";
-        List<Korisnik> korisnici;
+        List<Klijent> korisnici;
 
         public Registracija()
         {
             
             InitializeComponent();
-            korisnici = new List<Korisnik>();
-            using (StreamReader reader = File.OpenText("..\\..\\Korisnici.txt"))
+            korisnici = new List<Klijent>();
+            using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Korisnici.txt"))
             {
 
                 while (!reader.EndOfStream)
@@ -42,10 +42,6 @@ namespace Projeakt2Interakcija
                     string line = reader.ReadLine();
                     if (line == "") break;
                     string[] korisnik = line.Split('|');
-                    foreach (var item in korisnik)
-                    {
-                        Console.WriteLine(item);
-                    }
 
                     string ime = korisnik[0];
                     string prezime = korisnik[1];
@@ -53,7 +49,7 @@ namespace Projeakt2Interakcija
                     string datum = korisnik[3];
                     string korisnicko_ime = korisnik[4];
                     string lozinka = korisnik[5];
-                    korisnici.Add(new Korisnik(ime, prezime, email, datum, korisnicko_ime, lozinka));
+                    korisnici.Add(new Klijent(ime, prezime, email, datum, korisnicko_ime, lozinka));
                 }
             }
         }
@@ -68,10 +64,10 @@ namespace Projeakt2Interakcija
             text5 = korisnicko_ime.Text;
             text6 = lozinka.Text;
 
-            Korisnik k1 = new Korisnik(text1, text2, text3, text4, text5, text6);
+            Klijent k1 = new Klijent(text1, text2, text3, text4, text5, text6);
 
             bool exists = false;
-            foreach (Korisnik k in korisnici)
+            foreach (Klijent k in korisnici)
             {
                 if (k1.email.Equals(k.email))
                 {

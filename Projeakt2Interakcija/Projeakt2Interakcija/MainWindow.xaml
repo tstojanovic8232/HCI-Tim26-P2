@@ -9,7 +9,7 @@
     <Grid Margin="0,0,2,2">
         <TextBox Name="korisnciko_ime" HorizontalAlignment="Left" Height="33" Margin="307,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
         <TextBox Name="lozinka" HorizontalAlignment="Left" Height="37" Margin="307,209,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
-        <Label Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,78,0,0" Width="161" FontSize="20"/>
+        <Label Content="Prijava" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,78,0,0" Width="161" FontSize="20"/>
         <Label  Content="KORISNICKO IME:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="108,154,0,0" Width="176" FontSize="20"/>
         <Label Content="LOZINKA:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,209,0,0" Width="161" FontSize="20"/>
         <Button Content="Registrujte se!" HorizontalAlignment="Left" Margin="561,154,0,0" VerticalAlignment="Top" Width="151" Height="55"  FontSize="20" Click="Button_Click"/>
