@@ -26,20 +26,19 @@ namespace Projeakt2Interakcija
         String text4 = "";
         String text5 = "";
         String text6 = "";
-        List<Korisnik> lista;
-
+        List<Korisnik> korisnici;
 
         public Registracija()
         {
-           
+            
             InitializeComponent();
-            lista = new List<Korisnik>();
-            using (StreamReader reader = File.OpenText("..\\..\\Podaci.txt"))
+            korisnici = new List<Korisnik>();
+            using (StreamReader reader = File.OpenText("..\\..\\Korisnici.txt"))
             {
 
                 while (!reader.EndOfStream)
                 {
-                                                    
+
                     string line = reader.ReadLine();
                     if (line == "") break;
                     string[] korisnik = line.Split('|');
@@ -47,14 +46,14 @@ namespace Projeakt2Interakcija
                     {
                         Console.WriteLine(item);
                     }
-                    
+
                     string ime = korisnik[0];
                     string prezime = korisnik[1];
                     string email = korisnik[2];
                     string datum = korisnik[3];
                     string korisnicko_ime = korisnik[4];
                     string lozinka = korisnik[5];
-                    lista.Add(new Korisnik(ime, prezime, email, datum, korisnicko_ime, lozinka));
+                    korisnici.Add(new Korisnik(ime, prezime, email, datum, korisnicko_ime, lozinka));
                 }
             }
         }
@@ -71,26 +70,28 @@ namespace Projeakt2Interakcija
 
             Korisnik k1 = new Korisnik(text1, text2, text3, text4, text5, text6);
 
-            foreach (Korisnik k in lista)
+            bool exists = false;
+            foreach (Korisnik k in korisnici)
             {
                 if (k1.email.Equals(k.email))
                 {
                     MessageBox.Show("Korisnik sa ovim mejlom vec postoji");
-                    e.Handled = true;
+                    exists = true;
                     break;
                 }
 
             }
-            if (!e.Handled) { 
-            using (StreamWriter sr = new StreamWriter("..\\..\\Podaci.txt"))
-            {
-                foreach (var item in lista)
+            if (!exists) {
+                korisnici.Add(k1);
+                using (StreamWriter sr = new StreamWriter("..\\..\\Korisnici.txt"))
                 {
-                    sr.WriteLine(k1.ime+"|"+ k1.prezime+"|"+ k1.email+"|"+ k1.datum_rodjenja+"|"+ k1.korisnicko_ime+"|"+ k1.lozinka);
+                    foreach (var item in korisnici)
+                    {
+                        sr.WriteLine(item.ime+"|"+ item.prezime+"|"+ item.email+"|"+ item.datum_rodjenja+"|"+ item.korisnicko_ime+"|"+ item.lozinka);
 
-            }
-            sr.Close();
-            }
+                    }
+                sr.Close();
+                }
             
 
             }

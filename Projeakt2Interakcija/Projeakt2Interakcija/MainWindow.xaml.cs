@@ -21,14 +21,45 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Korisnik> lista;
+        List<Korisnik> korisnici;
         string text5;
         string text6;
         public MainWindow()
         {
             InitializeComponent();
-            lista = new List<Korisnik>();
-            using (StreamReader reader = File.OpenText("..\\..\\Podaci.txt"))
+            korisnici = new List<Korisnik>();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Registracija r = new Registracija();
+            r.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            text5 = korisnciko_ime.Text;
+            text6 = lozinka.Text;
+
+
+            bool found = false;
+            foreach (Korisnik k in korisnici)
+            {
+                if (text5.Equals(k.korisnicko_ime) && text6.Equals(k.lozinka))
+                {
+                    found = true;
+                    break;
+                }
+
+            }
+            if (found) MessageBox.Show("Uspesno ste se ulogovali");
+            else MessageBox.Show("Nepostojeci korisnik");
+        }
+
+        private void Window_GotFocus(object sender, RoutedEventArgs e)
+        {
+            using (StreamReader reader = File.OpenText("..\\..\\Korisnici.txt"))
             {
 
                 while (!reader.EndOfStream)
@@ -48,36 +79,8 @@ namespace Projeakt2Interakcija
                     string datum = korisnik[3];
                     string korisnicko_ime = korisnik[4];
                     string lozinka = korisnik[5];
-                    lista.Add(new Korisnik(ime, prezime, email, datum, korisnicko_ime, lozinka));
+                    korisnici.Add(new Korisnik(ime, prezime, email, datum, korisnicko_ime, lozinka));
                 }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Registracija r = new Registracija();
-            r.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            text5 = korisnciko_ime.Text;
-            text6 = lozinka.Text;
-
-            
-
-            foreach (Korisnik k in lista)
-            {
-                if (text5.Equals(k.korisnicko_ime) && text6.Equals(k.lozinka))
-                {
-                    MessageBox.Show("Uspesno ste se ulogovali");
-                    e.Handled = true;
-                }
-                else
-                {
-                    MessageBox.Show("Nepostojeci korisnik");
-                }
-
             }
         }
     }

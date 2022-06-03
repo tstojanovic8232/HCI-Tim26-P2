@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" GotFocus="Window_GotFocus">
     <Grid Margin="0,0,2,2">
         <TextBox Name="korisnciko_ime" HorizontalAlignment="Left" Height="33" Margin="307,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
         <TextBox Name="lozinka" HorizontalAlignment="Left" Height="37" Margin="307,209,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
