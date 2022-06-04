@@ -55,11 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Model\Linija.cs" />
     <Compile Include="Model\Klijent.cs" />
     <Compile Include="Model\RedVoznje.cs" />
     <Compile Include="Model\Stanica.cs" />
+    <Compile Include="Model\UcitavanjePodataka.cs" />
     <Compile Include="Model\Voz.cs" />
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
@@ -109,6 +111,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Podaci\Korisnici.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Linija.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Vozovi.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Stanice.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Karte.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\RedVoznje.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Manager.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

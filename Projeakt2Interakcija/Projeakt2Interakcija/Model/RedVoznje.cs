@@ -15,5 +15,12 @@ namespace Projeakt2Interakcija.Model
         {
             
         }
+
+        public RedVoznje(string danUNedelji, List<Linija> linije)
+        {
+            this.danUNedelji = danUNedelji;
+            this.linije = linije;
+        }
+
     }
 }
