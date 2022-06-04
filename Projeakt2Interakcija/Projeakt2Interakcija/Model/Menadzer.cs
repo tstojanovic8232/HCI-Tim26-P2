@@ -8,6 +8,9 @@ namespace Projeakt2Interakcija.Model
 {
     internal class Menadzer
     {
+        
+       
+
         public string ime { get; set; }
         public string prezime { get; set; }
         public string email { get; set; }
@@ -18,6 +21,16 @@ namespace Projeakt2Interakcija.Model
         public Menadzer()
         {
 
+        }
+
+        public Menadzer(string ime, string prezime, string email, string datumRodjenja, string korisnickoIme, string lozinka)
+        {
+            this.ime = ime;
+            this.prezime = prezime;
+            this.email = email;
+            this.datum_rodjenja = datumRodjenja;
+            this.korisnicko_ime = korisnickoIme;
+            this.lozinka = lozinka;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Projeakt2Interakcija.Model
 {
     internal class Stanica
     {
+        
         public string naziv { get; set; }
         public string mesto { get; set; }
         public float x { get; set; }
@@ -16,6 +17,22 @@ namespace Projeakt2Interakcija.Model
         public Stanica()
         {
 
+        }
+
+        public Stanica(string naziv, string mesto, float x, float y)
+        {
+            this.naziv = naziv;
+            this.mesto = mesto;
+            this.x = x;
+            this.y = y;
+        }
+
+        public Stanica(Stanica stanica)
+        {
+            naziv=stanica.naziv;
+            mesto=stanica.naziv;
+            x=stanica.x;
+            y = stanica.y;
         }
     }
 }

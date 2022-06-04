@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Projeakt2Interakcija.Model;
 
 namespace Projeakt2Interakcija
 {
@@ -79,7 +80,7 @@ namespace Projeakt2Interakcija
             }
             if (!exists) {
                 korisnici.Add(k1);
-                using (StreamWriter sr = new StreamWriter("..\\..\\Korisnici.txt"))
+                using (StreamWriter sr = new StreamWriter("..\\..\\Podaci\\Korisnici.txt"))
                 {
                     foreach (var item in korisnici)
                     {
@@ -88,7 +89,8 @@ namespace Projeakt2Interakcija
                     }
                 sr.Close();
                 }
-            
+                MessageBox.Show("Uspesno ste se registrovali!");
+
 
             }
         }

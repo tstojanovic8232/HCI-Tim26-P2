@@ -55,21 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MenadzerPocetna.xaml.cs">
-      <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Model\Linija.cs" />
     <Compile Include="Model\Klijent.cs" />
     <Compile Include="Model\RedVoznje.cs" />
     <Compile Include="Model\Stanica.cs" />
+    <Compile Include="Model\UcitavanjePodataka.cs" />
     <Compile Include="Model\Voz.cs" />
-    <Compile Include="PregledKarataMenadzer.xaml.cs">
-      <DependentUpon>PregledKarataMenadzer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PregledVoznihLinijaMenadzer.xaml.cs">
-      <DependentUpon>PregledVoznihLinijaMenadzer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
@@ -85,18 +78,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenadzerPocetna.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PregledKarataMenadzer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PregledVoznihLinijaMenadzer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Registracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,18 +113,22 @@
     <Resource Include="Podaci\Korisnici.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SrbijaVozLogo.jpg" />
+    <Resource Include="Podaci\Linija.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Slike\BrziVoz.jpg" />
-    <Resource Include="Slike\Logo.jpg" />
-    <Resource Include="Slike\InterCity.jpg" />
-    <Resource Include="Slike\mainImage.jpg" />
-    <Resource Include="Slike\RegioVoz.jpg" />
-    <Resource Include="Slike\Soko.jpg" />
+    <Resource Include="Podaci\Vozovi.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ZelezniceSrbijeLogo2.jpg" />
+    <Resource Include="Podaci\Stanice.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Karte.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\RedVoznje.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Podaci\Manager.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
