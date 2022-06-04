@@ -5,22 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
-        Title="Registracija" Height="450" Width="800">
+        Background="#4d4847"
+        Title="Registracija" Height="600" Width="800">
     <Grid>
-        <TextBox Name="ime" HorizontalAlignment="Left" Height="23" Margin="305,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
-        <TextBox  Name="prezime" HorizontalAlignment="Left" Height="23" Margin="305,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
-        <TextBox  Name="email" HorizontalAlignment="Left" Height="23" Margin="305,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <TextBox  Name="datum_rodjenja" HorizontalAlignment="Left" Height="23" Margin="305,228,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <TextBox  Name="korisnicko_ime" HorizontalAlignment="Left" Height="23" Margin="305,277,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <TextBox  Name="lozinka" HorizontalAlignment="Left" Height="23" Margin="305,324,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <Label Content="Ime:" HorizontalAlignment="Left" Margin="188,77,0,0" VerticalAlignment="Top" Width="37"/>
-        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="187,122,0,0" VerticalAlignment="Top"/>
-        <Label Content="e-mail:" HorizontalAlignment="Left" Margin="187,178,0,0" VerticalAlignment="Top"/>
-        <Label Content="datum  rodjenja:" HorizontalAlignment="Left" Margin="188,228,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="korisnicko   ime:" HorizontalAlignment="Left" Margin="187,282,0,0" VerticalAlignment="Top"/>
-        <Label Content="lozinka:" HorizontalAlignment="Left" Margin="187,329,0,0" VerticalAlignment="Top"/>
-        <Button Content="Registrujte se!" HorizontalAlignment="Left" Margin="615,228,0,0" VerticalAlignment="Top" Width="96" Height="34" Click="Button_Click"/>
-        <Label Content="REGISTRACIJA" HorizontalAlignment="Left" Margin="353,26,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="ime" HorizontalAlignment="Left" Height="23" Margin="374,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
+        <TextBox  Name="prezime" HorizontalAlignment="Left" Height="23" Margin="374,247,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
+        <TextBox  Name="email" HorizontalAlignment="Left" Height="23" Margin="374,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
+        <TextBox  Name="datum_rodjenja" HorizontalAlignment="Left" Height="23" Margin="374,340,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
+        <TextBox  Name="korisnicko_ime" HorizontalAlignment="Left" Height="23" Margin="374,390,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
+        <TextBox  Name="lozinka" HorizontalAlignment="Left" Height="23" Margin="374,437,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="IME:" HorizontalAlignment="Left" Margin="206,199,0,0" VerticalAlignment="Top" Width="54"/>
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="PREZIME:" HorizontalAlignment="Left" Margin="206,246,0,0" VerticalAlignment="Top"/>
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="E-MAIL:" HorizontalAlignment="Left" Margin="206,290,0,0" VerticalAlignment="Top"/>
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="DATUM ROĐENJA:" HorizontalAlignment="Left" Margin="203,339,0,0" VerticalAlignment="Top" Width="171"/>
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="KORISNIČKO IME:" HorizontalAlignment="Left" Margin="203,389,0,0" VerticalAlignment="Top"/>
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="LOZINKA:" HorizontalAlignment="Left" Margin="206,436,0,0" VerticalAlignment="Top" Height="36" Width="97"/>
+        <Button FontSize="18" FontWeight="SemiBold" Content="REGISTRUJ ME" HorizontalAlignment="Left" Margin="316,488,0,0" VerticalAlignment="Top" Width="147" Height="44" Click="Button_Click"/>
+        <Label FontWeight="Bold" Foreground="#6abd53" Content="REGISTRACIJA NOVOG NALOGA" FontSize="35" HorizontalAlignment="Left" Margin="131,107,0,0" VerticalAlignment="Top"/>
+        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,12,0,0" Width="555" FontSize="60" Height="90"/>
+        <Image Source="ZelezniceSrbijeLogo2.jpg" Margin="26,12,581,462"/>
 
     </Grid>
 </Window>
