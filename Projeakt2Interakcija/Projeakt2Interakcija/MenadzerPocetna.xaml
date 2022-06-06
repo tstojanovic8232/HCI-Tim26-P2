@@ -6,20 +6,20 @@
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
         Background="#4d4847"
-        Title="MenadzerPocetna" Height="600" Width="800">
+        Title="Srbija Voz - Menadžer" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="91*"/>
         </Grid.ColumnDefinitions>
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="USPEŠNO STE SE PRIJAVILI!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,90,0,0" Width="718" FontSize="50" Height="90" Grid.ColumnSpan="2"/>
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRODATE KARTE" Background="#4d4847" Grid.Column="1" Margin="56,190,386,255" Click="Button_Click"></Button>
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="NAŠI VOZOVI" Background="#4d4847" Grid.Column="1" Margin="376,338,133,115"></Button>
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="VOZNE LINIJE" Background="#4d4847" Grid.Column="1" Margin="56,338,386,116"></Button>
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="RED VOŽNJE" Background="#4d4847" Grid.Column="1" Margin="376,192,133,261" Click="Button_Click"></Button>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRODATE KARTE" Background="#4d4847" Grid.Column="1" Margin="56,190,386,255" Click="ProdateKarte_Click"></Button>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="NAŠI VOZOVI" Background="#4d4847" Grid.Column="1" Margin="376,338,133,115" Click="NasiVozovi_Click"></Button>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="VOZNE LINIJE" Background="#4d4847" Grid.Column="1" Margin="56,338,386,116" Click="VozneLinije_Click"></Button>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="RED VOŽNJE" Background="#4d4847" Grid.Column="1" Margin="376,192,133,261" Click="RedVoznje_Click"></Button>
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,26,0,0" Width="464" FontSize="30" Height="72" Grid.Column="1"/>
         <Image Source="ZelezniceSrbijeLogo2.jpg" Margin="-11,14,682,483" Grid.ColumnSpan="2"/>
-        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" Margin="522,14,24,502" Click="Button_Click"/>
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" Margin="522,14,24,502" Click="OdjaviMe_Click"/>
 
     </Grid>
 </Window>

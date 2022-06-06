@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MenadzerPocetna.xaml.cs">
+      <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Model\Linija.cs" />
@@ -63,6 +66,21 @@
     <Compile Include="Model\Stanica.cs" />
     <Compile Include="Model\UcitavanjePodataka.cs" />
     <Compile Include="Model\Voz.cs" />
+    <Compile Include="NasiVozoviMenadzer.xaml.cs">
+      <DependentUpon>NasiVozoviMenadzer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OdjavaMenadzer.xaml.cs">
+      <DependentUpon>OdjavaMenadzer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PregledKarataMenadzer.xaml.cs">
+      <DependentUpon>PregledKarataMenadzer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PregledRedaVoznje.xaml.cs">
+      <DependentUpon>PregledRedaVoznje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PregledVoznihLinijaMenadzer.xaml.cs">
+      <DependentUpon>PregledVoznihLinijaMenadzer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
@@ -78,6 +96,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenadzerPocetna.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NasiVozoviMenadzer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OdjavaMenadzer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PregledKarataMenadzer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PregledRedaVoznje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PregledVoznihLinijaMenadzer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Registracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Podaci\Korisnici.txt" />
+    <Resource Include="Slike\BrziVoz.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Podaci\Linija.txt" />
@@ -129,6 +172,26 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Podaci\Manager.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\InterCity.jpg" />
+    <Resource Include="Slike\Logo.jpg" />
+    <Resource Include="Slike\mainImage.jpg" />
+    <Resource Include="Slike\RegioVoz.jpg" />
+    <Resource Include="Slike\Soko.jpg" />
+    <Resource Include="Slike\SrbijaVozLogo.jpg" />
+    <Resource Include="Slike\ZelezniceSrbijeLogo.jpg" />
+    <Resource Include="Slike\ZelezniceSrbijeLogo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SrbijaVozLogo.jpg" />
+    <Resource Include="ZelezniceSrbijeLogo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Korisnici.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\StariVoz.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

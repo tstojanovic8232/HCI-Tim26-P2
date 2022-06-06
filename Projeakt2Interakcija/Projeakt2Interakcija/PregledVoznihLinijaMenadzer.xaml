@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
         Background="#4d4847"
-        Title="MenadzerPocetna" Height="600" Width="800">
-    <Window.Resources><!--Svi stilovi prozora-->
+        Title="Srbija Voz" Height="600" Width="800">
+    <Window.Resources>
+        <!--Svi stilovi prozora-->
         <Style TargetType="CheckBox">
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="False">
@@ -16,20 +17,21 @@
             </Style.Triggers>
         </Style>
         <ControlTemplate x:Key="CheckBoxSlika" TargetType="CheckBox" >
+
+            <Grid>
+                <Border x:Name="OkvirSlike" BorderBrush="#6abd53">
+                    <Image x:Name="slika"  Source="{TemplateBinding Tag}" RenderTransformOrigin="8.3,14.462" Height="50" Width="82"/>
+                </Border>
+            </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsChecked" Value="true">
-                    <Setter Property="BorderThickness" TargetName="OkvirSlike" Value="3"></Setter>
+                    <Setter Property="BorderThickness" TargetName="OkvirSlike" Value="5"></Setter>
 
                 </Trigger>
                 <Trigger Property="IsChecked" Value="false">
                     <Setter Property="BorderThickness" TargetName="OkvirSlike" Value="0"></Setter>
                 </Trigger>
             </ControlTemplate.Triggers>
-            <Grid>
-                <Border x:Name="OkvirSlike" BorderBrush="LightYellow">
-                    <Image x:Name="slika"  Source="{TemplateBinding Tag}" RenderTransformOrigin="8.3,14.462" Height="75" Width="130"/>
-                </Border>
-            </Grid>
         </ControlTemplate>
     </Window.Resources>
 
@@ -41,18 +43,38 @@
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,22,0,0" Width="464" FontSize="30" Height="72" Grid.Column="1"/>
         <Image Source="ZelezniceSrbijeLogo2.jpg" Margin="-17,10,688,487" Grid.ColumnSpan="2"/>
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="PREGLED VOZNIH LINIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,67,0,0" Width="756" FontSize="50" Height="90" Grid.ColumnSpan="2"/>
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="TIP VOZA:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,194,-28,0" Width="756" FontSize="35" Height="90" Grid.Column="1"/>
+        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="TIP VOZA:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,217,-6,0" Width="728" FontSize="35" Height="80" Grid.Column="1"/>
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAZIV LINIJE:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,137,0,0" Width="380" FontSize="35" Height="90" Grid.Column="1"/>
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.Column="1" Margin="434,250,148,253"></Button>
-        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Margin="10,284,456,219" Grid.ColumnSpan="2"/>
-        <TextBox FontSize="40" x:Name="korisnciko_ime" HorizontalAlignment="Left" Height="57" Margin="307,137,0,0" TextWrapping="Wrap" Text=" unesite liniju" VerticalAlignment="Top" Width="339" RenderTransformOrigin="1.505,-0.538" TextChanged="korisnciko_ime_TextChanged" Grid.Column="1"/>
-        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" Margin="522,14,24,502" Click="Button_Click"/>
-        <CheckBox Grid.Column="1" Margin="250,204,328,290" Height="75" Width="150" Template="{StaticResource CheckBoxSlika}">
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.Column="1" Margin="484,308,98,195" Click="Prikazi_Click"></Button>
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Margin="26,308,440,195" Grid.ColumnSpan="2" Click="NazadNaPocetnu_Click"/>
+        <TextBox FontSize="40" x:Name="korisnciko_ime" HorizontalAlignment="Left" Height="57" Margin="307,137,0,0" TextWrapping="Wrap" Text=" unesite liniju" VerticalAlignment="Top" Width="339" RenderTransformOrigin="1.505,-0.538" Grid.Column="1"/>
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" Margin="522,14,24,502" Click="OdjaviMe_Click"/>
+        <CheckBox Grid.Column="1" Margin="220,209,380,283" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>
-                <ImageSource>Slike/Soko.jpg</ImageSource>
+                <ImageSource>/Slike/Soko.jpg</ImageSource>
             </CheckBox.Tag>
         </CheckBox>
-        
-            
+        <CheckBox Grid.Column="1" Margin="415,208,185,284" Width="75" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox.Tag>
+                <ImageSource>/Slike/RegioVoz.jpg</ImageSource>
+            </CheckBox.Tag>
+        </CheckBox>
+        <CheckBox Grid.Column="1" Margin="355,209,298,285" Width="75" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox.Tag>
+                <ImageSource>/Slike/BrziVoz.jpg</ImageSource>
+            </CheckBox.Tag>
+        </CheckBox>
+        <CheckBox Grid.Column="1" Margin="500,207,100,285" Width="75" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox.Tag>
+                <ImageSource>/Slike/InterCity.jpg</ImageSource>
+            </CheckBox.Tag>
+        </CheckBox>
+        <CheckBox Grid.Column="1" Margin="596,207,4,285" Width="100" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox.Tag>
+                <ImageSource>/Slike/StariVoz.jpg</ImageSource>
+            </CheckBox.Tag>
+        </CheckBox>
+
+
     </Grid>
 </Window>
