@@ -8,14 +8,6 @@ namespace Projeakt2Interakcija.Model
 {    
     internal class Linija
     {
-        private object ime;
-        private object prezime;
-        private object email;
-        private object datum;
-        private object korisnicko_ime;
-        private object lozinka;
-        private List<Stanica> stanicel;
-
         public string naziv { get; set; }
         public Voz Voz { get; set; }
         public List<Stanica> stanice { get; set; }
