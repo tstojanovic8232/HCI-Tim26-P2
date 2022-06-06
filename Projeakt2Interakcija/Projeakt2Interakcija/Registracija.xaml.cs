@@ -29,6 +29,16 @@ namespace Projeakt2Interakcija
         String text6 = "";
         List<Klijent> korisnici;
 
+        void SetProperties()
+        {
+            this.Title = "Srbija Voz";
+
+            this.MinHeight = 600;
+            this.MinWidth = 800;
+            Uri iconUri = new Uri("./Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
+
         public Registracija()
         {
             

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Projeakt2Interakcija
 {
     /// <summary>
-    /// Interaction logic for PregledVoznihLinijaMenadzer.xaml
+    /// Interaction logic for PregledRedaVoznje.xaml
     /// </summary>
-    public partial class PregledVoznihLinijaMenadzer : Window
+    public partial class PregledRedaVoznje : Window
     {
-        public PregledVoznihLinijaMenadzer()
+        public PregledRedaVoznje()
         {
             InitializeComponent();
         }
@@ -50,7 +50,7 @@ namespace Projeakt2Interakcija
             OdjavaMenadzer logout = new OdjavaMenadzer();
             logout.Show();
         }
-
-
     }
+
+
 }

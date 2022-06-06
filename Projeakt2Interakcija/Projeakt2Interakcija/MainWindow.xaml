@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
         Background="#4d4847"
-        Title="MainWindow" Height="600" Width="800" GotFocus="Window_GotFocus">
+        Title="Srbija Voz - Prijava" Height="600" Width="800" GotFocus="Window_GotFocus">
     <Grid Margin="0,0,0,0">
-        <TextBox FontSize="20" Name="korisnciko_ime" HorizontalAlignment="Left" Height="43" Margin="428,195,0,0" TextWrapping="Wrap" Text="    unesite vaše ime" VerticalAlignment="Top" Width="223" RenderTransformOrigin="1.505,-0.538" TextChanged="korisnciko_ime_TextChanged"/>
+        <TextBox FontSize="20" Name="korisnciko_ime" HorizontalAlignment="Left" Height="43" Margin="428,195,0,0" TextWrapping="Wrap" Text="    unesite vaše ime" VerticalAlignment="Top" Width="223"/>
         <TextBox FontSize="20" Name="lozinka" HorizontalAlignment="Left" Height="43" Margin="428,275,0,0" TextWrapping="Wrap" Text="  unesite vašu lozinku" VerticalAlignment="Top" Width="223"/>
         <Label FontWeight="Bold" Foreground="#6abd53" Content="KORISNIČKO IME:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,195,0,0" Width="301" FontSize="35"/>
         <Label FontWeight="Bold" Foreground="#6abd53" Content="VAŠA LOZINKA:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,275,0,0" Width="274" FontSize="35"/>
-        <Button FontWeight="SemiBold" Content="REGISTRUJTE SE" HorizontalAlignment="Left" Margin="408,475,0,0" VerticalAlignment="Top" Width="167" Height="39"  FontSize="20" Click="Button_Click"/>
-        <Button FontWeight="Bold" Content="PRIJAVI ME" HorizontalAlignment="Left" Margin="284,352,0,0" VerticalAlignment="Top" Width="229" Height="72"  FontSize="35" Click="Button_Click_1" />
+        <Button FontWeight="SemiBold" Content="REGISTRUJTE SE" HorizontalAlignment="Left" Margin="408,475,0,0" VerticalAlignment="Top" Width="167" Height="39"  FontSize="20" Click="RegistrujteSe_Click"/>
+        <Button FontWeight="Bold" Content="PRIJAVI ME" HorizontalAlignment="Left" Margin="284,352,0,0" VerticalAlignment="Top" Width="229" Height="72"  FontSize="35" Click="PrijaviMe_Click" />
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,10,0,0" Width="555" FontSize="60" Height="90"/>
         <Label FontWeight="SemiBold" Foreground="#6abd53" Content="NEMATE NALOG?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,475,0,0" Width="226" FontSize="25" Height="43"/>
         <Label FontWeight="Bold" Foreground="#6abd53" Content="PRIJAVA NA SISTEM" FontSize="45" HorizontalAlignment="Left" Margin="158,105,0,0" VerticalAlignment="Top"/>

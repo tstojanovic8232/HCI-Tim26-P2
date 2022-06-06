@@ -15,15 +15,14 @@ using System.Windows.Shapes;
 namespace Projeakt2Interakcija
 {
     /// <summary>
-    /// Interaction logic for PregledVoznihLinijaMenadzer.xaml
+    /// Interaction logic for NasiVozoviMenadzer.xaml
     /// </summary>
-    public partial class PregledVoznihLinijaMenadzer : Window
+    public partial class NasiVozoviMenadzer : Window
     {
-        public PregledVoznihLinijaMenadzer()
+        public NasiVozoviMenadzer()
         {
             InitializeComponent();
         }
-
         void SetProperties()
         {
             this.Title = "Srbija Voz";
@@ -50,7 +49,5 @@ namespace Projeakt2Interakcija
             OdjavaMenadzer logout = new OdjavaMenadzer();
             logout.Show();
         }
-
-
     }
 }

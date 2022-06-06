@@ -32,13 +32,23 @@ namespace Projeakt2Interakcija
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        void SetProperties()
+        {
+            this.Title = "Srbija Voz";
+
+            this.MinHeight = 600;
+            this.MinWidth = 800;
+            Uri iconUri = new Uri("/Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
+
+        private void RegistrujteSe_Click(object sender, RoutedEventArgs e)
         {
             Registracija r = new Registracija();
             r.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void PrijaviMe_Click(object sender, RoutedEventArgs e)
         {
             text5 = korisnciko_ime.Text;
             text6 = lozinka.Text;
@@ -56,6 +66,9 @@ namespace Projeakt2Interakcija
             }
             if (found) MessageBox.Show("Uspesno ste se ulogovali");
             else MessageBox.Show("Nepostojeci korisnik");
+
+            MenadzerPocetna menadzerPocetna = new MenadzerPocetna();
+            menadzerPocetna.Show();
         }
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
