@@ -24,17 +24,28 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class MrezniPregledVoznihLinija : Window
     {
+        void SetProperties()
+        {
+            this.Title = "Srbija Voz";
+
+            this.MinHeight = 600;
+            this.MinWidth = 800;
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
+
         public MrezniPregledVoznihLinija()
         {
             InitializeComponent();
+            SetProperties();
 
             var mapControl = new MapControl();
             mapControl.Loaded += MapControl_Loaded;
             mapControl.MapServiceToken = App.token;
             /*
              * Ovako dodajemo pins
-             * 
-             * BasicGeoposition geoposition = new BasicGeoposition() { Latitude = 44.794062, Longitude = 20.451813 };
+             */
+            BasicGeoposition geoposition = new BasicGeoposition() { Latitude = 44.794062, Longitude = 20.451813 };
             var location = new Geopoint(geoposition);
             Windows.UI.Xaml.Controls.Maps.MapIcon mapIcon1 = new Windows.UI.Xaml.Controls.Maps.MapIcon
             {
@@ -44,7 +55,7 @@ namespace Projeakt2Interakcija
             };
 
             mapControl.MapElements.Add(mapIcon1);
-            */
+            
 
             mainGrid.Children.Add(mapControl);
         }

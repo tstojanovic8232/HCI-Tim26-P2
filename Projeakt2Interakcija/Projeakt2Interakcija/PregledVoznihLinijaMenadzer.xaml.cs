@@ -22,6 +22,7 @@ namespace Projeakt2Interakcija
         public PregledVoznihLinijaMenadzer()
         {
             InitializeComponent();
+            SetProperties();
         }
 
         void SetProperties()
@@ -30,14 +31,13 @@ namespace Projeakt2Interakcija
 
             this.MinHeight = 600;
             this.MinWidth = 800;
-            Uri iconUri = new Uri("./Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
 
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
-            MenadzerPocetna menadzerPocetna = new MenadzerPocetna();
-            menadzerPocetna.Show();
+            this.Close();
         }
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)

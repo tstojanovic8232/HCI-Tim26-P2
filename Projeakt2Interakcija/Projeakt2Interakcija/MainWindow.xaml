@@ -8,15 +8,40 @@
         Background="#4d4847"
         Title="Srbija Voz - Prijava" Height="600" Width="800" GotFocus="Window_GotFocus">
     <Grid Margin="0,0,0,0">
-        <TextBox FontSize="20" Name="korisnciko_ime" HorizontalAlignment="Left" Height="43" Margin="428,195,0,0" TextWrapping="Wrap" Text="unesite vaše ime" TextAlignment="Center" VerticalAlignment="Top" Width="223"/>
-        <TextBox FontSize="20" Name="lozinka" HorizontalAlignment="Left" Height="43" Margin="428,275,0,0" TextWrapping="Wrap" Text="unesite vašu lozinku" TextAlignment="Center" VerticalAlignment="Top" Width="223"/>
-        <Label FontWeight="Bold" Foreground="#6abd53" Content="KORISNIČKO IME:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,195,0,0" Width="301" FontSize="35"/>
-        <Label FontWeight="Bold" Foreground="#6abd53" Content="VAŠA LOZINKA:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,275,0,0" Width="274" FontSize="35"/>
-        <Button FontWeight="SemiBold" Content="REGISTRUJTE SE" HorizontalAlignment="Left" Margin="408,475,0,0" VerticalAlignment="Top" Width="167" Height="39"  FontSize="20" Click="RegistrujteSe_Click"/>
-        <Button FontWeight="Bold" Content="PRIJAVI ME" HorizontalAlignment="Left" Margin="284,352,0,0" VerticalAlignment="Top" Width="229" Height="72"  FontSize="35" Click="PrijaviMe_Click" />
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,10,0,0" Width="555" FontSize="60" Height="90"/>
-        <Label FontWeight="SemiBold" Foreground="#6abd53" Content="NEMATE NALOG?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,475,0,0" Width="226" FontSize="25" Height="43"/>
-        <Label FontWeight="Bold" Foreground="#6abd53" Content="PRIJAVA NA SISTEM" FontSize="45" HorizontalAlignment="Left" Margin="158,105,0,0" VerticalAlignment="Top"/>
-        <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg" Margin="10,10,597,464"></Image>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- StackPanel za sliku i tekst da bi bili jedno do drugog -->
+        <StackPanel Margin="0,10,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg"></Image>
+            <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" Width="555" FontSize="60" Height="90" />
+        </StackPanel>
+        <!-- Prijava na sistem -->
+        <Label FontWeight="Bold" Foreground="#6abd53" Content="PRIJAVA NA SISTEM" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1"/>
+
+        <!-- Korisnicko ime -->
+        <Label FontWeight="Bold" Foreground="#6abd53" Content="KORISNIČKO IME:" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="301" FontSize="35" Grid.Row="2"/>
+        <TextBox GotFocus="OcistiTekst" FontSize="20" Name="korisnciko_ime" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" Text="unesite vaše ime" Margin="10,10,0,0" TextAlignment="Center" VerticalAlignment="Top" Width="223" Grid.Row="2" Grid.Column="1"/>
+        
+        <!-- Lozinka -->
+        <Label FontWeight="Bold" Foreground="#6abd53" Content="VAŠA LOZINKA:" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="274" FontSize="35" Grid.Row="3"/>
+        <TextBox GotFocus="OcistiTekst" FontSize="20" Name="lozinka" HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" Text="unesite vašu lozinku" Margin="10,10,0,0" TextAlignment="Center" VerticalAlignment="Top" Width="223" Grid.Row="3" Grid.Column="1"/>
+
+        <!-- Dugme za prijavu -->
+        <Button FontWeight="Bold" Content="PRIJAVI ME" HorizontalAlignment="Center" VerticalAlignment="Center" Width="229" Height="72"  FontSize="35" Click="PrijaviMe_Click" Grid.ColumnSpan="2" Grid.Row="4"/>
+
+        <!-- Registracija -->
+        <Label FontWeight="SemiBold" Foreground="#6abd53" Content="NEMATE NALOG?" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="226" FontSize="25" Height="43" Grid.Row="5"/>
+        <Button FontWeight="SemiBold" Content="REGISTRUJTE SE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="167" Height="39"  FontSize="20" Click="RegistrujteSe_Click" Grid.Row="5" Grid.Column="1"/>
     </Grid>
 </Window>

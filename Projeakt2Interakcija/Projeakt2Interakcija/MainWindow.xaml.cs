@@ -24,11 +24,12 @@ namespace Projeakt2Interakcija
     {
         List<Klijent> korisnici;
         Menadzer menadzer;
-        string text5;
-        string text6;
+        string username;
+        string password;
         public MainWindow()
         {
             InitializeComponent();
+            SetProperties();
             korisnici = new List<Klijent>();
         }
 
@@ -38,7 +39,7 @@ namespace Projeakt2Interakcija
 
             this.MinHeight = 600;
             this.MinWidth = 800;
-            Uri iconUri = new Uri("/Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
 
@@ -46,12 +47,19 @@ namespace Projeakt2Interakcija
         {
             Registracija r = new Registracija();
             r.Show();
+            this.Hide();
+            r.Closed += Prozor_Closed;
+        }
+
+        private void Prozor_Closed(object sender, EventArgs e)
+        {
+            this.Show();
         }
 
         private void PrijaviMe_Click(object sender, RoutedEventArgs e)
         {
-            text5 = korisnciko_ime.Text;
-            text6 = lozinka.Text;
+            username = korisnciko_ime.Text;
+            password = lozinka.Text;
 
             bool k_found = false; 
             bool m_found = false;
@@ -59,7 +67,7 @@ namespace Projeakt2Interakcija
             // provera klijenti
             foreach (Klijent k in korisnici)
             {
-                if (text5.Equals(k.korisnicko_ime) && text6.Equals(k.lozinka))
+                if (username.Equals(k.korisnicko_ime) && password.Equals(k.lozinka))
                 {
                     k_found = true;
                     break;
@@ -68,7 +76,7 @@ namespace Projeakt2Interakcija
             }
 
             // provera menadzer
-            if (text5.Equals(menadzer.korisnicko_ime) && text6.Equals(menadzer.lozinka))
+            if (username.Equals(menadzer.korisnicko_ime) && password.Equals(menadzer.lozinka))
             {
                 m_found = true;
             }
@@ -134,17 +142,11 @@ namespace Projeakt2Interakcija
 
         private void OcistiTekst(object sender, RoutedEventArgs e)
         {
-
+            TextBox tb = (TextBox)sender;
+            tb.Text = "";
         }
 
-        private void korisnciko_ime_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void korisnciko_ime_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
+
+
 }

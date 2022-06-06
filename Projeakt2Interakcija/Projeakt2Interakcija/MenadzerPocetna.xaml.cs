@@ -22,6 +22,7 @@ namespace Projeakt2Interakcija
         public MenadzerPocetna()
         {
             InitializeComponent();
+            SetProperties();
         }
 
         void SetProperties()
@@ -30,7 +31,7 @@ namespace Projeakt2Interakcija
 
             this.MinHeight = 600;
             this.MinWidth = 800;
-            Uri iconUri = new Uri("./Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
 
@@ -38,6 +39,13 @@ namespace Projeakt2Interakcija
         {
             PregledKarataMenadzer pregledKarata = new PregledKarataMenadzer();
             pregledKarata.Show();
+            this.Hide();
+            pregledKarata.Closed += Prozor_Closed;
+        }
+
+        private void Prozor_Closed(object sender, EventArgs e)
+        {
+            this.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
@@ -50,18 +58,24 @@ namespace Projeakt2Interakcija
         {
             PregledVoznihLinijaMenadzer vozneLinije = new   PregledVoznihLinijaMenadzer();
             vozneLinije.Show();
+            this.Hide();
+            vozneLinije.Closed += Prozor_Closed;
         }
 
         private void NasiVozovi_Click(object sender, RoutedEventArgs e)
         {
             NasiVozoviMenadzer nasiVozovi = new NasiVozoviMenadzer();
             nasiVozovi.Show();
+            this.Hide();
+            nasiVozovi.Closed += Prozor_Closed;
         }
 
         private void RedVoznje_Click(object sender, RoutedEventArgs e)
         {
             PregledRedaVoznje redVoznje = new PregledRedaVoznje();
             redVoznje.Show();
+            this.Hide();
+            redVoznje.Closed += Prozor_Closed;
         }
     }
 }
