@@ -37,44 +37,75 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,22,0,0" Width="464" FontSize="30" Height="72" Grid.Column="1"/>
-        <Image Source="ZelezniceSrbijeLogo2.jpg" Margin="-17,10,688,487" Grid.ColumnSpan="2"/>
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="PREGLED VOZNIH LINIJA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,67,0,0" Width="756" FontSize="50" Height="90" Grid.ColumnSpan="2"/>
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="TIP VOZA:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,217,-6,0" Width="728" FontSize="35" Height="80" Grid.Column="1"/>
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAZIV LINIJE:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,137,0,0" Width="380" FontSize="35" Height="90" Grid.Column="1"/>
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.Column="1" Margin="484,308,98,195" Click="Prikazi_Click"></Button>
-        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Margin="26,308,440,195" Grid.ColumnSpan="2" Click="NazadNaPocetnu_Click"/>
-        <TextBox FontSize="40" GotFocus="OcistiTekst" x:Name="korisnciko_ime" HorizontalAlignment="Left" Height="57" Margin="307,137,0,0" TextWrapping="Wrap" Text=" unesite liniju" VerticalAlignment="Top" Width="339" RenderTransformOrigin="1.505,-0.538" Grid.Column="1"/>
-        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" Margin="522,14,24,502" Click="OdjaviMe_Click"/>
-        <CheckBox Grid.Column="1" Margin="220,209,380,283" Template="{StaticResource CheckBoxSlika}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="2.5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- StackPanel za sliku i tekst da bi bili jedno do drugog -->
+        <StackPanel Margin="0,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="1">
+            <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg"></Image>
+            <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" Width="555" FontSize="60" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <!-- Dugme za odjavu-->
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="6" HorizontalAlignment="Right" Grid.ColumnSpan="3" Margin="0,10,10,0" Click="OdjaviMe_Click"/>
+
+        <!-- Pregled voznih linija -->
+        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="PREGLED VOZNIH LINIJA" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Height="90" Grid.ColumnSpan="7" Grid.Column="1" Grid.Row="2"/>
+        
+        <!-- Unos linije -->
+        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAZIV LINIJE:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3"/>
+        <TextBox FontSize="40" x:Name="linija" HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="unesite liniju" TextAlignment="Center" VerticalAlignment="Top" Width="339" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"/>
+        
+        <!-- Unos tipa voza -->
+        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="TIP VOZA:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4"/>
+        <CheckBox Grid.Column="3" Grid.Row="4" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>
                 <ImageSource>/Slike/Soko.jpg</ImageSource>
             </CheckBox.Tag>
         </CheckBox>
-        <CheckBox Grid.Column="1" Margin="415,208,185,284" Width="75" Template="{StaticResource CheckBoxSlika}">
+        <CheckBox Grid.Column="4" Grid.Row="4" Margin="5,5,5,5" Width="75" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>
                 <ImageSource>/Slike/RegioVoz.jpg</ImageSource>
             </CheckBox.Tag>
         </CheckBox>
-        <CheckBox Grid.Column="1" Margin="355,209,298,285" Width="75" Template="{StaticResource CheckBoxSlika}">
+        <CheckBox Grid.Column="5" Grid.Row="4" Margin="5,5,5,5"  Width="75" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>
                 <ImageSource>/Slike/BrziVoz.jpg</ImageSource>
             </CheckBox.Tag>
         </CheckBox>
-        <CheckBox Grid.Column="1" Margin="500,207,100,285" Width="75" Template="{StaticResource CheckBoxSlika}">
+        <CheckBox Grid.Column="6" Grid.Row="4" Margin="5,5,5,5"  Width="75" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>
                 <ImageSource>/Slike/InterCity.jpg</ImageSource>
             </CheckBox.Tag>
         </CheckBox>
-        <CheckBox Grid.Column="1" Margin="596,207,4,285" Width="100" Template="{StaticResource CheckBoxSlika}">
+        <CheckBox Grid.Column="7" Grid.Row="4" Margin="5,5,5,5"  Width="100" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>
                 <ImageSource>/Slike/StariVoz.jpg</ImageSource>
             </CheckBox.Tag>
         </CheckBox>
 
+        <!-- Dugme za početnu -->
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="NazadNaPocetnu_Click"/>
+        
+        <!-- Dugme za prikaz-->
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.ColumnSpan="2" Grid.Column="6" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Prikazi_Click"></Button>
 
     </Grid>
 </Window>

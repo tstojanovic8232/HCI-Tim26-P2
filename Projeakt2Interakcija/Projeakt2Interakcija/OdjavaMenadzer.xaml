@@ -8,9 +8,23 @@
         Background="#4d4847"
         Title="Srbija Voz" Height="600" Width="800">
     <Grid Margin="0,0,0,0">
-        <Button FontWeight="Bold" Content="NAZAD NA POČETNU" HorizontalAlignment="Left" Margin="194,302,0,0" VerticalAlignment="Top" Width="381" Height="91"  FontSize="35" Click="PrijaviMe_Click" />
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,10,0,0" Width="555" FontSize="60" Height="90"/>
-        <Label FontWeight="Bold" Foreground="#6abd53" Content="USPEŠNO STE SE ODJAVILI!" FontSize="50" HorizontalAlignment="Left" Margin="83,150,0,0" VerticalAlignment="Top"/>
-        <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg" Margin="10,10,597,464"></Image>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- StackPanel za sliku i tekst da bi bili jedno do drugog -->
+        <StackPanel Margin="0,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg"></Image>
+            <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" Width="555" FontSize="60" Height="90" />
+        </StackPanel>
+
+        <!-- Uspešna odjava tekst -->
+        <Label FontWeight="Bold" Foreground="#6abd53" Content="USPEŠNO STE SE ODJAVILI!" FontSize="50" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top"/>
+
+        <!-- Dugme za MainWindow -->
+        <Button FontWeight="Bold" Content="NAZAD NA POČETNU" HorizontalAlignment="Center" VerticalAlignment="Top" Width="381" Height="91" Grid.Row="2" FontSize="35" Click="PrijaviMe_Click" />
+
     </Grid>
 </Window>

@@ -207,9 +207,6 @@
     <Resource Include="ZelezniceSrbijeLogo2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Korisnici.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Slike\StariVoz.jpg" />
   </ItemGroup>
   <ItemGroup>
