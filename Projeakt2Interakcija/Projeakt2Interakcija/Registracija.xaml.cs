@@ -35,7 +35,7 @@ namespace Projeakt2Interakcija
 
             this.MinHeight = 600;
             this.MinWidth = 800;
-            Uri iconUri = new Uri("./Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
 
@@ -43,6 +43,7 @@ namespace Projeakt2Interakcija
         {
             
             InitializeComponent();
+            SetProperties();
             korisnici = new List<Klijent>();
             using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Korisnici.txt"))
             {
@@ -100,9 +101,15 @@ namespace Projeakt2Interakcija
                 sr.Close();
                 }
                 MessageBox.Show("Uspesno ste se registrovali!");
-
+                this.Close();
 
             }
+        }
+
+        private void OcistiTekst(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = "";
         }
     }
 }

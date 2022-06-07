@@ -22,12 +22,18 @@ namespace Projeakt2Interakcija
         public OdjavaMenadzer()
         {
             InitializeComponent();
+            foreach (Window item in App.Current.Windows)
+            {
+                if (item != this)
+                    item.Close();
+            }
         }
 
         private void PrijaviMe_Click(object sender, RoutedEventArgs e)
         {
             MainWindow pocetna = new MainWindow();
             pocetna.Show();
+            this.Close();
         }
     }
 }

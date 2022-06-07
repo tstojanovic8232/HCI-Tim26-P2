@@ -8,22 +8,57 @@
         Background="#4d4847"
         Title="Srbija Voz - Registracija" Height="600" Width="800">
     <Grid>
-        <TextBox Name="ime" HorizontalAlignment="Left" Height="23" Margin="374,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
-        <TextBox  Name="prezime" HorizontalAlignment="Left" Height="23" Margin="374,247,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213"/>
-        <TextBox  Name="email" HorizontalAlignment="Left" Height="23" Margin="374,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <TextBox  Name="datum_rodjenja" HorizontalAlignment="Left" Height="23" Margin="374,340,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <TextBox  Name="korisnicko_ime" HorizontalAlignment="Left" Height="23" Margin="374,390,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <TextBox  Name="lozinka" HorizontalAlignment="Left" Height="23" Margin="374,437,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="213" RenderTransformOrigin="0.497,2.851"/>
-        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="IME:" HorizontalAlignment="Left" Margin="206,199,0,0" VerticalAlignment="Top" Width="54"/>
-        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="PREZIME:" HorizontalAlignment="Left" Margin="206,246,0,0" VerticalAlignment="Top"/>
-        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="E-MAIL:" HorizontalAlignment="Left" Margin="206,290,0,0" VerticalAlignment="Top"/>
-        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="DATUM ROĐENJA:" HorizontalAlignment="Left" Margin="203,339,0,0" VerticalAlignment="Top" Width="171"/>
-        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="KORISNIČKO IME:" HorizontalAlignment="Left" Margin="203,389,0,0" VerticalAlignment="Top"/>
-        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="LOZINKA:" HorizontalAlignment="Left" Margin="206,436,0,0" VerticalAlignment="Top" Height="36" Width="97"/>
-        <Button FontSize="18" FontWeight="SemiBold" Content="REGISTRUJ ME" HorizontalAlignment="Left" Margin="316,488,0,0" VerticalAlignment="Top" Width="147" Height="44" Click="Button_Click"/>
-        <Label FontWeight="Bold" Foreground="#6abd53" Content="REGISTRACIJA NOVOG NALOGA" FontSize="35" HorizontalAlignment="Left" Margin="131,107,0,0" VerticalAlignment="Top"/>
-        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,12,0,0" Width="555" FontSize="60" Height="90"/>
-        <Image Source="ZelezniceSrbijeLogo2.jpg" Margin="26,12,581,462"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- StackPanel za sliku i tekst da bi bili jedno do drugog -->
+        <StackPanel Margin="0,10,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg"></Image>
+            <Label FontWeight="UltraBold" Foreground="#6abd53" Content="ŽELEZNICE SRBIJE" Width="555" FontSize="60" Height="90" />
+        </StackPanel>
+        
+        <!-- Registracija labela -->
+        <Label FontWeight="Bold" Foreground="#6abd53" Content="REGISTRACIJA NOVOG NALOGA" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1"/>
+
+        <!-- Unos imena -->
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="IME:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54" Margin="0,0,10,0" Grid.Row="2"/>
+        <TextBox GotFocus="OcistiTekst" Name="ime" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="Ime" VerticalAlignment="Top" FontSize="15" Width="213" Margin="10,10,0,0" Grid.Row="2" Grid.Column="1"/>
+        
+        <!-- Unos prezimena -->
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="PREZIME:" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Grid.Row="3"/>
+        <TextBox GotFocus="OcistiTekst"  Name="prezime" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="Prezime" VerticalAlignment="Top" FontSize="15" Width="213" Margin="10,10,0,0" Grid.Row="3" Grid.Column="1"/>
+        
+        <!-- Unos email-a -->
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="E-MAIL:" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Grid.Row="4"/>
+        <TextBox GotFocus="OcistiTekst"  Name="email" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="email@email.com" VerticalAlignment="Top" FontSize="15" Width="213" Margin="10,10,0,0" Grid.Row="4" Grid.Column="1"/>
+        
+        <!-- Unos datuma rodjenja -->
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="DATUM ROĐENJA:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="171" Margin="0,0,10,0" Grid.Row="5"/>
+        <TextBox GotFocus="OcistiTekst"  Name="datum_rodjenja" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="dd/mm/yyyy" VerticalAlignment="Top" FontSize="15" Width="213" Margin="10,10,0,0" Grid.Row="5" Grid.Column="1"/>
+        
+        <!-- Unos korisnickog imena -->
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="KORISNIČKO IME:" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Grid.Row="6"/>
+        <TextBox GotFocus="OcistiTekst"  Name="korisnicko_ime" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="Korisničko ime" VerticalAlignment="Top" FontSize="15" Width="213" Margin="10,10,0,0" Grid.Row="6" Grid.Column="1"/>
+
+        <!-- Unos lozinke -->
+        <Label FontWeight="Bold" FontSize="18" Foreground="#6abd53" Content="LOZINKA:" HorizontalAlignment="Right" VerticalAlignment="Top" Height="36" Width="97" Margin="0,0,10,0" Grid.Row="7"/>
+        <TextBox GotFocus="OcistiTekst"  Name="lozinka" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="Lozinka" VerticalAlignment="Top" FontSize="15" Width="213" Margin="10,10,0,0" Grid.Row="7" Grid.Column="1"/>
+
+        <!-- Dugme za registraciju -->
+        <Button FontSize="18" FontWeight="SemiBold" Content="REGISTRUJ ME" HorizontalAlignment="Center" VerticalAlignment="Top" Width="147" Height="44" Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="8"/>
+
 
     </Grid>
 </Window>

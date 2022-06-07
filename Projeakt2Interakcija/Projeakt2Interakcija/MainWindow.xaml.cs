@@ -23,13 +23,14 @@ namespace Projeakt2Interakcija
     public partial class MainWindow : Window
     {
         List<Klijent> korisnici;
-        string text5;
-        string text6;
+        Menadzer menadzer;
+        string username;
+        string password;
         public MainWindow()
         {
             InitializeComponent();
+            SetProperties();
             korisnici = new List<Klijent>();
-            
         }
 
         void SetProperties()
@@ -38,7 +39,7 @@ namespace Projeakt2Interakcija
 
             this.MinHeight = 600;
             this.MinWidth = 800;
-            Uri iconUri = new Uri("/Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
 
@@ -46,29 +47,55 @@ namespace Projeakt2Interakcija
         {
             Registracija r = new Registracija();
             r.Show();
+            this.Hide();
+            r.Closed += Prozor_Closed;
+        }
+
+        private void Prozor_Closed(object sender, EventArgs e)
+        {
+            this.Show();
         }
 
         private void PrijaviMe_Click(object sender, RoutedEventArgs e)
         {
-            text5 = korisnciko_ime.Text;
-            text6 = lozinka.Text;
+            username = korisnciko_ime.Text;
+            password = lozinka.Text;
 
+            bool k_found = false; 
+            bool m_found = false;
 
-            bool found = false;
+            // provera klijenti
             foreach (Klijent k in korisnici)
             {
-                if (text5.Equals(k.korisnicko_ime) && text6.Equals(k.lozinka))
+                if (username.Equals(k.korisnicko_ime) && password.Equals(k.lozinka))
                 {
-                    found = true;
+                    k_found = true;
                     break;
                 }
 
             }
-            if (found) MessageBox.Show("Uspesno ste se ulogovali");
+
+            // provera menadzer
+            if (username.Equals(menadzer.korisnicko_ime) && password.Equals(menadzer.lozinka))
+            {
+                m_found = true;
+            }
+
+            // proveri ko je ulogovan na osnovu flagova
+            if (m_found)
+            {
+                MessageBox.Show("Uspesno ste se ulogovali");
+
+                MenadzerPocetna menadzerPocetna = new MenadzerPocetna();
+                menadzerPocetna.Show();
+                this.Close();
+            }
+            else if (k_found)
+            {
+                MessageBox.Show("Uspesno ste se ulogovali");
+            }
             else MessageBox.Show("Nepostojeci korisnik");
 
-            MenadzerPocetna menadzerPocetna = new MenadzerPocetna();
-            menadzerPocetna.Show();
         }
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
@@ -92,6 +119,34 @@ namespace Projeakt2Interakcija
                     korisnici.Add(new Klijent(ime, prezime, email, datum, korisnicko_ime, lozinka));
                 }
             }
+            using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Manager.txt"))
+            {
+
+                while (!reader.EndOfStream)
+                {
+
+                    string line = reader.ReadLine();
+                    if (line == "") break;
+                    string[] korisnik = line.Split('|');
+
+                    string ime = korisnik[0];
+                    string prezime = korisnik[1];
+                    string email = korisnik[2];
+                    string datum = korisnik[3];
+                    string korisnicko_ime = korisnik[4];
+                    string lozinka = korisnik[5];
+                    menadzer = new Menadzer(ime, prezime, email, datum, korisnicko_ime, lozinka);
+                }
+            }
         }
+
+        private void OcistiTekst(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = "";
+        }
+
     }
+
+
 }

@@ -34,6 +34,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -66,6 +70,9 @@
     <Compile Include="Model\Stanica.cs" />
     <Compile Include="Model\UcitavanjePodataka.cs" />
     <Compile Include="Model\Voz.cs" />
+    <Compile Include="MrezniPregledVoznihLinija.xaml.cs">
+      <DependentUpon>MrezniPregledVoznihLinija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NasiVozoviMenadzer.xaml.cs">
       <DependentUpon>NasiVozoviMenadzer.xaml</DependentUpon>
     </Compile>
@@ -99,6 +106,10 @@
     <Page Include="MenadzerPocetna.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MrezniPregledVoznihLinija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NasiVozoviMenadzer.xaml">
       <SubType>Designer</SubType>
@@ -143,6 +154,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -192,6 +204,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Slike\StariVoz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maps.MapControl.WPF">
+      <Version>1.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls">
+      <Version>6.1.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
