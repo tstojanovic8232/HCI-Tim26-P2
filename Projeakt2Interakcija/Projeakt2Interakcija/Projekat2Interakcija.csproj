@@ -88,6 +88,9 @@
     <Compile Include="PregledVoznihLinijaMenadzer.xaml.cs">
       <DependentUpon>PregledVoznihLinijaMenadzer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PrikazVozova.xaml.cs">
+      <DependentUpon>PrikazVozova.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,10 @@
     <Page Include="PregledVoznihLinijaMenadzer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrikazVozova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registracija.xaml">
       <SubType>Designer</SubType>

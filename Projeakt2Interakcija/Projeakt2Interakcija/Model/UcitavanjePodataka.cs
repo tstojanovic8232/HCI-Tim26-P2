@@ -9,12 +9,12 @@ namespace Projeakt2Interakcija.Model
 {
     class UcitavanjePodataka
     {
-        List<Voz> vozovi=new List<Voz>();
-        List<Linija> linije=new List<Linija>();
-        List<Stanica> stanice = new List<Stanica>();
-        List<Karta> karte = new List<Karta>();
-        List<RedVoznje> redoviVoznje = new List<RedVoznje>();
-        List<Menadzer> menadzers=new List<Menadzer>();
+        public List<Voz> vozovi=new List<Voz>();
+        public List<Linija> linije=new List<Linija>();
+        public List<Stanica> stanice = new List<Stanica>();
+        public List <Karta> karte = new List<Karta>();
+        public List <RedVoznje> redoviVoznje = new List<RedVoznje>();
+        public List<Menadzer> menadzers=new List<Menadzer>();
         public void UcitavanjeLinija(List<Voz>vozovi)
         {
 

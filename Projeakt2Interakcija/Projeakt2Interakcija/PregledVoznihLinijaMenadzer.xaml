@@ -47,7 +47,7 @@
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAZIV LINIJE:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,137,0,0" Width="380" FontSize="35" Height="90" Grid.Column="1"/>
         <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.Column="1" Margin="484,308,98,195" Click="Prikazi_Click"></Button>
         <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Margin="26,308,440,195" Grid.ColumnSpan="2" Click="NazadNaPocetnu_Click"/>
-        <TextBox FontSize="40" x:Name="korisnciko_ime" HorizontalAlignment="Left" Height="57" Margin="307,137,0,0" TextWrapping="Wrap" Text=" unesite liniju" VerticalAlignment="Top" Width="339" RenderTransformOrigin="1.505,-0.538" Grid.Column="1"/>
+        <TextBox FontSize="40" GotFocus="OcistiTekst" x:Name="korisnciko_ime" HorizontalAlignment="Left" Height="57" Margin="307,137,0,0" TextWrapping="Wrap" Text=" unesite liniju" VerticalAlignment="Top" Width="339" RenderTransformOrigin="1.505,-0.538" Grid.Column="1"/>
         <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" Margin="522,14,24,502" Click="OdjaviMe_Click"/>
         <CheckBox Grid.Column="1" Margin="220,209,380,283" Template="{StaticResource CheckBoxSlika}">
             <CheckBox.Tag>

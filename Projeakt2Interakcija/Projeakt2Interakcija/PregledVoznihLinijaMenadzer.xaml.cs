@@ -51,6 +51,11 @@ namespace Projeakt2Interakcija
             OdjavaMenadzer logout = new OdjavaMenadzer();
             logout.Show();
         }
+        private void OcistiTekst(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = "";
+        }
 
 
     }

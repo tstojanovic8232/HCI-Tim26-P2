@@ -41,7 +41,9 @@ namespace Projeakt2Interakcija
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            PrikazVozova prikaz = new PrikazVozova();
+            prikaz.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
@@ -49,5 +51,13 @@ namespace Projeakt2Interakcija
             OdjavaMenadzer logout = new OdjavaMenadzer();
             logout.Show();
         }
+        private void OcistiTekst(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = "";
+        }
+        
+
+       
     }
 }
