@@ -93,6 +93,10 @@ namespace Projeakt2Interakcija
             else if (k_found)
             {
                 MessageBox.Show("Uspesno ste se ulogovali");
+
+                KlijentPocetna klijentPocetna = new KlijentPocetna();
+                klijentPocetna.Show();
+                this.Close();
             }
             else MessageBox.Show("Nepostojeci korisnik");
 
