@@ -8,7 +8,7 @@ namespace Projeakt2Interakcija.Model
 {
     internal class RedVoznje
     {
-        public string danUNedelji { get; set; }
+        public DanUNedelji danUNedelji { get; set; }
         public List<Linija> linije;
 
         public RedVoznje()
@@ -16,11 +16,22 @@ namespace Projeakt2Interakcija.Model
             
         }
 
-        public RedVoznje(string danUNedelji, List<Linija> linije)
+        public RedVoznje(DanUNedelji danUNedelji, List<Linija> linije)
         {
             this.danUNedelji = danUNedelji;
             this.linije = linije;
         }
 
+    }
+
+    enum DanUNedelji
+    {
+        Ponedeljak = 1,
+        Utorak,
+        Sreda,
+        Cetvrtak,
+        Petak,
+        Subota,
+        Nedelja
     }
 }

@@ -34,5 +34,15 @@ namespace Projeakt2Interakcija.Model
             x=stanica.x;
             y = stanica.y;
         }
+
+        public override string ToString()
+        {
+            return naziv;
+        }
+
+        public string getMesto()
+        {
+            return mesto;
+        }
     }
 }

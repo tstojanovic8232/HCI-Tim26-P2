@@ -30,7 +30,15 @@ namespace Projeakt2Interakcija.Model
             this.korisnicko_ime = e;
             this.lozinka = f;
         }
-        
 
+        public Klijent(Klijent k)
+        {
+            this.ime = k.ime;
+            this.prezime = k.prezime;
+            this.email = k.email;
+            this.datum_rodjenja = k.datum_rodjenja;
+            this.korisnicko_ime = k.korisnicko_ime;
+            this.lozinka = k.lozinka;
+        }
     }
 }

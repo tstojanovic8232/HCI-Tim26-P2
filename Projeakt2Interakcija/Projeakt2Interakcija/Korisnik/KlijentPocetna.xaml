@@ -73,25 +73,26 @@
         </Rectangle>
 
         <Image Source="../../Slike/ZelezniceSrbijeLogoMini.png" Width="50" Height="50" Grid.Row="1" />
-        <Button Style="{StaticResource navButton}" Grid.Row="3" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" >K</Button>
 
+        <Button Style="{StaticResource navButton}" Grid.Row="3" VerticalAlignment="Center"
+                HorizontalAlignment="Center" Width="50" Height="50" Click="Pocetna_Click" >P</Button>
+        
         <Button Style="{StaticResource navButton}" Grid.Row="4" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" >VL</Button>
+                HorizontalAlignment="Center" Width="50" Height="50" Click="PrikaziKarte_Click" >K</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="5" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" >RV</Button>
+                HorizontalAlignment="Center" Width="50" Height="50" Click="PrikaziLinije_Click" >VL</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="6" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" >R</Button>
+                HorizontalAlignment="Center" Width="50" Height="50" Click="PrikaziRedVoznje_Click" >RV</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="7" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" >LO</Button>
+                HorizontalAlignment="Center" Width="50" Height="50" Click="RezervisiKartu_Click" >R</Button>
 
-        <Border Grid.Row="1" Grid.Column="1" Grid.RowSpan="8" Grid.ColumnSpan="9" 
-                Background="White" BorderThickness="2" BorderBrush="#134c5c"
-                Margin="5,15,5,15">
-            <Grid x:Name="mapGrid"></Grid>
-        </Border>
+        <Button Style="{StaticResource navButton}" Grid.Row="8" VerticalAlignment="Center"
+                HorizontalAlignment="Center" Width="50" Height="50" Click="Odjava_Click" >LO</Button>
+
+        <Frame x:Name="frame" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="9"></Frame>
+
     </Grid>
 </Window>

@@ -42,5 +42,10 @@ namespace Projeakt2Interakcija.Model
         {
             return Voz.tip;
         }
+
+        public override string ToString()
+        {
+            return naziv;
+        }
     }
 }
