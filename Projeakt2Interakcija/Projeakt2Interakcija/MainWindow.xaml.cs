@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -93,8 +93,10 @@ namespace Projeakt2Interakcija
             else if (k_found)
             {
                 MessageBox.Show("Uspesno ste se ulogovali");
-                Login2 pocetna = new Login2();
-                pocetna.Show();
+
+                KlijentPocetna klijentPocetna = new KlijentPocetna();
+                klijentPocetna.Show();
+                this.Close();
             }
             else MessageBox.Show("Nepostojeci korisnik");
 

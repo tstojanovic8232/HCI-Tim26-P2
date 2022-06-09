@@ -61,6 +61,8 @@
     </ApplicationDefinition>
     <Compile Include="Login2.xaml.cs">
       <DependentUpon>Login2.xaml</DependentUpon>
+    <Compile Include="KlijentPocetna.xaml.cs">
+      <DependentUpon>KlijentPocetna.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
@@ -97,7 +99,11 @@
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Page Include="Login2.xaml">
+=======
+    <Page Include="KlijentPocetna.xaml">
+>>>>>>> cb91dc2bdbad4c73db5159942863fda59c00123f
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,9 +220,6 @@
     <Resource Include="ZelezniceSrbijeLogo2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Korisnici.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Slike\StariVoz.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +231,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Images\close.png" />
     <Resource Include="Images\Email.png" />
     <Resource Include="Images\facebook.png" />
@@ -240,6 +244,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Slike\logo2.png" />
+=======
+    <Resource Include="Slike\ZelezniceSrbijeLogoMini.png" />
+>>>>>>> cb91dc2bdbad4c73db5159942863fda59c00123f
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
