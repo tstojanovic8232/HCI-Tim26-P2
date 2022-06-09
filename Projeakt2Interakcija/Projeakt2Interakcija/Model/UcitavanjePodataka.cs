@@ -85,7 +85,7 @@ namespace Projeakt2Interakcija.Model
         }
         public void UcitavanjeVozova()
         {
-
+            vozovi.Clear();
             using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Vozovi.txt"))
             {
 

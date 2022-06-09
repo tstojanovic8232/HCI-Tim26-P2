@@ -1,6 +1,7 @@
 12|saasd|233
-111|asdasd|TextBox
-23|dasd|11
-44|dasd|32
-1234|sdaasd|3211
-1234455|asddas|32324
+1|soko|200
+2|inter city|300
+3|regio voz|250
+4|brzi voz|300
+5|stari voz|200
+6|voz|200

@@ -30,8 +30,6 @@ namespace Projeakt2Interakcija
         {
             InitializeComponent();
             ucitavanje.UcitavanjeVozova();
-            var prozor = Application.Current.Windows;
-            Console.WriteLine(prozor.ToString());
 
         }
         DataTable table = new DataTable();
@@ -39,7 +37,7 @@ namespace Projeakt2Interakcija
 
         private void ucitaj(object sender, EventArgs e)
         {
-
+            table.Clear();
             table.Columns.Add("Id", typeof(int));
             table.Columns.Add("Tip", typeof(string));
             table.Columns.Add("broj sedista", typeof(string));
