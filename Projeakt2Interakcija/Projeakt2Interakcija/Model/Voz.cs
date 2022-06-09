@@ -28,7 +28,10 @@ namespace Projeakt2Interakcija.Model
 
         public Voz()
         {
-
+        }
+        public override string ToString()
+        {
+            return  id + "|" + tip+"|"+brojSedista;
         }
     }
 }

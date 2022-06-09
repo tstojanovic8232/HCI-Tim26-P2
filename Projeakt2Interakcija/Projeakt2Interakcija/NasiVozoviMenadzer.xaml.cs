@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeakt2Interakcija.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class NasiVozoviMenadzer : Window
     {
+        
         public NasiVozoviMenadzer()
         {
             InitializeComponent();
@@ -43,6 +45,7 @@ namespace Projeakt2Interakcija
         {
             
             PrikazVozova prikaz = new PrikazVozova();
+            
             prikaz.Show();
         }
 

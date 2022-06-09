@@ -79,7 +79,7 @@ namespace Projeakt2Interakcija
             Klijent k1 = new Klijent(text1, text2, text3, text4, text5, text6);
 
             bool exists = false;
-            foreach (Klijent k in korisnici)
+            foreach(Klijent k in korisnici)
             {
                 if (k1.email.Equals(k.email))
                 {

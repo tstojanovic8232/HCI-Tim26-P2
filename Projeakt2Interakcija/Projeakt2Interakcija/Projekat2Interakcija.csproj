@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Login2.xaml.cs">
+      <DependentUpon>Login2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
     <Compile Include="Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
+    <Page Include="Login2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -219,6 +226,20 @@
     <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls">
       <Version>6.1.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\Email.png" />
+    <Resource Include="Images\facebook.png" />
+    <Resource Include="Images\google.png" />
+    <Resource Include="Images\linkedin.png" />
+    <Resource Include="Images\Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\logo2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

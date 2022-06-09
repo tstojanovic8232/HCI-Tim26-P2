@@ -6,13 +6,22 @@
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
         Loaded="ucitaj" 
-        Title="PrikazVozova" Height="598.404" Width="884.574">
+        Title="PrikazVozova" Height="598.404" Width="1037.404">
 
-    <Grid>
-        <DataGrid HorizontalAlignment="Left" x:Name="datagrid" Margin="10,10,0,214" Width="857" />
-        <TextBox HorizontalAlignment="Left" Height="53" Margin="527,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" TextChanged="txtChange"/>
-        <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Content="Filtrirajte po broju sedista ili tipu voza:" HorizontalAlignment="Left" Margin="197,412,0,0" FontSize="16"  VerticalAlignment="Top" Width="297" Height="53"/>
+    <Grid HorizontalAlignment="Left" Width="1017" Margin="10,0,0,-4">
+
+        <DataGrid HorizontalAlignment="Left" x:Name="datagrid" Margin="438,22,0,295" Width="557" SelectionChanged="datagrid_SelectionChanged" />
+        <Label Content="Filtrirajte po broju sedista ili tipu voza:" HorizontalAlignment="Left" Margin="0,10,0,0" FontSize="16"  VerticalAlignment="Top" Width="297" Height="53"/>
+        <TextBox HorizontalAlignment="Left" Height="40"  Margin="297,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="txtChange"/>
+        <TextBox HorizontalAlignment="Left" Height="39" GotFocus="OcistiTekst" x:Name="id"  Margin="193,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="137"/>
+        <TextBox HorizontalAlignment="Left" Height="41" GotFocus="OcistiTekst" x:Name="tip"  Margin="193,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="137"/>
+        <TextBox Height="41" Margin="193,261,687,0"  GotFocus="OcistiTekst" x:Name="br" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Label Content="id:" HorizontalAlignment="Left" Height="23" Margin="106,108,0,0" VerticalAlignment="Top" Width="64"/>
+        <Label Content="naziv:" HorizontalAlignment="Left" Height="23" Margin="106,186,0,0" VerticalAlignment="Top" Width="78"/>
+        <Label Content="broj  sedista:" HorizontalAlignment="Left" Height="23" Margin="106,279,0,0" VerticalAlignment="Top" Width="82"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="158,411,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="Button_Click"/>
+        <Button Content="OBRISI" HorizontalAlignment="Left" Margin="352,411,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="Button_Click_1"/>
+        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="578,411,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="Button_Click_2"/>
 
     </Grid>
 </Window>
