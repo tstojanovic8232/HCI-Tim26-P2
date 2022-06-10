@@ -86,18 +86,18 @@ namespace Projeakt2Interakcija
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             DataRowView row = datagrid.SelectedItem as DataRowView;
-            
-            if (row!=null)
+
+            if (row != null)
             {
 
-                int id=datagrid.SelectedIndex;
-               
+                int id = datagrid.SelectedIndex;
+
                 Console.WriteLine(table.Rows.Count);
                 row.Delete();
                 List<string> quotelist = File.ReadAllLines("..\\..\\Podaci\\Vozovi.txt").ToList();
 
                 quotelist.RemoveAt(id);
-               
+
                 File.WriteAllLines("..\\..\\Podaci\\Vozovi.txt", quotelist.ToArray());
 
             }
@@ -146,6 +146,76 @@ namespace Projeakt2Interakcija
                 tip.Text = row[1].ToString();
                 br.Text = row[2].ToString();
             }
+        }
+
+        private void soko_checkd(object sender, RoutedEventArgs e)
+        {
+            stari.IsChecked = false;
+            regia.IsChecked = false;
+            sed1.IsChecked = false;
+
+            var filtered = ucitavanje.vozovi.Where(x => x.tip.Contains(soko.Name));
+                datagrid.ItemsSource = null;
+                datagrid.ItemsSource = filtered;
+
+
+            if (soko.IsChecked == false)
+            {
+                datagrid.ItemsSource = table.DefaultView;
+            }
+
+            
+            
+        }
+
+        private void stari_Checked(object sender, RoutedEventArgs e)
+        {
+            soko.IsChecked = false;
+            regia.IsChecked = false;
+            sed1.IsChecked = false;
+            var filtered = ucitavanje.vozovi.Where(x => x.tip.Contains("stari voz"));
+                datagrid.ItemsSource = null;
+                datagrid.ItemsSource = filtered;
+            
+            if (stari.IsChecked == false)
+            {
+                datagrid.ItemsSource = table.DefaultView;
+            }
+        }
+
+        private void regio_Checked(object sender, RoutedEventArgs e)
+        {
+            stari.IsChecked = false;
+            soko.IsChecked = false;
+            sed1.IsChecked = false;
+            var filtered = ucitavanje.vozovi.Where(x => x.tip.Contains("regio voz"));
+                datagrid.ItemsSource = null;
+                datagrid.ItemsSource = filtered;
+
+            
+           
+        }
+
+        private void br1_checkd(object sender, RoutedEventArgs e)
+        {
+            regia.IsChecked = false;
+            stari.IsChecked = false;
+            soko.IsChecked = false;
+
+            var filtered = ucitavanje.vozovi.Where(x => Int32.Parse(x.brojSedista)>100 && Int32.Parse(x.brojSedista) < 200);
+            
+            
+            datagrid.ItemsSource = null;
+            datagrid.ItemsSource = filtered;
+
+
+
+        }
+        private void uncheck(object sender, RoutedEventArgs e)
+        {
+            
+            datagrid.ItemsSource = table.DefaultView;
+
         }
     }
 }
