@@ -25,18 +25,20 @@ namespace Projeakt2Interakcija
         UcitavanjePodataka ucitavanje = new UcitavanjePodataka();
         DataTable table = new DataTable();
         RedVoznje red;
+        string[] none = new string[10];
         public PregledRedaVoznjeKlijent()
         {
             InitializeComponent();
             DanUNedelji dan = danasDanUNedelji();
-            danUNedelji.SelectedIndex = (int)dan;
-
             red = ucitavanje.redoviVoznje.Find(x => x.danUNedelji.Equals(dan));
-            if(red == null)
+            if(red != null)
             {
-                red = ucitavanje.redoviVoznje.Find(x => x.danUNedelji.Equals(DanUNedelji.Ponedeljak));
+                linija.ItemsSource = red.linije;
             }
-            linija.ItemsSource = red.linije;
+            else
+            {
+                linija.ItemsSource = none;
+            }
             foreach (var item in Enum.GetValues(typeof(DanUNedelji)))
             {
                 danUNedelji.Items.Add(item);
@@ -78,6 +80,24 @@ namespace Projeakt2Interakcija
             else if (day.Equals(DayOfWeek.Sunday)) return DanUNedelji.Nedelja;
 
             return DanUNedelji.Ponedeljak;
+        }
+
+        private void danUNedelji_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (danUNedelji.SelectedItem != null)
+            {
+                red = ucitavanje.redoviVoznje.Find(x => x.danUNedelji.Equals(danUNedelji.SelectedItem));
+
+                if (red != null)
+                {
+                    linija.ItemsSource = red.linije;
+                }
+                else
+                {
+                    linija.ItemsSource = none;
+                }
+            }
+
         }
     }
 }

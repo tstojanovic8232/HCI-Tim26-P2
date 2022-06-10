@@ -33,10 +33,10 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="linija" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="linija_SelectionChanged"></ComboBox>
+        <ComboBox x:Name="danUNedelji" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="danUNedelji_SelectionChanged"></ComboBox>
         
-        <ComboBox x:Name="danUNedelji" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="linija_SelectionChanged"></ComboBox>
-
+        <ComboBox x:Name="linija" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="linija_SelectionChanged"></ComboBox>
+        
         <DataGrid x:Name="redVoznje" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4"></DataGrid>
 
         <!-- TODO: Forma za filtriranje -->

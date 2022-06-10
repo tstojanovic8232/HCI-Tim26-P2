@@ -33,11 +33,14 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></ComboBox>
+        <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="stanica_SelectionChanged"></ComboBox>
 
-        <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></ComboBox>
+        <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="stanica_SelectionChanged"></ComboBox>
 
+        <Button Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Click="ResetujFilter_Click">Resetuj filter</Button>
+        
         <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4"></ListBox>
+        
 
         <!-- TODO: Forma za filtriranje -->
         <!-- Linije filtriramo po: 

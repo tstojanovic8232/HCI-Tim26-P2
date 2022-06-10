@@ -27,9 +27,7 @@ namespace Projeakt2Interakcija
         public PregledKarataKlijent()
         {
             InitializeComponent();
-            ucitavanje.UcitavanjeKarata();
         }
-
         
 
         DataTable table = new DataTable();
@@ -48,6 +46,7 @@ namespace Projeakt2Interakcija
                 table.Rows.Add(item.id, item.datumVreme, item.polaziste, item.odrediste, item.cena);
             }
             datagrid.ItemsSource = table.DefaultView;
+            
 
 
         }

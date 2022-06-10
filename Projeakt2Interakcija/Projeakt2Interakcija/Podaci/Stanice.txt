@@ -1,5 +1,6 @@
 ﻿Zeleznicka stanica Indjija|Indjija|1.0|4.0
 Zeleznicka stanica paracin|Paracin|2.0|4.0
-Zeleznicka stanica Bujanovac|Topola|3.0|4.0
+Zeleznicka stanica Bujanovac|Bujanovac|3.0|4.0
 Zeleznicka stanica Novi Sad|Novi Sad|2.0|3.0
 Zeleznicka stanica Beograd Centar|Beograd|2.0|3.0
+Zeleznicka stanica Nis|Nis|2.0|3.0

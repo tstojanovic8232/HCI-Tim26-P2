@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Projeakt2Interakcija"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PregledKarataKlijent">
+      Title="PregledKarataKlijent" Loaded="ucitaj">
 
     <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
@@ -32,6 +32,7 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
+        
         <DataGrid Grid.ColumnSpan="7" x:Name="datagrid" HorizontalAlignment="Left" Height="270" Margin="59,0,0,0" Grid.Row="2" Grid.RowSpan="6" VerticalAlignment="Top" Width="563" SelectionChanged="datagrid_SelectionChanged"/>
     </Grid>
 </Page>
