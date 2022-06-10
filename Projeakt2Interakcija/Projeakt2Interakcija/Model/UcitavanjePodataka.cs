@@ -15,7 +15,17 @@ namespace Projeakt2Interakcija.Model
         public List <Karta> karte = new List<Karta>();
         public List <RedVoznje> redoviVoznje = new List<RedVoznje>();
         public List<Menadzer> menadzers=new List<Menadzer>();
-        public void UcitavanjeLinija(List<Voz>vozovi)
+
+        public UcitavanjePodataka()
+        {
+            this.UcitavanjeStanica();
+            this.UcitavanjeVozova();
+            this.UcitavanjeLinija();
+            this.UcitavanjeRedaVoznje();
+            this.UcitavanjeKarata();
+        }
+
+        public void UcitavanjeLinija()
         {
 
             using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Linija.txt"))
@@ -32,7 +42,7 @@ namespace Projeakt2Interakcija.Model
                    
                     int id = Int32.Parse(linije[1]);
                     Voz voz=new Voz();
-                    foreach (Voz item in vozovi)
+                    foreach (Voz item in this.vozovi)
                     {
                         if (item.id == id)
                         {
@@ -141,7 +151,7 @@ namespace Projeakt2Interakcija.Model
                     string[] lines = line.Split('|');
 
                     int id = Int32.Parse(lines[0]);
-                    DateTime datumVreme = DateTime.Parse(lines[1]);
+                    DateTime datumVreme = DateTime.ParseExact(lines[1], "d.M.yyyy HH:mm", null);
                     
                     Linija lin = new Linija();
                     foreach (Linija item in linije)
@@ -179,7 +189,8 @@ namespace Projeakt2Interakcija.Model
                     if (line == "") break;
                     string[] linije = line.Split('|');
 
-                    string danUnedelji = linije[0];
+                    int dan = Int32.Parse(linije[0]);
+                    DanUNedelji danUnedelji = (DanUNedelji)dan;
                     List<Linija> lin = new List<Linija>();
                     string[] li=linije[1].Split(',');
                     foreach(string linija in li)

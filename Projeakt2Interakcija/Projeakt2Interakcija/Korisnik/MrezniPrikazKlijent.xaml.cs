@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
@@ -20,23 +21,19 @@ using Windows.Storage.Streams;
 namespace Projeakt2Interakcija
 {
     /// <summary>
-    /// Interaction logic for KlijentPocetna.xaml
+    /// Interaction logic for MrezniPrikazKlijent.xaml
     /// </summary>
-    public partial class KlijentPocetna : Window
+    public partial class MrezniPrikazKlijent : Page
     {
-        public KlijentPocetna()
+        public MrezniPrikazKlijent()
         {
             InitializeComponent();
-
             var mapControl = new MapControl();
             mapControl.Loaded += MapControl_Loaded;
+
             mapControl.MapServiceToken = App.token;
-            
-
-
             mapGrid.Children.Add(mapControl);
         }
-
         private async void MapControl_Loaded(object sender, RoutedEventArgs e)
         {
             BasicGeoposition geoposition = new BasicGeoposition() { Latitude = 44.8125, Longitude = 20.4612 };
@@ -44,6 +41,5 @@ namespace Projeakt2Interakcija
 
             await ((MapControl)sender).TrySetViewAsync(center, 12);
         }
-
     }
 }

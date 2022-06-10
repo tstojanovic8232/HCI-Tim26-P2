@@ -59,13 +59,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Korisnik\PregledRedaVoznjeKlijent.xaml.cs">
+      <DependentUpon>PregledRedaVoznjeKlijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\RezervacijaKarata.xaml.cs">
+      <DependentUpon>RezervacijaKarata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik\PregledLinijaKlijent.xaml.cs">
+      <DependentUpon>PregledLinijaKlijent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login2.xaml.cs">
       <DependentUpon>Login2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KlijentPocetna.xaml.cs">
+    <Compile Include="Korisnik\KlijentPocetna.xaml.cs">
       <DependentUpon>KlijentPocetna.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenadzerPocetna.xaml.cs">
+    <Compile Include="Menadzer\MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Karta.cs" />
@@ -79,32 +88,50 @@
     <Compile Include="MrezniPregledVoznihLinija.xaml.cs">
       <DependentUpon>MrezniPregledVoznihLinija.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NasiVozoviMenadzer.xaml.cs">
+    <Compile Include="Korisnik\MrezniPrikazKlijent.xaml.cs">
+      <DependentUpon>MrezniPrikazKlijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menadzer\NasiVozoviMenadzer.xaml.cs">
       <DependentUpon>NasiVozoviMenadzer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OdjavaMenadzer.xaml.cs">
+    <Compile Include="Menadzer\OdjavaMenadzer.xaml.cs">
       <DependentUpon>OdjavaMenadzer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PregledKarataMenadzer.xaml.cs">
+    <Compile Include="Korisnik\PregledKarataKlijent.xaml.cs">
+      <DependentUpon>PregledKarataKlijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menadzer\PregledKarataMenadzer.xaml.cs">
       <DependentUpon>PregledKarataMenadzer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PregledRedaVoznje.xaml.cs">
+    <Compile Include="Menadzer\PregledRedaVoznje.xaml.cs">
       <DependentUpon>PregledRedaVoznje.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PregledVoznihLinijaMenadzer.xaml.cs">
+    <Compile Include="Menadzer\PregledVoznihLinijaMenadzer.xaml.cs">
       <DependentUpon>PregledVoznihLinijaMenadzer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrikazVozova.xaml.cs">
+    <Compile Include="Menadzer\PrikazVozova.xaml.cs">
       <DependentUpon>PrikazVozova.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Registracija.xaml.cs">
+    <Compile Include="Korisnik\Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
+    <Page Include="Korisnik\PregledRedaVoznjeKlijent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Korisnik\RezervacijaKarata.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Korisnik\PregledLinijaKlijent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KlijentPocetna.xaml">
+    <Page Include="Korisnik\KlijentPocetna.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,7 +147,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenadzerPocetna.xaml">
+    <Page Include="Menadzer\MenadzerPocetna.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -128,31 +155,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NasiVozoviMenadzer.xaml">
+    <Page Include="Korisnik\MrezniPrikazKlijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OdjavaMenadzer.xaml">
+    <Page Include="Menadzer\NasiVozoviMenadzer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PregledKarataMenadzer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PregledRedaVoznje.xaml">
+    <Page Include="Menadzer\OdjavaMenadzer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PregledVoznihLinijaMenadzer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PrikazVozova.xaml">
+    <Page Include="Korisnik\PregledKarataKlijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Registracija.xaml">
+    <Page Include="Menadzer\PregledKarataMenadzer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menadzer\PregledRedaVoznje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menadzer\PregledVoznihLinijaMenadzer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menadzer\PrikazVozova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Korisnik\Registracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

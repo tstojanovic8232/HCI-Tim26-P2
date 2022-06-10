@@ -1,3 +1,3 @@
-﻿ponedeljak|NoviSad-Beograd
-sreda|NoviSad-Nis
-petak|Bujanovac-Beograd
+﻿1|NoviSad-Beograd
+3|NoviSad-Nis
+5|Bujanovac-Beograd
