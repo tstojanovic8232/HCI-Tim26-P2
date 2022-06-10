@@ -32,29 +32,6 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        
-
-        <Border Grid.Row="1" Grid.RowSpan="8" Grid.ColumnSpan="4" 
-                Background="White" BorderThickness="2" BorderBrush="#134c5c"
-                Margin="15,15,-15,15">
-            <ListBox>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Border>
-
-        <Border Grid.Row="1" Grid.Column="5" Grid.RowSpan="8" Grid.ColumnSpan="4" 
-                Background="White" BorderThickness="2" BorderBrush="#134c5c"
-                Margin="-15,15,15,15">
-            <ListBox></ListBox>
-        </Border>
+        <DataGrid Grid.ColumnSpan="7" x:Name="datagrid" HorizontalAlignment="Left" Height="270" Margin="59,0,0,0" Grid.Row="2" Grid.RowSpan="6" VerticalAlignment="Top" Width="563" SelectionChanged="datagrid_SelectionChanged"/>
     </Grid>
 </Page>
