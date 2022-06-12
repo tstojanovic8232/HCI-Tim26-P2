@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Projeakt2Interakcija.Model;
 
 namespace Projeakt2Interakcija
 {
@@ -19,6 +20,8 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class PregledRedaVoznje : Window
     {
+
+        UcitavanjePodataka podaci = new UcitavanjePodataka();
         public PregledRedaVoznje()
         {
             InitializeComponent();
@@ -42,13 +45,76 @@ namespace Projeakt2Interakcija
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
+            List<RedVoznje> redVoznji = podaci.redoviVoznje;
+            switch(linija.ToString().ToLower())
+            {
+                case "":
+                {
+                    redVoznji = podaci.redoviVoznje;
+                    break;
+                }
+                case "ponedeljak":
+                case "utorak":
+                case "sreda":
+                case "cetvrtak":
+                case "petak":
+                case "subota":
+                case "nedelja":
+                {
+                    redVoznji = redVoznjiPoDanu(linija.ToString());
+                    break;
+                }
+                default:
+                {
+                    redVoznji = redVoznjiPoLiniji(linija.ToString());
+                    break;
+                }
+            }
+            redovi_voznji
+            redovi_voznji.ItemsSource = redVoznji;
+            
 
+            
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
             logout.Show();
+        }
+
+        private void DodajRedVoznje_Click(object sender, RoutedEventArgs e)
+        {
+            DodajNoviRedVoznje dodajRedVoznje = new DodajNoviRedVoznje();
+            dodajRedVoznje.Show();
+        }
+
+        private List<RedVoznje> redVoznjiPoDanu(string linija)
+        {
+            List<RedVoznje> rezultat = new List<RedVoznje>();
+            for (int i = 0; i < podaci.redoviVoznje.Count; i++)
+            {
+                if (podaci.redoviVoznje[i].danUNedelji.ToString().ToLower().Equals(linija.ToLower()))
+                    rezultat.Add(podaci.redoviVoznje[i]);
+            }
+            return rezultat;
+        }
+
+        private List<RedVoznje> redVoznjiPoLiniji(string linija)
+        {
+            List<RedVoznje> rezultat = new List<RedVoznje>();
+            for (int i = 0; i < podaci.redoviVoznje.Count; i++)
+            {
+                for (int j = 0; j < podaci.redoviVoznje[i].linije.Count; j++)
+                    if (podaci.redoviVoznje[i].linije[j].naziv.ToString().ToLower().Equals(linija.ToLower()))
+                    {
+                        List<Linija> linije = new List<Linija>();
+                        linije.Add(podaci.redoviVoznje[i].linije[j]);
+                        rezultat.Add(new RedVoznje(podaci.redoviVoznje[i].danUNedelji, linije));
+                    }
+                    
+            }
+            return rezultat;
         }
     }
 

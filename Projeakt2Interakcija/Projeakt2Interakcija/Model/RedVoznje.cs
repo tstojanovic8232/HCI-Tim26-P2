@@ -22,6 +22,21 @@ namespace Projeakt2Interakcija.Model
             this.linije = linije;
         }
 
+        public string linije_string()
+        {
+            string linije="";
+            foreach(Linija linija in this.linije)
+            {
+                linije += linije + linija + ",";
+            }
+            return linije;
+
+        }
+        public override string ToString()
+        {
+            return this.danUNedelji.ToString() + "|" + linije_string();
+        }
+
     }
 
     enum DanUNedelji

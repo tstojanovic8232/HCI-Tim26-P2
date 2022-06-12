@@ -9,12 +9,13 @@ namespace Projeakt2Interakcija.Model
 {
     class UcitavanjePodataka
     {
-        public List<Voz> vozovi=new List<Voz>();
-        public List<Linija> linije=new List<Linija>();
+        public List<Voz> vozovi = new List<Voz>();
+        public List<Klijent> korisnici = new List<Klijent>();
+        public List<Linija> linije = new List<Linija>();
         public List<Stanica> stanice = new List<Stanica>();
-        public List <Karta> karte = new List<Karta>();
-        public List <RedVoznje> redoviVoznje = new List<RedVoznje>();
-        public List<Menadzer> menadzers=new List<Menadzer>();
+        public List<Karta> karte = new List<Karta>();
+        public List<RedVoznje> redoviVoznje = new List<RedVoznje>();
+        public List<Menadzer> menadzers = new List<Menadzer>();
 
         public UcitavanjePodataka()
         {
@@ -39,9 +40,9 @@ namespace Projeakt2Interakcija.Model
                     string[] linije = line.Split('|');
 
                     string naziv = linije[0];
-                   
+
                     int id = Int32.Parse(linije[1]);
-                    Voz voz=new Voz();
+                    Voz voz = new Voz();
                     foreach (Voz item in this.vozovi)
                     {
                         if (item.id == id)
@@ -52,7 +53,7 @@ namespace Projeakt2Interakcija.Model
                     }
                     List<Stanica> stanicel = parsiranje(stanice, linije[2]);
                     List<double> cene = new List<double>();
-                    string[] niz=linije[3].Split(',');
+                    string[] niz = linije[3].Split(',');
                     foreach (string item in niz)
                     {
                         cene.Add(Double.Parse(item));
@@ -68,18 +69,18 @@ namespace Projeakt2Interakcija.Model
 
                         }
                     }
-                    this.linije.Add(new Linija(naziv,voz,stanicel,cene,polasci));
+                    this.linije.Add(new Linija(naziv, voz, stanicel, cene, polasci));
                 }
             }
         }
 
-        public List<Stanica> parsiranje(List<Stanica>stanice,string mesta)
+        public List<Stanica> parsiranje(List<Stanica> stanice, string mesta)
         {
             string[] niz = mesta.Split(',');
             List<Stanica> lista = new List<Stanica>();
             foreach (string mesto in niz)
             {
-                Stanica stanica=new Stanica();
+                Stanica stanica = new Stanica();
                 foreach (Stanica item in stanice)
                 {
                     if (item.mesto == mesto)
@@ -90,7 +91,7 @@ namespace Projeakt2Interakcija.Model
                 }
                 lista.Add(stanica);
             }
-           
+
             return lista;
         }
         public void UcitavanjeVozova()
@@ -107,10 +108,10 @@ namespace Projeakt2Interakcija.Model
                     string[] linije = line.Split('|');
 
                     int id = Int32.Parse(linije[0]);
-                    string tip  = linije[1];
+                    string tip = linije[1];
                     string brojSedista = linije[2];
-                    
-                    vozovi.Add(new Voz(id,tip,brojSedista));
+
+                    vozovi.Add(new Voz(id, tip, brojSedista));
                 }
             }
         }
@@ -129,10 +130,10 @@ namespace Projeakt2Interakcija.Model
 
                     string naziv = linije[0];
                     string mesto = linije[1];
-                    float x =float.Parse(linije[2]);
+                    float x = float.Parse(linije[2]);
                     float y = float.Parse(linije[3]);
-                   
-                    stanice.Add(new Stanica(naziv,mesto,x,y));
+
+                    stanice.Add(new Stanica(naziv, mesto, x, y));
                 }
             }
         }
@@ -152,7 +153,7 @@ namespace Projeakt2Interakcija.Model
 
                     int id = Int32.Parse(lines[0]);
                     DateTime datumVreme = DateTime.ParseExact(lines[1], "d.M.yyyy HH:mm", null);
-                    
+
                     Linija lin = new Linija();
                     foreach (Linija item in linije)
                     {
@@ -170,7 +171,7 @@ namespace Projeakt2Interakcija.Model
                     bool prodato = Boolean.Parse(lines[7]);
                     string mail = lines[8];
 
-                    karte.Add(new Karta(id, datumVreme, lin, polaziste, odrediste, brojsed, cena, prodato,mail));
+                    karte.Add(new Karta(id, datumVreme, lin, polaziste, odrediste, brojsed, cena, prodato, mail));
 
                 }
             }
@@ -192,8 +193,8 @@ namespace Projeakt2Interakcija.Model
                     int dan = Int32.Parse(linije[0]);
                     DanUNedelji danUnedelji = (DanUNedelji)dan;
                     List<Linija> lin = new List<Linija>();
-                    string[] li=linije[1].Split(',');
-                    foreach(string linija in li)
+                    string[] li = linije[1].Split(',');
+                    foreach (string linija in li)
                     {
                         foreach (Linija item in this.linije)
                         {
@@ -222,23 +223,153 @@ namespace Projeakt2Interakcija.Model
                     if (line == "") break;
                     string[] lines = line.Split('|');
 
-                    
 
-                  
+
+
 
                     string ime = lines[0];
                     string prezime = lines[1];
-                    string email=lines[2];
+                    string email = lines[2];
                     string datumRodjenja = lines[3];
-                    string korisnickoIme= lines[4];
+                    string korisnickoIme = lines[4];
                     string lozinka = lines[5];
 
-                    menadzers.Add(new Menadzer(ime,prezime, email,datumRodjenja, korisnickoIme, lozinka));
+                    menadzers.Add(new Menadzer(ime, prezime, email, datumRodjenja, korisnickoIme, lozinka));
 
                 }
             }
         }
 
+        public void UpisLinija()
+        {
+
+            using (StreamWriter writer = new StreamWriter("..\\..\\Podaci\\Linija.txt"))
+            { 
+                foreach (Linija linija in this.linije)
+                {
+                    //Bujanovac - Beograd | 2 | Bujanovac,Beograd | 0,600 | 12:50,14:20
+                    writer.Write(linija.naziv + " | ");
+                    writer.Write(linija.Voz.id + " | ");
+                    for (int i = 0; i < linija.stanice.Count(); i++)
+                    {
+                        writer.Write(linija.stanice[i].mesto);
+                        if (i < linija.stanice.Count - 1) writer.Write(",");
+                        else writer.Write(" | ");
+                    }
+                    for (int i = 0; i < linija.cene.Count(); i++)
+                    {
+                        writer.Write(linija.cene[i]);
+                        if (i < linija.cene.Count - 1) writer.Write(",");
+                        else writer.Write(" | ");
+                    }
+                    for (int i = 0; i < linija.polasci.Count(); i++)
+                    {
+                        writer.Write(linija.polasci[i]);
+                        if (i < linija.polasci.Count - 1) writer.Write(",");
+                        
+                    }
+                    writer.WriteLine("");
+                }
+                writer.Close();
+            }
+        }
+
+        public void UpisVozova()
+        {
+
+            using (StreamWriter writer = new StreamWriter("..\\..\\Podaci\\Vozovi.txt"))
+            {
+                foreach (Voz voz in this.vozovi)
+                {
+                    //1|soko|200
+                    writer.Write(voz.id + "|");
+                    writer.Write(voz.tip + "|");
+                    writer.WriteLine(voz.brojSedista);
+                }
+                writer.Close();
+            }
+        }
+
+        public void UpisStanica()
+        {
+
+            using (StreamWriter writer = new StreamWriter("..\\..\\Podaci\\Stanice.txt"))
+            {
+                foreach (Stanica stanica in this.stanice)
+                {
+                    //Zeleznicka stanica Indjija|Indjija|1.0|4.0
+                    writer.Write(stanica.naziv + "|");
+                    writer.Write(stanica.mesto + "|");
+                    writer.Write(stanica.x + "|");
+                    writer.WriteLine(stanica.y);
+                }
+                writer.Close();
+            }
+        }
+
+        public void UpisRedovaVoznje()
+        {
+            
+            using (StreamWriter writer = new StreamWriter("..\\..\\Podaci\\RedVoznje.txt"))
+            {
+                foreach (RedVoznje redVoznje in this.redoviVoznje)
+                {
+                    //1|NoviSad-Beograd,...
+                    writer.Write(((int)redVoznje.danUNedelji).ToString() + "|");
+                    Console.WriteLine("ispispoceo");
+                    for (int i = 0; i < redVoznje.linije.Count(); i++)
+                    {
+                        writer.Write(redVoznje.linije[i].naziv);
+                        if (i < redVoznje.linije.Count - 1) writer.Write(",");
+                        else writer.Write("");
+                    }
+                    writer.WriteLine("");
+                }
+                writer.Close();
+            }
+
+            
+            
+        }
+
+        public void UpisKarata()
+        {
+
+            using (StreamWriter writer = new StreamWriter("..\\..\\Podaci\\Karte.txt"))
+            {
+                foreach (Karta karta in this.karte)
+                {
+                    //0 | 1.7.2022 19:40 | NoviSad - Beograd | Novi Sad | Beograd | 200 | 500.0 | false | mail@
+                    writer.Write(karta.id + " | ");
+                    writer.Write(karta.datumVreme.ToString() + " | ");
+                    writer.Write(karta.linija.naziv + " | ");
+                    writer.Write(karta.polaziste + " | ");
+                    writer.Write(karta.odrediste + " | ");
+                    writer.Write(karta.brojSedista + " | ");
+                    writer.Write(karta.cena + " | ");
+                    writer.WriteLine(karta.mail);
+                }
+                writer.Close();
+            }
+        }
+
+        
+        public void UpisMenadzera()//TODO: dodati za korisnike?
+        {
+
+            StreamWriter writer = new StreamWriter("..\\..\\Podaci\\Korisnici.txt");
+            foreach (Menadzer menadzer in this.menadzers)
+            {
+                //Teodora|Stojanovic|t.stojanovic8232 @gmail.com|15/05/2000|tea|tea
+                writer.Write(menadzer.ime + "|");
+                writer.Write(menadzer.prezime + "|");
+                writer.Write(menadzer.email + "|");
+                writer.Write(menadzer.datum_rodjenja + "|");
+                writer.Write(menadzer.korisnicko_ime + "|");
+                writer.WriteLine(menadzer.lozinka);
+            }
+            writer.Close();
+        }
 
     }
 }

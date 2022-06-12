@@ -74,6 +74,9 @@
     <Compile Include="Korisnik\KlijentPocetna.xaml.cs">
       <DependentUpon>KlijentPocetna.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menadzer\DodajNoviRedVoznje.xaml.cs">
+      <DependentUpon>DodajNoviRedVoznje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menadzer\MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Menadzer\DodajNoviRedVoznje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Menadzer\MenadzerPocetna.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
