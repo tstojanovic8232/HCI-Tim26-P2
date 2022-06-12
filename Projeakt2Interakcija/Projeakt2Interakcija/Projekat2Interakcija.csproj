@@ -78,6 +78,9 @@
     <Compile Include="Menadzer\MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menadzer\PrikazLinija.xaml.cs">
+      <DependentUpon>PrikazLinija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Model\Linija.cs" />
@@ -149,6 +152,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menadzer\MenadzerPocetna.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menadzer\PrikazLinija.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

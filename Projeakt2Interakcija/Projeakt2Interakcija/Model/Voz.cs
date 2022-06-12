@@ -33,5 +33,10 @@ namespace Projeakt2Interakcija.Model
         {
             return  id + "|" + tip+"|"+brojSedista;
         }
+
+        public string getVozInfo()
+        {
+            return tip + ", broj sedista: " + brojSedista;
+        }
     }
 }
