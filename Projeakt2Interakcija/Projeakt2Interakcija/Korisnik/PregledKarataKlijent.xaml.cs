@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using Projeakt2Interakcija.Model;
 using System.IO;
+using System.ComponentModel;
 
 namespace Projeakt2Interakcija
 {
@@ -23,37 +24,121 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class PregledKarataKlijent : Page
     {
+        
         static UcitavanjePodataka ucitavanje = new UcitavanjePodataka();
+
+        public string klijentmail =UcitavanjePodataka.ulogovaniKorisnik.email;
+
         public PregledKarataKlijent()
         {
             InitializeComponent();
+
+
+            Console.WriteLine(klijentmail);
+
+
         }
+
+       
         
-
-        DataTable table = new DataTable();
-
-        private void ucitaj(object sender, EventArgs e)
-        {
-            table.Clear();
-            table.Columns.Add("Id", typeof(int));
-            table.Columns.Add("Datum i vreme", typeof(DateTime));
-            //table.Columns.Add("Linija", typeof(string));
-            table.Columns.Add("polaziste", typeof(string));
-            table.Columns.Add("odrediste", typeof(string));
-            table.Columns.Add("cena", typeof(double));
+        private void ucitaj(object sender, EventArgs e) {
+          
             foreach (var item in ucitavanje.karte)
             {
-                table.Rows.Add(item.id, item.datumVreme, item.polaziste, item.odrediste, item.cena);
-            }
-            datagrid.ItemsSource = table.DefaultView;
+                //Klijent k = ucitavanje.korisnici.Find(x => x.email.Equals(item.mail));
+                
+                    if (item.mail.Equals(klijentmail))
+                    {
+                        ListBoxItem a = new ListBoxItem();
+                        LB1.Items.Add(a);
+                        a.Content = item.ToString();
+                    }
+                
+                }
             
-
-
         }
-        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+        Point LB1StartMousePos;
+        Point LB2StartMousePos;
+
+        private void LB1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DataRowView row = datagrid.SelectedItem as DataRowView;
-            
+            LB1StartMousePos = e.GetPosition(null);
         }
+
+        private void LB2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LB2StartMousePos = e.GetPosition(null);
+        }
+
+        private void LB1_Drop(object sender, DragEventArgs e)
+        {
+           
+            if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
+            {
+                LB1.Items.Add(listItem);
+            }
+        }
+        private void LB2_Drop(object sender, DragEventArgs e)
+        {
+           
+            if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
+            {
+                listItem.Content = null;
+                MessageBox.Show("Uspesno ste obrisali kartu!");
+            }
+        }
+
+
+        private void LB1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mPos = e.GetPosition(null);
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                Math.Abs(mPos.X) > SystemParameters.MinimumHorizontalDragDistance &&
+                Math.Abs(mPos.Y) > SystemParameters.MinimumVerticalDragDistance)
+            {
+                try
+                {
+                   
+                    ListBoxItem selectedItem = (ListBoxItem)LB1.SelectedItem;
+                    
+                    LB1.Items.Remove(selectedItem);
+
+                    
+                    DragDrop.DoDragDrop(this, new DataObject(DataFormats.FileDrop, selectedItem), DragDropEffects.Copy);
+
+                  
+
+                    if (selectedItem.Parent == null)
+                    {
+                        LB1.Items.Add(selectedItem);
+                    }
+                }
+                catch { }
+            }
+        }
+
+
+
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+

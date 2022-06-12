@@ -28,8 +28,6 @@ namespace Projeakt2Interakcija
         public PrikazVozova()
         {
             InitializeComponent();
-            ucitavanje.UcitavanjeVozova();
-
         }
         DataTable table = new DataTable();
 

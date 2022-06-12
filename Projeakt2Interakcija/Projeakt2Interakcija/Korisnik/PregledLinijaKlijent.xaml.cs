@@ -28,8 +28,11 @@ namespace Projeakt2Interakcija
             InitializeComponent();
             polaziste.ItemsSource = ucitavanje.stanice;
             odrediste.ItemsSource = ucitavanje.stanice;
+            //kartaTest.ItemsSource = ucitavanje.karte;
             linija.ItemsSource = ucitavanje.linije;
         }
+
+
 
         private void stanica_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +80,9 @@
     </Compile>
     <Compile Include="Menadzer\MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menadzer\PrikazLinija.xaml.cs">
+      <DependentUpon>PrikazLinija.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Karta.cs" />
     <Compile Include="Model\Menadzer.cs" />
@@ -155,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Menadzer\MenadzerPocetna.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menadzer\PrikazLinija.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -287,6 +295,12 @@
   <ItemGroup>
     <Resource Include="Slike\logo2.png" />
     <Resource Include="Slike\ZelezniceSrbijeLogoMini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\trash-can-free-png-and-vector-431439.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\kanta.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,7 +30,7 @@ namespace Projeakt2Interakcija.Model
         public Stanica(Stanica stanica)
         {
             naziv=stanica.naziv;
-            mesto=stanica.naziv;
+            mesto=stanica.mesto;
             x=stanica.x;
             y = stanica.y;
         }

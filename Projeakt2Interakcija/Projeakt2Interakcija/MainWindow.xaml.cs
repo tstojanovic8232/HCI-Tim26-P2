@@ -17,6 +17,7 @@ namespace Projeakt2Interakcija
         Menadzer menadzer;
         string username;
         string password;
+        UcitavanjePodataka u=new UcitavanjePodataka();
         public MainWindow()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace Projeakt2Interakcija
                 if (username.Equals(k.korisnicko_ime) && password.Equals(k.lozinka))
                 {
                     k_found = true;
+                    UcitavanjePodataka.ulogovaniKorisnik=k;
                     break;
                 }
 

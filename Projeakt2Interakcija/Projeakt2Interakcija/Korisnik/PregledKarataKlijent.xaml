@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Projeakt2Interakcija"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PregledKarataKlijent" Loaded="ucitaj">
+      d:DesignHeight="450"
+      Title="PregledKarataKlijent" Loaded="ucitaj" Width="824.422">
 
-    <Grid Background="WhiteSmoke">
+    <!--<Grid Background="WhiteSmoke" Margin="0,0,-555,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"></ColumnDefinition>
             <ColumnDefinition Width="10*"></ColumnDefinition>
@@ -32,7 +32,19 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <DataGrid Grid.ColumnSpan="7" x:Name="datagrid" HorizontalAlignment="Left" Height="270" Margin="59,0,0,0" Grid.Row="2" Grid.RowSpan="6" VerticalAlignment="Top" Width="563" SelectionChanged="datagrid_SelectionChanged"/>
+
+        <DataGrid Grid.ColumnSpan="3" AllowDrop="True" MouseMove="m1" Drop="dr1" SelectionMode="Single" SelectionUnit="FullRow" x:Name="datagrid" IsReadOnly="True"  HorizontalAlignment="Left"  Grid.Row="2" Grid.RowSpan="6"  SelectionChanged="datagrid_SelectionChanged"/>
+        <DataGrid Grid.ColumnSpan="3" AllowDrop="True"  MouseMove="m2"  Drop="dr2" SelectionMode="Single" SelectionUnit="FullRow" x:Name="datagrid2"  IsReadOnly="True" HorizontalAlignment="Left"  Grid.Row="2" Grid.RowSpan="6"   SelectionChanged="datagrid_SelectionChanged" Grid.Column="4"/>
+    </Grid>-->
+    <Grid>
+        <ListBox x:Name="LB1"  PreviewMouseLeftButtonDown="LB1_PreviewMouseLeftButtonDown"
+                 AllowDrop="True" Drop="LB1_Drop"
+                 MouseMove="LB1_MouseMove"  Margin="90,10,0,252" Width="648" FontSize="20">
+            <!--<ListBoxItem   Content=""/>-->
+
+
+        </ListBox>
+
+        <Image  x:Name="LB2" AllowDrop="True" Drop="LB2_Drop" Source="/Slike/kanta.jpg" HorizontalAlignment="Left" Height="100" Margin="408,320,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>

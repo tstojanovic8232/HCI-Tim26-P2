@@ -42,8 +42,8 @@ namespace Projeakt2Interakcija
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
-            MrezniPregledVoznihLinija mrezniPregled = new MrezniPregledVoznihLinija();
-            mrezniPregled.Show();
+            PrikazLinija prikazLinija = new PrikazLinija();
+            prikazLinija.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
