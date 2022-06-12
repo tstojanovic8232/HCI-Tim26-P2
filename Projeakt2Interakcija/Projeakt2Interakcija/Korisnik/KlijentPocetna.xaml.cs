@@ -20,7 +20,7 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class KlijentPocetna : Window
     {
-        string username;
+        public string username;
         public KlijentPocetna()
         {
             InitializeComponent();

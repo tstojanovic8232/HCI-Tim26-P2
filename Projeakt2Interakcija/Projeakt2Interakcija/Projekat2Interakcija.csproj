@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -280,6 +281,12 @@
   <ItemGroup>
     <Resource Include="Slike\logo2.png" />
     <Resource Include="Slike\ZelezniceSrbijeLogoMini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\trash-can-free-png-and-vector-431439.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\kanta.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

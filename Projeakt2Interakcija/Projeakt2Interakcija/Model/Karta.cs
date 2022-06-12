@@ -32,5 +32,10 @@ namespace Projeakt2Interakcija.Model
             this.prodata = prodata;
             this.mail = mail;
         }
+        public override string ToString()
+        {
+            return id + " " + datumVreme + " " + polaziste + " " + odrediste+ " " + brojSedista + " " + cena + " " + prodata;
+        }
     }
+
 }

@@ -15,7 +15,8 @@ namespace Projeakt2Interakcija.Model
         public List <Karta> karte = new List<Karta>();
         public List <RedVoznje> redoviVoznje = new List<RedVoznje>();
         public List<Menadzer> menadzers=new List<Menadzer>();
-
+        public List<Klijent> korisnici = new List<Klijent>();
+        public static Klijent ulogovaniKorisnik=new Klijent();
         public UcitavanjePodataka()
         {
             this.UcitavanjeStanica();
@@ -23,6 +24,7 @@ namespace Projeakt2Interakcija.Model
             this.UcitavanjeLinija();
             this.UcitavanjeRedaVoznje();
             this.UcitavanjeKarata();
+            this.ucitavanjeKorisnika();
         }
 
         public void UcitavanjeLinija()
@@ -238,7 +240,28 @@ namespace Projeakt2Interakcija.Model
                 }
             }
         }
+        public void ucitavanjeKorisnika()
+        {
+            using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Korisnici.txt"))
+            {
 
+                while (!reader.EndOfStream)
+                {
+
+                    string line = reader.ReadLine();
+                    if (line == "") break;
+                    string[] korisnik = line.Split('|');
+
+                    string ime = korisnik[0];
+                    string prezime = korisnik[1];
+                    string email = korisnik[2];
+                    string datum = korisnik[3];
+                    string korisnicko_ime = korisnik[4];
+                    string lozinka = korisnik[5];
+                    korisnici.Add(new Klijent(ime, prezime, email, datum, korisnicko_ime, lozinka));
+                }
+            }
+        }
 
     }
 }
