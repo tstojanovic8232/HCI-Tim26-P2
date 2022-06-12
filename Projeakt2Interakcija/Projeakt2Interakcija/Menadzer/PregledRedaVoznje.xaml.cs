@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Projeakt2Interakcija.Model;
 
+
+
 namespace Projeakt2Interakcija
 {
     /// <summary>
@@ -45,6 +47,7 @@ namespace Projeakt2Interakcija
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
+            redovi_voznji.Items.Clear();
             List<RedVoznje> redVoznji = podaci.redoviVoznje;
             switch(linija.ToString().ToLower())
             {
@@ -70,10 +73,16 @@ namespace Projeakt2Interakcija
                     break;
                 }
             }
-            redovi_voznji
-            redovi_voznji.ItemsSource = redVoznji;
-            
+            Dictionary<string, string> linije = new Dictionary<string, string>();
+            for (int i = 0; i < redVoznji.Count(); i++)
+            {
+                //.Columns.Add(redVoznji[i].danUNedelji.ToString());
 
+                linije.Add(redVoznji[i].danUNedelji.ToString(), redVoznji[i].linije_string());
+                
+            }
+            MessageBox.Show("Prikaz!");
+            redovi_voznji.ItemsSource = linije;
             
         }
 
