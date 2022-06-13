@@ -363,14 +363,15 @@ namespace Projeakt2Interakcija.Model
             {
                 foreach (Karta karta in this.karte)
                 {
-                    //0 | 1.7.2022 19:40 | NoviSad - Beograd | Novi Sad | Beograd | 200 | 500.0 | false | mail@
-                    writer.Write(karta.id + " | ");
-                    writer.Write(karta.datumVreme.ToString() + " | ");
-                    writer.Write(karta.linija.naziv + " | ");
-                    writer.Write(karta.polaziste + " | ");
-                    writer.Write(karta.odrediste + " | ");
-                    writer.Write(karta.brojSedista + " | ");
-                    writer.Write(karta.cena + " | ");
+                    //0|1.7.2022 19:40|NoviSad-Beograd|Novi Sad|Beograd|200|500.0|false|mail@
+                    writer.Write(karta.id + "|");
+                    writer.Write(karta.datumVreme.ToString("d.M.yyyy HH:mm") + "|");
+                    writer.Write(karta.linija.naziv + "|");
+                    writer.Write(karta.polaziste + "|");
+                    writer.Write(karta.odrediste + "|");
+                    writer.Write(karta.brojSedista + "|");
+                    writer.Write(karta.cena + "|");
+                    writer.Write(karta.prodata + "|");
                     writer.WriteLine(karta.mail);
                 }
                 writer.Close();

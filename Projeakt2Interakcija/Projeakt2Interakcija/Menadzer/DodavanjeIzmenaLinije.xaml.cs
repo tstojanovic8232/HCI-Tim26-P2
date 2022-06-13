@@ -17,15 +17,13 @@ namespace Projeakt2Interakcija
     {
         static UcitavanjePodataka ucitavanje = new UcitavanjePodataka();
         DataRowView rowView;
-
+        string nazivBox;
         public DodavanjeIzmenaLinije()
         {
             InitializeComponent();
             SetProperties();
             rowView = PrikazLinija.selectedRow;
-            
         }
-
 
         void SetProperties()
         {
@@ -77,6 +75,7 @@ namespace Projeakt2Interakcija
             // ItemsSource
             unosStanica.ItemsSource = noveStanice.DefaultView;
             vozovi.ItemsSource = vozs.ToArray();
+            nazivBox = naziv.Text;
 
         }
 
@@ -126,37 +125,47 @@ namespace Projeakt2Interakcija
                         sve = false;
                         MessageBox.Show("Unesite cenu za svaku stanicu!");
                     }
-
                     string ime = naziv.Text;
                     linija.naziv = ime;
                     linija.Voz = ucitavanje.vozovi.Find(x => x.id.Equals(voz));
                     linija.stanice = stanice;
                     linija.polasci = polasci;
                     linija.cene = cene;
-                    if (sve)
+                    bool exists = ucitavanje.linije.Exists(x => x.naziv.Equals(linija.naziv));
+                    if (sve && !exists)
                     {
                         Console.WriteLine(ime + "|" + voz + "|" + linija.stanice_string() + "|" + linija.cene_string() + "|" + linija.polasci_string());
                         ucitavanje.linije.Add(linija);
                         ucitavanje.UpisLinija();
                         this.Close();
                     }
+                    else if(exists)
+                    {
+                        MessageBox.Show("Ova linija već postoji!");
+                    }
                 }
                 else if (vozovi.SelectedItem == null) MessageBox.Show("Izaberite voz!");
             }
             else
             {
+                /* izmena naziva -> update red voznje, karte
+                 * izmena ostalog -> zabrana ako postoje karte!
+                 */
                 if (naziv.Text != null && vozovi.SelectedItem != null)
                 {
                     Linija linija = ucitavanje.linije.Find(x => x.naziv.Equals(rowView[0].ToString()));
-                    int id = ucitavanje.linije.IndexOf(linija); 
-                    ucitavanje.linije.Remove(linija);
+                    string ime = naziv.Text;
+                    
+                    int id = ucitavanje.linije.IndexOf(linija);
                     int voz = ucitavanje.vozovi.Find(x => x.ToString().Equals(vozovi.SelectedItem.ToString())).id;
+                    linija.Voz = ucitavanje.vozovi.Find(x => x.id.Equals(voz));
                     List<Stanica> stanice = new List<Stanica>();
                     List<double> cene = new List<double>();
                     List<DateTime> polasci = new List<DateTime>();
+
                     foreach (DataRow row in noveStanice.Rows)
                     {
-                        if (row != null)
+                        if (row != null && row[0] != null && row[1] != null && row[2] != null)
                         {
                             stanice.Add(ucitavanje.stanice.Find(x => x.mesto.Equals(row[0].ToString())));
                             polasci.Add(DateTime.ParseExact(row[1].ToString(), "H:m", null));
@@ -184,23 +193,72 @@ namespace Projeakt2Interakcija
                         MessageBox.Show("Unesite cenu za svaku stanicu!");
                     }
 
-                    string ime = naziv.Text;
-                    linija.naziv = ime;
-                    linija.Voz = ucitavanje.vozovi.Find(x => x.id.Equals(voz));
-                    linija.stanice = stanice;
-                    linija.polasci = polasci;
-                    linija.cene = cene;
-                    if (sve)
+                    bool allowed = false;
+                    string staniceLinija = linija.stanice_string();
+                    string staniceTabela = "";
+                    foreach (Stanica stanica in stanice)
                     {
-                        Console.WriteLine(ime + "|" + voz + "|" + linija.stanice_string() + "|" + linija.cene_string() + "|" + linija.polasci_string());
-                        ucitavanje.linije.Insert(id, linija);
-                        ucitavanje.UpisLinija();
-                        this.Close();
+                        staniceTabela += stanica.mesto + ",";
                     }
+                    staniceTabela = staniceTabela.Substring(0, staniceTabela.Length - 1);
+
+                    string polasciLinija = linija.polasci_string();
+                    string polasciTabela = "";
+                    foreach (DateTime polazak in polasci)
+                    {
+                        polasciTabela += polazak.ToShortTimeString() + ",";
+                    }
+                    polasciTabela = polasciTabela.Substring(0, polasciTabela.Length - 1);
+                    if (staniceLinija.Equals(staniceTabela) && polasciLinija.Equals(polasciTabela))
+                    {
+                        allowed = true;
+                    }
+                    else
+                    {
+                        List<Karta> karte = ucitavanje.karte.FindAll(x => x.linija.naziv.Equals(linija.naziv));
+                        if (karte.Count == 0 || karte == null) allowed = true;
+                        else allowed = false;
+                    }
+                    linija.naziv = ime;
+                    if (!ime.Equals(nazivBox))
+                    {
+                        foreach (var item in ucitavanje.redoviVoznje)
+                        {
+                            if (item.linije.Contains(linija))
+                            {
+                                int index = item.linije.FindIndex(x => x.naziv.Equals(nazivBox));
+                                item.linije[index] = linija;
+                            }
+                        }
+                        ucitavanje.UpisRedovaVoznje();
+                        foreach (var item in ucitavanje.karte)
+                        {
+                            if (item.linija.Equals(linija))
+                            {
+                                item.linija = linija;
+                            }
+                        }
+                        ucitavanje.UpisKarata();
+                    }
+                    if (allowed)
+                    {
+                        ucitavanje.linije.Remove(linija);
+
+                        linija.stanice = stanice;
+                        linija.polasci = polasci;
+                        linija.cene = cene;
+                        if (sve)
+                        {
+                            ucitavanje.linije.Insert(id, linija);
+                            ucitavanje.UpisLinija();
+                            this.Close();
+                        }
+                    }
+                    else MessageBox.Show("Mozete promeniti samo naziv jer postoje karte!");
                 }
                 else if (vozovi.SelectedItem == null) MessageBox.Show("Izaberite voz!");
             }
         }
-
+        string ime = "";
     }
 }

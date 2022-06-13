@@ -22,14 +22,14 @@ namespace Projeakt2Interakcija
     /// <summary>
     /// Interaction logic for PregledKarataKlijent.xaml
     /// </summary>
-    public partial class PregledKarataKlijent : Page
+    public partial class BrisanjeRezervacija : Window
     {
         
         static UcitavanjePodataka ucitavanje ;
 
         public string klijentmail =UcitavanjePodataka.ulogovaniKorisnik.email;
 
-        public PregledKarataKlijent()
+        public BrisanjeRezervacija()
         {
             InitializeComponent();
             ucitavanje = new UcitavanjePodataka();
@@ -50,20 +50,13 @@ namespace Projeakt2Interakcija
                 
                     if (item.mail.Equals(klijentmail))
                     {
-                        ListBoxItem a = new ListBoxItem(); 
-                        if (!item.prodata)
-                        {
-                            LB1.Items.Add(a);
-                            a.Content = item.ToString();
-                        }
-                        else
-                        {
-                            LB2.Items.Add(a);
-                            a.Content = item.ToString();
-                        }
-                    
-                    }
-            }
+                        ListBoxItem a = new ListBoxItem();
+                        LB1.Items.Add(a);
+                        if (!item.prodata) a.Content = item;
+                }
+                
+                }
+            
         }
 
 
@@ -82,6 +75,7 @@ namespace Projeakt2Interakcija
 
         private void LB1_Drop(object sender, DragEventArgs e)
         {
+           
             if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
             {
                 LB1.Items.Add(listItem);
@@ -93,19 +87,33 @@ namespace Projeakt2Interakcija
             if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
             {
                 Console.WriteLine(listItem.Content);
+              
+                if (listItem.Content != null)
+                {
 
-                int ind = Int32.Parse(listItem.Content.ToString().Split(' ')[0]);
 
-                Karta karta = ucitavanje.karte.Find(x => x.id == ind);
-                int id = ucitavanje.karte.FindIndex(x => x.id == ind);
-                ucitavanje.karte.Remove(karta);
-                karta.prodata = true;
-                listItem.Content = karta.ToString();
-                LB2.Items.Add(listItem);
-                ucitavanje.karte.Insert(id, karta);
-                ucitavanje.UpisKarata();
+                    int ind = Int32.Parse(listItem.Content.ToString().Split(' ')[0]);
 
-                MessageBox.Show("Proces kupovine karte počinje ovde!");
+                    
+
+                    List<string> quotelist = File.ReadAllLines("..\\..\\Podaci\\Karte.txt").ToList();
+                    int i=quotelist.FindIndex(x => x.Split('|')[0].Equals(ind.ToString()));
+                    foreach (var item in quotelist)
+                    {
+                        Console.WriteLine(item);
+
+                    }
+
+                    quotelist.RemoveAt(i);
+                    
+                    System.IO.File.WriteAllLines("..\\..\\Podaci\\Karte.txt", quotelist.ToArray());
+
+                }
+
+
+                listItem.Content = null;
+
+                MessageBox.Show("Uspesno ste obrisali kartu!");
             }
         }
 
@@ -140,42 +148,8 @@ namespace Projeakt2Interakcija
             }
         }
 
-        private void Obrisi_Click(object sender, RoutedEventArgs e)
-        {
-            BrisanjeRezervacija brisanje = new BrisanjeRezervacija();
-            brisanje.ShowDialog();
-            brisanje.Closed += ucitaj;
-        }
-
-        private void LB2_MouseMove(object sender, MouseEventArgs e)
-        {
-            Point mPos = e.GetPosition(null);
-
-            if (e.LeftButton == MouseButtonState.Pressed &&
-                Math.Abs(mPos.X) > SystemParameters.MinimumHorizontalDragDistance &&
-                Math.Abs(mPos.Y) > SystemParameters.MinimumVerticalDragDistance)
-            {
-                try
-                {
-
-                    ListBoxItem selectedItem = (ListBoxItem)LB1.SelectedItem;
-
-                    LB2.Items.Remove(selectedItem);
 
 
-                    DragDrop.DoDragDrop(this, new DataObject(DataFormats.FileDrop, selectedItem), DragDropEffects.Move);
-
-
-
-                    if (selectedItem.Parent == null)
-                    {
-                        LB2.Items.Add(selectedItem);
-
-                    }
-                }
-                catch { }
-            }
-        }
     }
 
 }

@@ -60,6 +60,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Korisnik\BrisanjeRezervacija.xaml.cs">
+      <DependentUpon>BrisanjeRezervacija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Korisnik\PregledRedaVoznjeKlijent.xaml.cs">
       <DependentUpon>PregledRedaVoznjeKlijent.xaml</DependentUpon>
     </Compile>
@@ -104,9 +107,6 @@
     <Compile Include="Korisnik\MrezniPrikazKlijent.xaml.cs">
       <DependentUpon>MrezniPrikazKlijent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menadzer\NasiVozoviMenadzer.xaml.cs">
-      <DependentUpon>NasiVozoviMenadzer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Menadzer\OdjavaMenadzer.xaml.cs">
       <DependentUpon>OdjavaMenadzer.xaml</DependentUpon>
     </Compile>
@@ -125,6 +125,10 @@
     <Compile Include="Korisnik\Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
+    <Page Include="Korisnik\BrisanjeRezervacija.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Korisnik\PregledRedaVoznjeKlijent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -182,10 +186,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Korisnik\MrezniPrikazKlijent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Menadzer\NasiVozoviMenadzer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

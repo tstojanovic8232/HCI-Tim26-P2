@@ -58,8 +58,8 @@ namespace Projeakt2Interakcija
 
         private void NasiVozovi_Click(object sender, RoutedEventArgs e)
         {
-            NasiVozoviMenadzer nasiVozovi = new NasiVozoviMenadzer();
-            nasiVozovi.Show();
+            PrikazVozova prikaz = new PrikazVozova();
+            prikaz.Show();
             this.Close();
         }
 

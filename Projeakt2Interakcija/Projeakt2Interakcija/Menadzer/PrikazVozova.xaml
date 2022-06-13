@@ -55,7 +55,7 @@
         <!-- StackPanel za sliku i tekst da bi bili jedno do drugog -->
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1">
             <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg"></Image>
-            <Label Margin="30,0,30,0" FontWeight="UltraBold" Foreground="#6abd53" Content="PREGLED VOZOVA" FontSize="65" VerticalAlignment="Center"/>
+            <Label Margin="30,0,30,0" FontWeight="UltraBold" Foreground="#6abd53" Content="NASI VOZOVI" FontSize="65" VerticalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Margin="30,0,30,0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
