@@ -70,7 +70,7 @@ namespace Projeakt2Interakcija
             TextBox tb = (TextBox)sender;
             tb.Text = "";
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(id.Text + " ," + tip.Text + ", " + br.Text);
             table.Rows.Add(Int32.Parse(id.Text), tip.Text, br.Text);
@@ -80,7 +80,7 @@ namespace Projeakt2Interakcija
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Obrisi_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = datagrid.SelectedItem as DataRowView;
 
@@ -100,7 +100,7 @@ namespace Projeakt2Interakcija
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = datagrid.SelectedItem as DataRowView;
 
@@ -213,6 +213,20 @@ namespace Projeakt2Interakcija
             
             datagrid.ItemsSource = table.DefaultView;
 
+        }
+
+        private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MenadzerPocetna pocetna = new MenadzerPocetna();
+            pocetna.Show();
+        }
+
+        private void OdjaviMe_Click(object sender, RoutedEventArgs e)
+        {
+            OdjavaMenadzer logout = new OdjavaMenadzer();
+            this.Close();
+            logout.Show();
         }
     }
 }

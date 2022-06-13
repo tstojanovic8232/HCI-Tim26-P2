@@ -48,6 +48,6 @@
         <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="DODAJ NOVI" Background="#4d4847" Margin="144,13,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="5" Click="DodajRedVoznje_Click"/>
 
         <!-- Podaci-->
-        <DataGrid Grid.Row="7" x:Name="redovi_voznji"></DataGrid>
+        <DataGrid Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="236,0,164,0" SelectionChanged="DataGrid_SelectionChanged" x:Name="redovi_voznji"/>
     </Grid>
 </Window>

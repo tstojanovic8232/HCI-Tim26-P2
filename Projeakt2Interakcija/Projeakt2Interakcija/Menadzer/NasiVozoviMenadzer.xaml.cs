@@ -39,19 +39,22 @@ namespace Projeakt2Interakcija
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MenadzerPocetna pocetna = new MenadzerPocetna();
+            pocetna.Show();
         }
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
             
             PrikazVozova prikaz = new PrikazVozova();
-            
+            this.Close();
             prikaz.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
+            this.Close();
             logout.Show();
         }
         private void OcistiTekst(object sender, RoutedEventArgs e)
@@ -59,8 +62,10 @@ namespace Projeakt2Interakcija
             TextBox tb = (TextBox)sender;
             tb.Text = "";
         }
-        
 
-       
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

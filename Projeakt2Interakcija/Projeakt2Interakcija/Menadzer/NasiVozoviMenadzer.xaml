@@ -62,7 +62,7 @@
 
         <!-- Unos linije -->
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAZIV LINIJE:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3"/>
-        <TextBox FontSize="40" x:Name="linija" HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="unesite liniju" TextAlignment="Center" VerticalAlignment="Top" Width="339" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"/>
+        <TextBox FontSize="40" x:Name="linija" HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="" TextAlignment="Center" VerticalAlignment="Top" Width="339" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"/>
 
         <!-- Unos tipa voza -->
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="TIP VOZA:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4"/>
@@ -97,6 +97,7 @@
 
         <!-- Dugme za prikaz-->
         <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.ColumnSpan="2" Grid.Column="6" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Prikazi_Click"></Button>
+        <DataGrid Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="0" Grid.ColumnSpan="10" Margin="236,0,164,0" SelectionChanged="DataGrid_SelectionChanged" x:Name="nasi_vozovi"/>
 
     </Grid>
 </Window>

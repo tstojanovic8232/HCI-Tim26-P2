@@ -37,18 +37,22 @@ namespace Projeakt2Interakcija
 
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
+            MenadzerPocetna pocetna = new MenadzerPocetna();
             this.Close();
+            pocetna.Show();
         }
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
             PrikazLinija prikazLinija = new PrikazLinija();
+            this.Close();
             prikazLinija.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
+            this.Close();
             logout.Show();
         }
         private void OcistiTekst(object sender, RoutedEventArgs e)

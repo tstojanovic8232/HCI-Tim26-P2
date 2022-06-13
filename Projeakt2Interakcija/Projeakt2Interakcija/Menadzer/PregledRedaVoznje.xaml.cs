@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Projeakt2Interakcija.Model;
-
+using System.Data;
 
 
 namespace Projeakt2Interakcija
@@ -24,10 +24,17 @@ namespace Projeakt2Interakcija
     {
 
         UcitavanjePodataka podaci = new UcitavanjePodataka();
+        DataTable tabela_reda_voznji = new DataTable();
         public PregledRedaVoznje()
         {
             InitializeComponent();
             SetProperties();
+            tabela_reda_voznji.Columns.Add("dan u sedmici", typeof(DanUNedelji));
+            tabela_reda_voznji.Columns.Add("Datum i vreme", typeof(DateTime));
+            tabela_reda_voznji.Columns.Add("Linija", typeof(string));
+            tabela_reda_voznji.Columns.Add("polaziste", typeof(string));
+            tabela_reda_voznji.Columns.Add("odrediste", typeof(string));
+            tabela_reda_voznji.Columns.Add("cena", typeof(double));
         }
 
         void SetProperties()
@@ -42,12 +49,17 @@ namespace Projeakt2Interakcija
 
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
+            MenadzerPocetna pocetna = new MenadzerPocetna();
             this.Close();
+            pocetna.Show();
         }
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
-            redovi_voznji.Items.Clear();
+
+            tabela_reda_voznji.Clear();
+            
+            //redovi_voznji.Items.Clear();
             List<RedVoznje> redVoznji = podaci.redoviVoznje;
             switch(linija.ToString().ToLower())
             {
@@ -65,36 +77,41 @@ namespace Projeakt2Interakcija
                 case "nedelja":
                 {
                     redVoznji = redVoznjiPoDanu(linija.ToString());
+                    MessageBox.Show("redvoznji po danu");
                     break;
                 }
                 default:
                 {
                     redVoznji = redVoznjiPoLiniji(linija.ToString());
+                    MessageBox.Show("redvoznji po liniji");
                     break;
                 }
             }
+            
             Dictionary<string, string> linije = new Dictionary<string, string>();
             for (int i = 0; i < redVoznji.Count(); i++)
             {
                 //.Columns.Add(redVoznji[i].danUNedelji.ToString());
 
-                linije.Add(redVoznji[i].danUNedelji.ToString(), redVoznji[i].linije_string());
+                tabela_reda_voznji.Rows.Add(redVoznji[i].danUNedelji.ToString(), redVoznji[i].linije_string());
                 
             }
             MessageBox.Show("Prikaz!");
-            redovi_voznji.ItemsSource = linije;
+            redovi_voznji.ItemsSource = tabela_reda_voznji.DefaultView;
             
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
+            this.Close();
             logout.Show();
         }
 
         private void DodajRedVoznje_Click(object sender, RoutedEventArgs e)
         {
             DodajNoviRedVoznje dodajRedVoznje = new DodajNoviRedVoznje();
+            this.Close();
             dodajRedVoznje.Show();
         }
 
@@ -124,6 +141,11 @@ namespace Projeakt2Interakcija
                     
             }
             return rezultat;
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 

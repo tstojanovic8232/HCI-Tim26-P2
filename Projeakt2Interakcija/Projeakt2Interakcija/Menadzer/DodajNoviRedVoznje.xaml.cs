@@ -70,11 +70,14 @@ namespace Projeakt2Interakcija
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MenadzerPocetna pocetna = new MenadzerPocetna();
+            pocetna.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
+            this.Close();
             logout.Show();
         }
     }

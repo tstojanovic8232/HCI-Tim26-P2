@@ -71,7 +71,7 @@
         
         <!-- Unos linije -->
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAZIV LINIJE:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3"/>
-        <TextBox FontSize="40" x:Name="linija" HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="unesite liniju" TextAlignment="Center" VerticalAlignment="Top" Width="339" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"/>
+        <TextBox FontSize="40" x:Name="linija" HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="" TextAlignment="Center" VerticalAlignment="Top" Width="339" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"/>
         
         <!-- Unos tipa voza -->
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="TIP VOZA:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4"/>
@@ -105,7 +105,7 @@
         <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="NazadNaPocetnu_Click"/>
         
         <!-- Dugme za prikaz-->
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Grid.ColumnSpan="2" Grid.Column="6" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Prikazi_Click"></Button>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Content="PRIKAŽI"  Grid.ColumnSpan="2" Grid.Column="6" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Prikazi_Click"></Button>
 
     </Grid>
 </Window>

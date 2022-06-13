@@ -6,13 +6,15 @@
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
         Loaded="ucitaj" 
-        Title="PrikazLinija">
+        Background="#4d4847"
+        Title="Srbija Voz - Prikaz linija">
     <Window.Resources>
         <ControlTemplate x:Key="CheckBoxSlika" TargetType="{x:Type CheckBox}" >
 
             <Grid>
-                <Border x:Name="OkvirSlike" BorderBrush="#0c203b">
-                    <Image x:Name="slika"  Source="{TemplateBinding Tag}" Height="25" Width="25"/>
+                <Border x:Name="OkvirSlike" BorderBrush="#6abd53" >
+                    <!--BorderBrush="#0c203b"-->
+                    <Image x:Name="slika"  Source="{TemplateBinding Tag}" Height="35" Width="50" />
                 </Border>
             </Grid>
             <ControlTemplate.Triggers>
@@ -49,7 +51,7 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Unesite naziv:" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="UNESITE NAZIV:" HorizontalAlignment="Left" Grid.Column="1"/>
             <TextBox x:Name="naziv" TextWrapping="Wrap" MouseDoubleClick="OcistiTekst" Grid.Column="2" HorizontalAlignment="Stretch"/>
         </Grid>
 
@@ -60,7 +62,7 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Izaberite voz:" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="IZABERITE VOZ:" HorizontalAlignment="Left" Grid.Column="1"/>
             <ComboBox x:Name="vozovi" Grid.Column="2" HorizontalAlignment="Stretch"/>
         </Grid>
 
@@ -71,7 +73,7 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Unesite stanice:" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label  FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="UNESITE STANICE:" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
             <DataGrid x:Name="unosStanica" Grid.Column="2" Margin="0,0,5,0" CanUserAddRows="True" CanUserResizeColumns="False" ColumnWidth="1*" />
         </Grid>
 
@@ -81,9 +83,9 @@
                 <ColumnDefinition Width="1.5*"></ColumnDefinition>
                 <ColumnDefinition Width="3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Width="200" Content="DODAJ" Margin="15,15,15,15" VerticalAlignment="Stretch" HorizontalAlignment="Right" Click="Dodaj_Click"/>
-            <Button Width="200" Content="IZMENI" Margin="15,15,15,15" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="Izmeni_Click"/>
-            <Button Width="200" Content="OBRISI" Margin="15,15,15,15" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="Obrisi_Click"/>
+            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847"  Width="200" Content="DODAJ" Margin="15,15,15,15" VerticalAlignment="Stretch" HorizontalAlignment="Right" Click="Dodaj_Click"/>
+            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847"  Width="200" Content="IZMENI" Margin="15,15,15,15" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="Izmeni_Click"/>
+            <Button  BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Width="200" Content="OBRISI" Margin="15,15,15,15" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="Obrisi_Click"/>
         </Grid>
 
         <Line Grid.Column="2" X1="0" Y1="1" X2="0" Y2="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,40,20,100"
@@ -94,11 +96,11 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Pretraga:" HorizontalAlignment="Left"/>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="PRETRAGA:" HorizontalAlignment="Left"/>
             <TextBox x:Name="pretraga" TextWrapping="Wrap" TextChanged="txtChange" Grid.Column="1" HorizontalAlignment="Stretch"/>
         </Grid>
 
-        <Grid x:Name="tipovi" Height="40" Margin="0,0,30,0" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+        <Grid x:Name="tipovi" Height="50" Margin="0,0,30,0" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -106,27 +108,27 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <CheckBox x:Name="soko" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
+            <CheckBox Height="45" Width="40" x:Name="soko" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/Soko.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox x:Name="regio" Grid.Column="1" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
+            <CheckBox Height="45" Width="40" x:Name="regio" Grid.Column="1" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/RegioVoz.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox x:Name="brzi" Grid.Column="2" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
+            <CheckBox Height="45" Width="40" x:Name="brzi" Grid.Column="2" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/BrziVoz.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox x:Name="inter" Grid.Column="3" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
+            <CheckBox Height="45" Width="40" x:Name="inter" Grid.Column="3" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/InterCity.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox x:Name="stari" Grid.Column="4" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
+            <CheckBox Height="45" Width="40" x:Name="stari" Grid.Column="4" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/StariVoz.jpg</ImageSource>
                 </CheckBox.Tag>
@@ -138,7 +140,7 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Polaziste:" HorizontalAlignment="Left"/>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="POLAZIŠTE:" HorizontalAlignment="Left"/>
             <ComboBox x:Name="polaziste" Grid.Column="1" HorizontalAlignment="Stretch" SelectionChanged="stanica_SelectionChanged"/>
         </Grid>
 
@@ -147,11 +149,11 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Content="Odrediste:" HorizontalAlignment="Left"/>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="ODREDIŠTE:" HorizontalAlignment="Left"/>
             <ComboBox x:Name="odrediste" Grid.Column="1" HorizontalAlignment="Stretch" SelectionChanged="stanica_SelectionChanged"/>
         </Grid>
 
-        <Button Margin="0,0,0,15" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ResetujFilter_Click">Resetuj filter</Button>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847"  Margin="0,0,0,15" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ResetujFilter_Click">RESETUJ FILTER</Button>
         
         <DataGrid x:Name="datagrid" Margin="0,0,30,0" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectionMode="Single" SelectionUnit="FullRow" IsReadOnly="True" SelectionChanged="datagrid_SelectionChanged" />
 

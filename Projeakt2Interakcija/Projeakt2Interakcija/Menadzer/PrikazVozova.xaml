@@ -6,23 +6,29 @@
         xmlns:local="clr-namespace:Projeakt2Interakcija"
         mc:Ignorable="d"
         Loaded="ucitaj" 
-        Title="PrikazVozova" Height="598.404" Width="1037.404">
+        Background="#4d4847"
+        Title="Srbija Voz" Height="598.404" Width="1037.404">
 
     <Grid HorizontalAlignment="Left" Width="1017" Margin="10,0,0,-4">
-
-        <DataGrid HorizontalAlignment="Left" x:Name="datagrid" Margin="438,22,0,295" Width="557" SelectionChanged="datagrid_SelectionChanged" />
-        <Label Content="Pretrazite po broju sedista ili tipu voza:" HorizontalAlignment="Left" Margin="0,10,0,0" FontSize="16"  VerticalAlignment="Top" Width="297" Height="53"/>
-        <TextBox HorizontalAlignment="Left" Height="40"  Margin="297,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="txtChange"/>
-        <TextBox HorizontalAlignment="Left" Height="39" GotFocus="OcistiTekst" x:Name="id"  Margin="193,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="137"/>
-        <TextBox HorizontalAlignment="Left" Height="41" GotFocus="OcistiTekst" x:Name="tip"  Margin="193,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="137"/>
-        <TextBox Height="41" Margin="193,261,687,0"  GotFocus="OcistiTekst" x:Name="br" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <Label Content="id:" HorizontalAlignment="Left" Height="23" Margin="106,108,0,0" VerticalAlignment="Top" Width="64"/>
-        <Label Content="naziv:" HorizontalAlignment="Left" Height="23" Margin="106,186,0,0" VerticalAlignment="Top" Width="78"/>
-        <Label Content="broj  sedista:" HorizontalAlignment="Left" Height="23" Margin="106,279,0,0" VerticalAlignment="Top" Width="82"/>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="158,411,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="Button_Click"/>
-        <Button Content="OBRISI" HorizontalAlignment="Left" Margin="352,411,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="Button_Click_1"/>
-        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="578,411,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="Button_Click_2"/>
-        <CheckBox Content="Soko" x:Name="soko" HorizontalAlignment="Left" Margin="510,349,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Checked="soko_checkd" Unchecked="uncheck">
+        <!-- zaglavlje-->
+        <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg" Margin="0,4,936,502"/>
+        <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAŠI VOZOVI" FontSize="60" Margin="83,-4,379,500" />
+        
+        <!-- glavni prikaz-->
+        <DataGrid HorizontalAlignment="Left" x:Name="datagrid" Margin="432,81,0,236" Width="557" SelectionChanged="datagrid_SelectionChanged" />
+        <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="PRETRAŽITE PO TIPU VOZA\nILI BROJU SEDIŠTA:" HorizontalAlignment="Left" Margin="28,92,0,0"  VerticalAlignment="Top" Width="350" Height="40"/>
+        <Label FontSize="25px"  FontWeight="ExtraBold" Foreground="#6abd53" Content="ILI BROJU SEDIŠTA:" HorizontalAlignment="Left" Margin="68,117,0,0"  VerticalAlignment="Top" Width="257" Height="52"/>
+        <TextBox HorizontalAlignment="Left" Height="40"  Margin="147,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="txtChange"/>
+        <TextBox HorizontalAlignment="Left" Height="39" GotFocus="OcistiTekst" x:Name="id"  Margin="241,224,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="137"/>
+        <TextBox HorizontalAlignment="Left" Height="41" GotFocus="OcistiTekst" x:Name="tip"  Margin="241,309,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="137"/>
+        <TextBox Height="41" Margin="241,393,639,0"  GotFocus="OcistiTekst" x:Name="br" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Label FontSize="25px"  FontWeight="ExtraBold" Foreground="#6abd53" Content="BROJ VOZA:" HorizontalAlignment="Left" Height="40" Margin="62,224,0,0" VerticalAlignment="Top" Width="175"/>
+        <Label FontSize="25px"  FontWeight="ExtraBold" Foreground="#6abd53" Content="NAZIV:" HorizontalAlignment="Left" Height="40" Margin="120,309,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label FontSize="25px"  FontWeight="ExtraBold" Foreground="#6abd53" Content="BROJ SEDIŠTA:" HorizontalAlignment="Left" Height="40" Margin="30,392,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Content="DODAJ" HorizontalAlignment="Left" Margin="400,460,0,0" VerticalAlignment="Top" Width="126" Height="75" Click="Dodaj_Click"/>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Content="OBRISI" HorizontalAlignment="Left" Margin="600,460,0,0" VerticalAlignment="Top" Width="126" Height="75" Click="Obrisi_Click"/>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Content="IZMENI" HorizontalAlignment="Left" Margin="800,460,0,0" VerticalAlignment="Top" Width="126" Height="75" Click="Izmeni_Click"/>
+        <CheckBox Content="Soko" x:Name="soko" HorizontalAlignment="Left" Margin="520,394,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Checked="soko_checkd" Unchecked="uncheck">
             <CheckBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,10 +38,10 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Stari"    x:Name="stari"  HorizontalAlignment="Left" Margin="649,349,0,0" VerticalAlignment="Top" Checked="stari_Checked" Unchecked="uncheck"/>
-        <CheckBox Content="Regia" x:Name="regia" HorizontalAlignment="Left" Margin="779,349,0,0" VerticalAlignment="Top" Checked="regio_Checked"
+        <CheckBox Content="Stari"    x:Name="stari"  HorizontalAlignment="Left" Margin="659,394,0,0" VerticalAlignment="Top" Checked="stari_Checked" Unchecked="uncheck"/>
+        <CheckBox Content="Regia" x:Name="regia" HorizontalAlignment="Left" Margin="789,394,0,0" VerticalAlignment="Top" Checked="regio_Checked"
                   Unchecked="uncheck"/>
-        <CheckBox Content="100-200" x:Name="sed1" HorizontalAlignment="Left" Margin="508,381,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Checked="br1_checkd" Unchecked="uncheck">
+        <CheckBox Content="100-200" x:Name="sed1" HorizontalAlignment="Left" Margin="518,426,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Checked="br1_checkd" Unchecked="uncheck">
             <CheckBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -45,6 +51,11 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
+        
+        
+        <!-- nazad na pocetnu i odjava-->
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA POČETNU" Background="#4d4847" Margin="30,0,0,63" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="NazadNaPocetnu_Click"/>
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,57,0" Click="OdjaviMe_Click"/>
 
     </Grid>
 </Window>
