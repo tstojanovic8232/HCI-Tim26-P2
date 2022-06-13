@@ -48,7 +48,7 @@ namespace Projeakt2Interakcija
             if ((bool)Subota.IsChecked) dani.Add(DanUNedelji.Subota);
             if ((bool)Nedelja.IsChecked) dani.Add(DanUNedelji.Nedelja);
 
-            MessageBox.Show((dani[0]).ToString());
+            //MessageBox.Show((dani[0]).ToString());
             List<RedVoznje> noviRedovi = podaci.redoviVoznje;
             for (int i = 0; i<podaci.redoviVoznje.Count; i++)
             {
@@ -64,7 +64,7 @@ namespace Projeakt2Interakcija
             }
             podaci.redoviVoznje = noviRedovi;
             podaci.UpisRedovaVoznje();
-            MessageBox.Show("Unos uspjesan");
+            //MessageBox.Show("Unos uspjesan");
         }
 
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)

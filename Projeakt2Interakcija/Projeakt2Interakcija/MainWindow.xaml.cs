@@ -77,7 +77,7 @@ namespace Projeakt2Interakcija
             // proveri ko je ulogovan na osnovu flagova
             if (m_found)
             {
-                MessageBox.Show("Uspesno ste se ulogovali");
+                //MessageBox.Show("Uspesno ste se ulogovali");
 
                 MenadzerPocetna menadzerPocetna = new MenadzerPocetna();
                 menadzerPocetna.Show();

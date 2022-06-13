@@ -56,10 +56,10 @@ namespace Projeakt2Interakcija
 
         private void Izmijeni_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(danUsedmici.SelectedIndex.ToString());
-            MessageBox.Show(danID.ToString());
-            MessageBox.Show(podaci.redoviVoznje[danID].linije.Count.ToString());
-            MessageBox.Show(linijaID.ToString());
+            //MessageBox.Show(danUsedmici.SelectedIndex.ToString());
+            //MessageBox.Show(danID.ToString());
+            //MessageBox.Show(podaci.redoviVoznje[danID].linije.Count.ToString());
+            //MessageBox.Show(linijaID.ToString());
 
             for (int i = 0; i < podaci.redoviVoznje[danID].linije.Count; i++)
             {
@@ -71,7 +71,7 @@ namespace Projeakt2Interakcija
             }
 
             Linija promijenjena = podaci.redoviVoznje[danID].linije[linijaID];
-            MessageBox.Show(promijenjena.naziv);
+            //MessageBox.Show(promijenjena.naziv);
 
             podaci.redoviVoznje[danID].linije.Remove(promijenjena);
             promijenjena = podaci.linije[vozneLinije.SelectedIndex];
