@@ -43,6 +43,9 @@ namespace Projeakt2Interakcija
             {
                 danUNedelji.Items.Add(item);
             }
+            danUNedelji.SelectedIndex = (int)dan - 1;
+            table.Columns.Add("stanica", typeof(string));
+            table.Columns.Add("polazak", typeof(string));
         }
 
         private void linija_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,8 +57,6 @@ namespace Projeakt2Interakcija
                 if (red != null)
                 {
                     table.Clear();
-                    table.Columns.Add("stanica", typeof(string));
-                    table.Columns.Add("polazak", typeof(string));
                     for (int i = 0; i < lin.stanice.Count; i++)
                     {
                         table.Rows.Add(lin.stanice[i].getMesto(), lin.polasci[i]);
