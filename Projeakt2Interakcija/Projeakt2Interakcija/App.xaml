@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Projeakt2Interakcija"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>

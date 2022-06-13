@@ -1,4 +1,4 @@
 NoviSad-Beograd|3|Novi Sad,Beograd|0,500|17:50,18:20
 NoviSad-Nis|1|Novi Sad,Nis|0,1000|13:50,15:10
 Bujanovac-Beograd|2|Bujanovac,Beograd|0,600|12:50,14:20
-Beograd-Nis|5|Beograd,Nis|0,1200|12:30,13:30
+NoviSad-Beograd-Nis|5|Novi Sad,Beograd,Nis|0,950,1200|12:30,14:00,19:00
