@@ -51,8 +51,8 @@ namespace Projeakt2Interakcija
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
             MenadzerPocetna pocetna = new MenadzerPocetna();
-            this.Close();
             pocetna.Show();
+            this.Close();
         }
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
@@ -123,7 +123,7 @@ namespace Projeakt2Interakcija
         {
             DodajNoviRedVoznje dodajRedVoznje = new DodajNoviRedVoznje();
             dodajRedVoznje.Show();
-            this.Close();
+            //this.Close();
         }
 
         private List<RedVoznje> redVoznjiPoDanu(string linija)
