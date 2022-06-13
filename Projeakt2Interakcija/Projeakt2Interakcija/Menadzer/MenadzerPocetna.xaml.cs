@@ -38,36 +38,36 @@ namespace Projeakt2Interakcija
         private void ProdateKarte_Click(object sender, RoutedEventArgs e)
         {
             PregledKarataMenadzer pregledKarata = new PregledKarataMenadzer();
-            this.Close();
             pregledKarata.Show();
+            this.Close();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
-            this.Close();
             logout.Show();
+            this.Close();
         }
 
         private void VozneLinije_Click(object sender, RoutedEventArgs e)
         {
             PrikazLinija prikazLinija = new PrikazLinija();
-            this.Close();
             prikazLinija.Show();
+            this.Close();
         }
 
         private void NasiVozovi_Click(object sender, RoutedEventArgs e)
         {
             NasiVozoviMenadzer nasiVozovi = new NasiVozoviMenadzer();
-            this.Close();
             nasiVozovi.Show();
+            this.Close();
         }
 
         private void RedVoznje_Click(object sender, RoutedEventArgs e)
         {
             PregledRedaVoznje redVoznje = new PregledRedaVoznje();
-            this.Close();
             redVoznje.Show();
+            this.Close();
         }
     }
 }

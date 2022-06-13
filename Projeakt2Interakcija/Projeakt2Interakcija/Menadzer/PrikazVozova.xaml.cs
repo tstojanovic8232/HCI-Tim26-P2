@@ -28,16 +28,27 @@ namespace Projeakt2Interakcija
         public PrikazVozova()
         {
             InitializeComponent();
+            SetProperties();
+
+
+            table.Columns.Add("Id", typeof(int));
+            table.Columns.Add("Tip", typeof(string));
+            table.Columns.Add("broj sedista", typeof(string));
         }
         DataTable table = new DataTable();
+        void SetProperties()
+        {
+            this.Title = "Srbija Voz - Pregled vozova";
 
+            this.MinHeight = 800;
+            this.MinWidth = 1067;
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
 
         private void ucitaj(object sender, EventArgs e)
         {
             table.Clear();
-            table.Columns.Add("Id", typeof(int));
-            table.Columns.Add("Tip", typeof(string));
-            table.Columns.Add("broj sedista", typeof(string));
             foreach (var item in ucitavanje.vozovi)
             {
                 table.Rows.Add(item.id, item.tip, item.brojSedista);
@@ -75,7 +86,6 @@ namespace Projeakt2Interakcija
             Console.WriteLine(id.Text + " ," + tip.Text + ", " + br.Text);
             table.Rows.Add(Int32.Parse(id.Text), tip.Text, br.Text);
             File.AppendAllText("..\\..\\Podaci\\Vozovi.txt", id.Text + "|" + tip.Text + "|" + br.Text + "\n");
-
 
 
         }
@@ -145,88 +155,77 @@ namespace Projeakt2Interakcija
             }
         }
 
-        private void soko_checkd(object sender, RoutedEventArgs e)
+        private void tip_Checked(object sender, RoutedEventArgs e)
         {
-            stari.IsChecked = false;
-            regia.IsChecked = false;
-            sed1.IsChecked = false;
-
-            var filtered = ucitavanje.vozovi.Where(x => x.tip.Contains(soko.Name));
-                datagrid.ItemsSource = null;
-                datagrid.ItemsSource = filtered;
-
-
-            if (soko.IsChecked == false)
+            ucitavanje = new UcitavanjePodataka();
+            CheckBox checkBox = sender as CheckBox;
+            List<Voz> vozovi = new List<Voz>();
+            if (soko.IsChecked == true)
             {
-                datagrid.ItemsSource = table.DefaultView;
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("soko")));
             }
-
-            
-            
-        }
-
-        private void stari_Checked(object sender, RoutedEventArgs e)
-        {
-            soko.IsChecked = false;
-            regia.IsChecked = false;
-            sed1.IsChecked = false;
-            var filtered = ucitavanje.vozovi.Where(x => x.tip.Contains("stari voz"));
-                datagrid.ItemsSource = null;
-                datagrid.ItemsSource = filtered;
-            
-            if (stari.IsChecked == false)
+            if (regio.IsChecked == true)
             {
-                datagrid.ItemsSource = table.DefaultView;
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("regio")));
             }
+            if (brzi.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("brzi")));
+            }
+            if (inter.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("inter")));
+            }
+            if (stari.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("stari")));
+            }
+            datagrid.ItemsSource = vozovi;
         }
 
-        private void regio_Checked(object sender, RoutedEventArgs e)
-        {
-            stari.IsChecked = false;
-            soko.IsChecked = false;
-            sed1.IsChecked = false;
-            var filtered = ucitavanje.vozovi.Where(x => x.tip.Contains("regio voz"));
-                datagrid.ItemsSource = null;
-                datagrid.ItemsSource = filtered;
-
-            
-           
-        }
-
-        private void br1_checkd(object sender, RoutedEventArgs e)
-        {
-            regia.IsChecked = false;
-            stari.IsChecked = false;
-            soko.IsChecked = false;
-
-            var filtered = ucitavanje.vozovi.Where(x => Int32.Parse(x.brojSedista)>100 && Int32.Parse(x.brojSedista) < 200);
-            
-            
-            datagrid.ItemsSource = null;
-            datagrid.ItemsSource = filtered;
-
-
-
-        }
         private void uncheck(object sender, RoutedEventArgs e)
         {
-            
-            datagrid.ItemsSource = table.DefaultView;
+            ucitavanje = new UcitavanjePodataka();
+            CheckBox checkBox = sender as CheckBox;
+            List<Voz> vozovi = new List<Voz>();
+            if (soko.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("soko")));
+            }
+            if (regio.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("regio")));
+            }
+            if (brzi.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("brzi")));
+            }
+            if (inter.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("inter")));
+            }
+            if (stari.IsChecked == true)
+            {
+                vozovi.AddRange(ucitavanje.vozovi.FindAll(x => x.tip.Contains("stari")));
+            }
+            if (soko.IsChecked == false && regio.IsChecked == false && brzi.IsChecked == false && inter.IsChecked == false && stari.IsChecked == false)
+                datagrid.ItemsSource = table.DefaultView;
+            else datagrid.ItemsSource = vozovi;
 
         }
 
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             MenadzerPocetna pocetna = new MenadzerPocetna();
             pocetna.Show();
+            this.Close();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
-            this.Close();
             logout.Show();
+            this.Close();
         }
     }
 }

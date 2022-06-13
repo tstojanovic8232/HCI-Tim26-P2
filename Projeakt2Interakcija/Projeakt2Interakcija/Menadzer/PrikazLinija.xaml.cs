@@ -40,8 +40,8 @@ namespace Projeakt2Interakcija
         {
             this.Title = "Srbija Voz - Pregled voznih linija";
 
-            this.MinHeight = 600;
-            this.MinWidth = 800;
+            this.MinHeight = 800;
+            this.MinWidth = 1067;
             Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
         }
@@ -62,7 +62,7 @@ namespace Projeakt2Interakcija
                 string cene = "";
                 foreach (var st in item.stanice)
                 {
-                    s += st.ToString() + ", ";
+                    s += st.mesto + ", ";
                 }
                 foreach (var c in item.cene)
                 {
@@ -80,7 +80,6 @@ namespace Projeakt2Interakcija
             datagrid.ItemsSource = table.DefaultView;
             polaziste.ItemsSource = ucitavanje.stanice;
             odrediste.ItemsSource = ucitavanje.stanice;
-
             
         }
 
@@ -113,7 +112,7 @@ namespace Projeakt2Interakcija
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
             selectedRow = datagrid.SelectedItem as DataRowView;
-
+            
             if (selectedRow != null)
             {
                 DodavanjeIzmenaLinije izmena = new DodavanjeIzmenaLinije();
@@ -194,7 +193,7 @@ namespace Projeakt2Interakcija
                     string cene = "";
                     foreach (var st in item.stanice)
                     {
-                        s += st.ToString() + ", ";
+                        s += st.mesto + ", ";
                     }
                     foreach (var c in item.cene)
                     {
@@ -305,16 +304,16 @@ namespace Projeakt2Interakcija
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
             MenadzerPocetna pocetna = new MenadzerPocetna();
-            this.Close();
             pocetna.Show();
+            this.Close();
         }
 
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
-            this.Close();
             logout.Show();
+            this.Close();
         }
     }
 }

@@ -100,15 +100,15 @@ namespace Projeakt2Interakcija
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
-            this.Close();
             logout.Show();
+            this.Close();
         }
 
         private void DodajRedVoznje_Click(object sender, RoutedEventArgs e)
         {
             DodajNoviRedVoznje dodajRedVoznje = new DodajNoviRedVoznje();
-            this.Close();
             dodajRedVoznje.Show();
+            this.Close();
         }
 
         private List<RedVoznje> redVoznjiPoDanu(string linija)
