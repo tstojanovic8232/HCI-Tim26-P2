@@ -78,15 +78,12 @@ namespace Projeakt2Interakcija
             if (m_found)
             {
                 //MessageBox.Show("Uspesno ste se ulogovali");
-
                 MenadzerPocetna menadzerPocetna = new MenadzerPocetna();
                 menadzerPocetna.Show();
                 this.Close();
             }
             else if (k_found)
             {
-                MessageBox.Show("Uspesno ste se ulogovali");
-
                 KlijentPocetna klijentPocetna = new KlijentPocetna();
                 klijentPocetna.Show();
                 this.Close();

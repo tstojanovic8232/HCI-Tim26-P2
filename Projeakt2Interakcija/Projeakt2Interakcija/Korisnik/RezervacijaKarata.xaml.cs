@@ -27,12 +27,6 @@ namespace Projeakt2Interakcija
         public RezervacijaKarata()
         {
             InitializeComponent();
-            var ii = DateTime.Today.AddHours(10); // 14:00:00
-            while (ii <= DateTime.Today.AddHours(24)) // 16:00:00
-            {
-                vreme.Items.Add(ii.TimeOfDay.ToString(@"hh\:mm"));
-                ii = ii.AddMinutes(30);
-            }
 
             foreach (var item in ucitavanje.stanice)
             {
@@ -48,17 +42,33 @@ namespace Projeakt2Interakcija
            
         }
 
+        private DanUNedelji danUNedelji(DayOfWeek day)
+        {
+
+            if (day.Equals(DayOfWeek.Monday)) return DanUNedelji.Ponedeljak;
+            else if (day.Equals(DayOfWeek.Tuesday)) return DanUNedelji.Utorak;
+            else if (day.Equals(DayOfWeek.Wednesday)) return DanUNedelji.Sreda;
+            else if (day.Equals(DayOfWeek.Thursday)) return DanUNedelji.Cetvrtak;
+            else if (day.Equals(DayOfWeek.Friday)) return DanUNedelji.Petak;
+            else if (day.Equals(DayOfWeek.Saturday)) return DanUNedelji.Subota;
+            else if (day.Equals(DayOfWeek.Sunday)) return DanUNedelji.Nedelja;
+
+            return DanUNedelji.Ponedeljak;
+        }
+
         private void polaziste_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (polaziste.SelectedItem != null && odrediste.SelectedItem != null)
+            if (polaziste.SelectedItem != null && odrediste.SelectedItem != null && datumVreme.SelectedDate != null)
             {
+                linija.SelectedIndex = -1;
                 Stanica pol_stanica = ucitavanje.stanice.Find(x => x.mesto.Equals(polaziste.SelectedItem.ToString()));
                 Stanica odr_stanica = ucitavanje.stanice.Find(x => x.mesto.Equals(odrediste.SelectedItem.ToString()));
-
+                DateTime dateTime = datumVreme.SelectedDate.Value;
+                DanUNedelji dan = danUNedelji(dateTime.DayOfWeek);
+                RedVoznje redVoznje = ucitavanje.redoviVoznje.Find(x => x.danUNedelji.Equals(dan));
                 List<Linija> lin = new List<Linija>();
                 bool prva = false;
                 bool druga = false;
-                int cena = 50;
                 foreach (Linija linija in ucitavanje.linije)
                 {
                     foreach (Stanica stanica in linija.stanice)
@@ -66,50 +76,63 @@ namespace Projeakt2Interakcija
                         if (stanica.mesto.Equals(pol_stanica.mesto))
                         {
                             prva = true;
-
                         }
                         else if (prva && stanica.mesto.Equals(odr_stanica.mesto))
                         {
                             druga = true;
                         }
-                        
                     }
                     if (prva && druga)
                     {
-                        lin.Add(linija);
-                        price.Text=cena+"";
-
-                        
+                        if (redVoznje.linije.Contains(linija)) lin.Add(linija);
+                        else continue;
                     }
                     prva = false;
                     druga = false;
                 }
                 linija.ItemsSource = lin.ToArray();
-                price.Text = cena + "";
             }
         }
 
+        DateTime vremePolaska = new DateTime();
+
         private void linija_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine(linija.SelectedItem.ToString());
-            string lines = linija.SelectedItem.ToString();
-            
-            foreach (var item in ucitavanje.linije)
+            if(linija.SelectedItem != null)
             {
-               
-                if (item.naziv.Equals(lines))
+                Console.WriteLine(linija.SelectedItem.ToString());
+                string lines = linija.SelectedItem.ToString();
+                double cena = 0;
+                string voz = "";
+                DateTime vremeDolaska = new DateTime();
+                foreach (var item in ucitavanje.linije)
                 {
-                    price.Text = item.cene[1]+"";
+                    if (item.naziv.Equals(lines))
+                    {
+                        int pol_id = item.stanice.FindIndex(x => x.mesto.Equals(polaziste.SelectedItem.ToString()));
+                        int odr_id = item.stanice.FindIndex(x => x.mesto.Equals(odrediste.SelectedItem.ToString()));
+                        vremePolaska = item.polasci[pol_id];
+                        vremeDolaska = item.polasci[odr_id];
+                        voz = item.getTipVoza();
+                        for (int i = odr_id; i > pol_id; i--)
+                        {
+                            cena += item.cene[i];
+                        }
+                        break;
+                    }
                 }
-
+                price.Text = "Ukupno: " + cena + " din";
+                time.Text = "Polazi u " + vremePolaska.ToShortTimeString();
+                tip.Text = "Tip voza: " + voz;
+                dolazak.Text = "Dolazak na odredište: " + vremeDolaska.ToShortTimeString();
             }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int id = 0;
             int brsed = 0;
-
             string s = datumVreme.Text.TrimEnd('.');
             foreach (var item in ucitavanje.karte)
             {
@@ -119,8 +142,9 @@ namespace Projeakt2Interakcija
                 brsed += 10;
             }
 
-            File.AppendAllText("..\\..\\Podaci\\Karte.txt", id + "|" + s + " " + vreme.SelectedItem.ToString() + "|" + linija.SelectedItem.ToString() + "|" + polaziste.SelectedItem.ToString() + "|" + odrediste.SelectedItem.ToString() + "|" + brsed + "|" + price.Text + "|" + "false" + "|" + klijentmail + "\n");
+            File.AppendAllText("..\\..\\Podaci\\Karte.txt", id + "|" + s + " " + vremePolaska.ToShortTimeString() + "|" + linija.SelectedItem.ToString() + "|" + polaziste.SelectedItem.ToString() + "|" + odrediste.SelectedItem.ToString() + "|" + brsed + "|" + price.Text + "|" + "false" + "|" + klijentmail + "\n");
             MessageBox.Show("Uspesno ste rezervisali kartu");
         }
+
     }
 }

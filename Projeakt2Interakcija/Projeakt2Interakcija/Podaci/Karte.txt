@@ -1,6 +1,6 @@
-1|4.9.2022 13:20|NoviSad-Nis|Novi Sad|Nis|100|1000.0|true|t@mail
-2|5.9.2022 12:30|Bujanovac-Beograd|Bujanovac|Beograd|100|600.0|false|mail3@
-3|4.9.2022 11:20|NoviSad-Nis|Novi Sad|Nis|100|1000.0|true|t@mail
-4|5.9.2022 12:30|Bujanovac-Beograd|Bujanovac|Beograd|100|600.0|false|mail3@
-5|14.6.2022 12:00|NoviSad-Beograd|Novi Sad|Beograd|240|500|false|klijent@mail
-6|17.6.2022 20:30|NoviSad-Beograd|Novi Sad|Beograd|250|500|false|klijent@mail
+1|4.9.2022 13:20|NoviSad-Nis|Novi Sad|Nis|100|1000|False|t@mail
+2|5.9.2022 12:30|Bujanovac-Beograd|Bujanovac|Beograd|100|600|False|mail3@
+3|4.9.2022 11:20|NoviSad-Nis|Novi Sad|Nis|100|1000|False|t@mail
+4|5.9.2022 12:30|Bujanovac-Beograd|Bujanovac|Beograd|100|600|False|mail3@
+5|14.6.2022 12:00|NoviSad-Beograd|Novi Sad|Beograd|240|500|True|klijent@mail
+6|17.6.2022 20:30|NoviSad-Beograd|Novi Sad|Beograd|250|500|False|klijent@mail

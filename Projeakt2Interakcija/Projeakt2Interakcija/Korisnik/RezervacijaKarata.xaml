@@ -33,19 +33,25 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Margin="0,0,0,23" SelectionChanged="polaziste_SelectionChanged"/>
+        <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="polaziste_SelectionChanged"/>
 
 
         <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="polaziste_SelectionChanged"></ComboBox>
 
         <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4" SelectionChanged="linija_SelectionChanged"></ListBox>
 
-        <DatePicker x:Name="datumVreme"   Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></DatePicker>
+        <DatePicker x:Name="datumVreme"   Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectedDateChanged="polaziste_SelectionChanged"></DatePicker>
 
-        <TextBlock TextDecorations="Underline" x:Name="price" TextAlignment="Right" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" DataContext="{Binding cena}">Ukupno: 000.00</TextBlock>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="5" Grid.RowSpan="2" Grid.Column="6" Grid.ColumnSpan="2">
+            <TextBlock x:Name="time" TextAlignment="Right" FontSize="15">Polazi u:</TextBlock>
+            <TextBlock x:Name="tip" TextAlignment="Right" FontSize="15">Tip voza:</TextBlock>
+            <TextBlock x:Name="dolazak" TextAlignment="Right" FontSize="15">Dolazak na odredište:</TextBlock>
+        </StackPanel>
+
+        <TextBlock TextDecorations="Underline" x:Name="price" TextAlignment="Right" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3"></TextBlock>
 
         <Button VerticalAlignment="Bottom" Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" FontSize="16" Padding="5" Click="Button_Click">Rezerviši</Button>
-        <ComboBox  x:Name="vreme"  Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Grid.Column="6" Margin="0,23,0,0" Grid.Row="5"/>
+        
 
     </Grid>
 </Page>

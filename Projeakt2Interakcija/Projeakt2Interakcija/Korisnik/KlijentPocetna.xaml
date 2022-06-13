@@ -10,7 +10,7 @@
         <Style TargetType="Button" x:Key="navButton">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="PeachPuff" />
+            <Setter Property="Foreground" Value="LightCyan" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -25,9 +25,9 @@
                           Value="True">
                                 <Setter Property="Opacity" Value="0.8" />
                                 <Setter Property="Background" 
-                           Value="PeachPuff"/>
+                           Value="LightCyan"/>
                                 <Setter Property="BorderBrush" 
-                           Value="PeachPuff"/>
+                           Value="LightCyan"/>
                                 <Setter Property="Foreground" 
                            Value="#0c203b"/>
                             </Trigger>
@@ -39,7 +39,7 @@
     </Window.Resources>
     <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="10*"></ColumnDefinition>
             <ColumnDefinition Width="10*"></ColumnDefinition>
             <ColumnDefinition Width="10*"></ColumnDefinition>
@@ -75,22 +75,22 @@
         <Image Source="../../Slike/ZelezniceSrbijeLogoMini.png" Width="50" Height="50" Grid.Row="1" />
 
         <Button Style="{StaticResource navButton}" Grid.Row="3" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" Click="Pocetna_Click" >P</Button>
-        
+                HorizontalAlignment="Center" Width="90" Height="50" Click="Pocetna_Click" >Pocetna</Button>
+
         <Button Style="{StaticResource navButton}" Grid.Row="4" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" Click="PrikaziKarte_Click" >K</Button>
+                HorizontalAlignment="Center" Width="90" Height="50" Click="PrikaziKarte_Click" >Pregled karata</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="5" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" Click="PrikaziLinije_Click" >VL</Button>
+                HorizontalAlignment="Center" Width="90" Height="50" Click="PrikaziLinije_Click" >Pregled linija</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="6" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" Click="PrikaziRedVoznje_Click" >RV</Button>
+                HorizontalAlignment="Center" Width="90" Height="50" Click="PrikaziRedVoznje_Click" >Red voznje</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="7" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" Click="RezervisiKartu_Click" >R</Button>
+                HorizontalAlignment="Center" Width="90" Height="50" Click="RezervisiKartu_Click" >Rezervacija</Button>
 
         <Button Style="{StaticResource navButton}" Grid.Row="8" VerticalAlignment="Center"
-                HorizontalAlignment="Center" Width="50" Height="50" Click="Odjava_Click" >LO</Button>
+                HorizontalAlignment="Center" Width="90" Height="50" Click="Odjava_Click" >Odjavi se</Button>
 
         <Frame x:Name="frame" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="9"></Frame>
 

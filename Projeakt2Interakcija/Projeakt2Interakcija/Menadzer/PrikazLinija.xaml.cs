@@ -130,9 +130,14 @@ namespace Projeakt2Interakcija
             {
                 int id = datagrid.SelectedIndex;
                 Linija linija = ucitavanje.linije.Find(x => x.naziv.Equals(row[0].ToString()));
-                table.Rows.RemoveAt(id);
-                ucitavanje.linije.Remove(linija);
-                ucitavanje.UpisLinija();
+                if (ucitavanje.redoviVoznje.Contains(ucitavanje.redoviVoznje.Find(x => x.linije.Contains(linija))))
+                    MessageBox.Show("Ne mozete obrisati liniju dok je ne obrisete iz reda voznje!");
+                else
+                {
+                    table.Rows.RemoveAt(id);
+                    ucitavanje.linije.Remove(linija);
+                    ucitavanje.UpisLinija();
+                }
 
             }
         }

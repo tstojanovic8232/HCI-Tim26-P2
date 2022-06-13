@@ -24,18 +24,18 @@ namespace Projeakt2Interakcija.Model
         public Linija(string naziv, Voz voz, List<Stanica> stanicel, List<double> cene, List<DateTime> polasci)
         {
             this.naziv = naziv;
-            Voz = voz;
-            stanice = stanicel;
+            this.Voz = voz;
+            this.stanice = stanicel;
             this.cene = cene;
             this.polasci = polasci;
         }
         public Linija(Linija lin)
         {
-            naziv = lin.naziv;
-            Voz voz = lin.Voz;
-            stanice = lin.stanice;
-            cene = lin.cene;
-            polasci = lin.polasci;
+            this.naziv = lin.naziv;
+            this.Voz = lin.Voz;
+            this.stanice = lin.stanice;
+            this.cene = lin.cene;
+            this.polasci = lin.polasci;
         }
 
         public string getTipVoza()
