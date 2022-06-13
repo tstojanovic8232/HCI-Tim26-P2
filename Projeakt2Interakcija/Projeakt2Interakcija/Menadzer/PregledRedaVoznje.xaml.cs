@@ -29,12 +29,8 @@ namespace Projeakt2Interakcija
         {
             InitializeComponent();
             SetProperties();
-            tabela_reda_voznji.Columns.Add("dan u sedmici", typeof(DanUNedelji));
-            tabela_reda_voznji.Columns.Add("Datum i vreme", typeof(DateTime));
+            tabela_reda_voznji.Columns.Add("dan u sedmici", typeof(string));
             tabela_reda_voznji.Columns.Add("Linija", typeof(string));
-            tabela_reda_voznji.Columns.Add("polaziste", typeof(string));
-            tabela_reda_voznji.Columns.Add("odrediste", typeof(string));
-            tabela_reda_voznji.Columns.Add("cena", typeof(double));
         }
 
         void SetProperties()
@@ -61,7 +57,7 @@ namespace Projeakt2Interakcija
             
             //redovi_voznji.Items.Clear();
             List<RedVoznje> redVoznji = podaci.redoviVoznje;
-            switch(linija.ToString().ToLower())
+            switch(linija.Text.ToLower())
             {
                 case "":
                 {
@@ -76,13 +72,13 @@ namespace Projeakt2Interakcija
                 case "subota":
                 case "nedelja":
                 {
-                    redVoznji = redVoznjiPoDanu(linija.ToString());
+                    redVoznji = redVoznjiPoDanu(linija.Text);
                     MessageBox.Show("redvoznji po danu");
                     break;
                 }
                 default:
                 {
-                    redVoznji = redVoznjiPoLiniji(linija.ToString());
+                    redVoznji = redVoznjiPoLiniji(linija.Text);
                     MessageBox.Show("redvoznji po liniji");
                     break;
                 }

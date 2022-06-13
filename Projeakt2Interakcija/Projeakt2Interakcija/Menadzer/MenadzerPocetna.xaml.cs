@@ -39,7 +39,7 @@ namespace Projeakt2Interakcija
         {
             PregledKarataMenadzer pregledKarata = new PregledKarataMenadzer();
             this.Close();
-            pregledKarata.ShowDialog();
+            pregledKarata.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
@@ -51,23 +51,23 @@ namespace Projeakt2Interakcija
 
         private void VozneLinije_Click(object sender, RoutedEventArgs e)
         {
-            PregledVoznihLinijaMenadzer vozneLinije = new PregledVoznihLinijaMenadzer();
+            PrikazLinija prikazLinija = new PrikazLinija();
             this.Close();
-            vozneLinije.Show();
+            prikazLinija.Show();
         }
 
         private void NasiVozovi_Click(object sender, RoutedEventArgs e)
         {
             NasiVozoviMenadzer nasiVozovi = new NasiVozoviMenadzer();
             this.Close();
-            nasiVozovi.ShowDialog();
+            nasiVozovi.Show();
         }
 
         private void RedVoznje_Click(object sender, RoutedEventArgs e)
         {
             PregledRedaVoznje redVoznje = new PregledRedaVoznje();
             this.Close();
-            redVoznje.ShowDialog();
+            redVoznje.Show();
         }
     }
 }

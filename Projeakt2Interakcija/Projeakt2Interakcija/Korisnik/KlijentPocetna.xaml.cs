@@ -24,7 +24,6 @@ namespace Projeakt2Interakcija
         public KlijentPocetna()
         {
             InitializeComponent();
-           
             frame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             MrezniPrikazKlijent mp = new MrezniPrikazKlijent();
             frame.Content = mp;

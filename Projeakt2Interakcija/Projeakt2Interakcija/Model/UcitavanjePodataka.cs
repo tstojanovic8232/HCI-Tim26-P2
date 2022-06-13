@@ -66,7 +66,7 @@ namespace Projeakt2Interakcija.Model
                     foreach (string item in niz2)
                     {
                         DateTime vreme;
-                        if (DateTime.TryParse(item, out vreme))
+                        if (DateTime.TryParseExact(item, "H:m", null, System.Globalization.DateTimeStyles.None, out vreme))
                         {
                             polasci.Add(vreme);
 
@@ -250,24 +250,24 @@ namespace Projeakt2Interakcija.Model
             { 
                 foreach (Linija linija in this.linije)
                 {
-                    //Bujanovac - Beograd | 2 | Bujanovac,Beograd | 0,600 | 12:50,14:20
-                    writer.Write(linija.naziv + " | ");
-                    writer.Write(linija.Voz.id + " | ");
+                    //Bujanovac-Beograd|2|Bujanovac,Beograd|0,600|12:50,14:20
+                    writer.Write(linija.naziv + "|");
+                    writer.Write(linija.Voz.id + "|");
                     for (int i = 0; i < linija.stanice.Count(); i++)
                     {
                         writer.Write(linija.stanice[i].mesto);
                         if (i < linija.stanice.Count - 1) writer.Write(",");
-                        else writer.Write(" | ");
+                        else writer.Write("|");
                     }
                     for (int i = 0; i < linija.cene.Count(); i++)
                     {
                         writer.Write(linija.cene[i]);
                         if (i < linija.cene.Count - 1) writer.Write(",");
-                        else writer.Write(" | ");
+                        else writer.Write("|");
                     }
                     for (int i = 0; i < linija.polasci.Count(); i++)
                     {
-                        writer.Write(linija.polasci[i]);
+                        writer.Write(linija.polasci[i].ToShortTimeString());
                         if (i < linija.polasci.Count - 1) writer.Write(",");
                         
                     }

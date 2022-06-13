@@ -27,8 +27,9 @@ namespace Projeakt2Interakcija.Model
             string linije="";
             foreach(Linija linija in this.linije)
             {
-                linije += linije + linija + ",";
+                linije += linija + ",";
             }
+            linije = linije.Substring(0, linije.Length - 1);
             return linije;
 
         }

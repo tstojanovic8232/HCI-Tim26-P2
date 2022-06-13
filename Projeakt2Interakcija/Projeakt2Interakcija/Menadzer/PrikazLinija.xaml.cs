@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Projeakt2Interakcija
 {
@@ -14,32 +15,47 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class PrikazLinija : Window
     {
-        static UcitavanjePodataka ucitavanje = new UcitavanjePodataka();
+        UcitavanjePodataka ucitavanje;
 
         public PrikazLinija()
         {
             InitializeComponent();
-        }
-        DataTable noveStanice = new DataTable();
-        DataTable table = new DataTable();
-        DataTable tableSearch = new DataTable();
+            SetProperties();
+            ucitavanje = new UcitavanjePodataka();
 
-        private void ucitaj(object sender, EventArgs e)
-        {
-            table.Clear();
-
-            // vozovi
-            List<string> vozs = new List<string>();
-            foreach (var voz in ucitavanje.vozovi)
-            {
-                vozs.Add(voz.ToString());
-            }
-
-            // linije
             table.Columns.Add("Naziv", typeof(string));
             table.Columns.Add("Voz", typeof(string));
             table.Columns.Add("Stanice", typeof(string));
             table.Columns.Add("Cene po stanici", typeof(string));
+
+            // pretraga i filter
+            tableSearch.Columns.Add("Naziv", typeof(string));
+            tableSearch.Columns.Add("Voz", typeof(string));
+            tableSearch.Columns.Add("Stanice", typeof(string));
+            tableSearch.Columns.Add("Cene po stanici", typeof(string));
+        }
+
+
+        void SetProperties()
+        {
+            this.Title = "Srbija Voz - Pregled voznih linija";
+
+            this.MinHeight = 600;
+            this.MinWidth = 800;
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
+
+        DataTable table = new DataTable();
+        DataTable tableSearch = new DataTable();
+        public static DataRowView selectedRow;
+
+        private void ucitaj(object sender, EventArgs e)
+        {
+            table.Clear();
+            ucitavanje = new UcitavanjePodataka();
+            // linije
+
             foreach (var item in ucitavanje.linije)
             {
                 string s = "";
@@ -59,23 +75,13 @@ namespace Projeakt2Interakcija
 
 
 
-            // unos stanice
-            noveStanice.Columns.Add("Mesto", typeof(string));
-            noveStanice.Columns.Add("Polazak", typeof(string));
-            noveStanice.Columns.Add("Cena", typeof(double));
 
             // ItemsSource
             datagrid.ItemsSource = table.DefaultView;
-            unosStanica.ItemsSource = noveStanice.DefaultView;
-            vozovi.ItemsSource = vozs.ToArray();
             polaziste.ItemsSource = ucitavanje.stanice;
             odrediste.ItemsSource = ucitavanje.stanice;
 
-            // pretraga i filter
-            tableSearch.Columns.Add("Naziv", typeof(string));
-            tableSearch.Columns.Add("Voz", typeof(string));
-            tableSearch.Columns.Add("Stanice", typeof(string));
-            tableSearch.Columns.Add("Cene po stanici", typeof(string));
+            
         }
 
         private void txtChange(object sender, EventArgs e)
@@ -97,82 +103,24 @@ namespace Projeakt2Interakcija
         }
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            if (naziv.Text != null && vozovi.SelectedItem != null)
-            {
-                int voz = ucitavanje.vozovi.Find(x => x.ToString().Equals(vozovi.SelectedItem.ToString())).id;
-                string stanice = "";
-                string cene = "";
-                string polasci = "";
-                foreach (DataRow row in noveStanice.Rows)
-                {
-                    var stanica = row[0].ToString();
-                    if (!stanica.Equals(""))
-                        stanice += stanica + ",";
-
-                    var polazak = row[1].ToString();
-                    if (!polazak.Equals("")) polasci += polazak + ",";
-
-                    var cena = row[2].ToString();
-                    if (!cena.Equals("")) cene += cena + ",";
-
-                }
-                bool sve = false;
-                if (stanice.Length - 1 > 0 && stanice.Split(',').Length > 2)
-                {
-                    stanice = stanice.Substring(0, stanice.Length - 1);
-                    sve = true;
-                }
-                else
-                {
-                    sve = false;
-                    MessageBox.Show("Unesite bar dve stanice!");
-                }
-                if (polasci.Length - 1 > 0 && polasci.Split(',').Length > 2)
-                {
-                    polasci = polasci.Substring(0, polasci.Length - 1);
-                    sve = true;
-                }
-                else
-                {
-                    sve = false;
-                    MessageBox.Show("Unesite vreme za svaku stanicu!");
-                }
-                if (cene.Length - 1 > 0 && cene.Split(',').Length > 2)
-                {
-                    sve = false;
-                    cene = cene.Substring(0, cene.Length - 1);
-                }
-                else
-                {
-                    sve = false;
-                    MessageBox.Show("Unesite cenu za svaku stanicu!");
-                }
-
-                string ime = naziv.Text;
-                if (sve) Console.WriteLine(ime + "|" + voz + "|" + stanice + "|" + cene + "|" + polasci);
-            }
-            else if (vozovi.SelectedItem == null) MessageBox.Show("Izaberite voz!");
+            selectedRow = null;
+            DodavanjeIzmenaLinije dodavanje = new DodavanjeIzmenaLinije();
+            dodavanje.Show();
+            dodavanje.Closed += this.ucitaj;
         }
 
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            DataRowView row = datagrid.SelectedItem as DataRowView;
+            selectedRow = datagrid.SelectedItem as DataRowView;
 
-            if (row != null)
+            if (selectedRow != null)
             {
-
-                int id = datagrid.SelectedIndex;
-
-                Console.WriteLine(table.Rows.Count);
-                row.Delete();
-                List<string> quotelist = File.ReadAllLines("..\\..\\Podaci\\Vozovi.txt").ToList();
-
-                quotelist.RemoveAt(id);
-
-                File.WriteAllLines("..\\..\\Podaci\\Vozovi.txt", quotelist.ToArray());
-                noveStanice.Clear();
+                DodavanjeIzmenaLinije izmena = new DodavanjeIzmenaLinije();
+                izmena.Show();
+                izmena.Closed += this.ucitaj;
             }
+            else MessageBox.Show("Izaberite liniju koju želite da izmenite!");
         }
 
         private void Obrisi_Click(object sender, RoutedEventArgs e)
@@ -181,53 +129,25 @@ namespace Projeakt2Interakcija
 
             if (row != null)
             {
-
-                int ind = datagrid.SelectedIndex;
-
-                List<string> quotelist = File.ReadAllLines("..\\..\\Podaci\\Vozovi.txt").ToList();
-                row.Delete();
-
-                //foreach (Voz v in vozs)
-                //{
-                //    if (v.id == ind)
-                //    {
-                //        v.id = Int32.Parse(id.Text);
-                //        v.tip = tip.Text;
-                //        v.brojSedista = br.Text;
-                //        Console.WriteLine(v.ToString());
-
-                //    }
-                //}
-
-                System.IO.File.WriteAllLines("..\\..\\Podaci\\Vozovi.txt", quotelist.ToArray());
+                int id = datagrid.SelectedIndex;
+                Linija linija = ucitavanje.linije.Find(x => x.naziv.Equals(row[0].ToString()));
+                table.Rows.RemoveAt(id);
+                ucitavanje.linije.Remove(linija);
+                ucitavanje.UpisLinija();
 
             }
         }
 
         private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataRowView row = datagrid.SelectedItem as DataRowView;
-            if (row != null)
-            {
-                naziv.Text = row[0].ToString();
-                vozovi.SelectedItem = ucitavanje.vozovi.Find(x => x.getVozInfo().Equals(row[1])).ToString();
-
-                Linija linija = ucitavanje.linije.Find(x => x.naziv.Equals(row[0].ToString()));
-                List<Stanica> stanice = linija.stanice;
-                List<double> cene = linija.cene;
-                List<DateTime> polasci = linija.polasci;
-                noveStanice.Clear();
-                for (int i = 0; i < stanice.Count; i++)
-                {
-                    noveStanice.Rows.Add(stanice[i].getMesto(), polasci[i].ToShortTimeString(), cene[i].ToString());
-                }
-            }
+            selectedRow = datagrid.SelectedItem as DataRowView;
         }
 
 
 
         private void stanica_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ucitavanje = new UcitavanjePodataka();
             if (polaziste.SelectedItem != null && odrediste.SelectedItem != null)
             {
                 Stanica pol_stanica = ucitavanje.stanice.Find(x => x.naziv.Equals(polaziste.SelectedItem.ToString()));
@@ -306,6 +226,7 @@ namespace Projeakt2Interakcija
 
         private void tip_Checked(object sender, RoutedEventArgs e)
         {
+            ucitavanje = new UcitavanjePodataka();
             CheckBox checkBox = sender as CheckBox;
             Linija linija = new Linija();
             List<Linija> lin = new List<Linija>();
@@ -347,6 +268,7 @@ namespace Projeakt2Interakcija
 
         private void uncheck(object sender, RoutedEventArgs e)
         {
+            ucitavanje = new UcitavanjePodataka();
             CheckBox checkBox = (CheckBox)sender;
             Linija linija = new Linija();
             List<Linija> lin = new List<Linija>();
@@ -379,5 +301,20 @@ namespace Projeakt2Interakcija
             UcitajListu(lin);
         }
 
+
+        private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
+        {
+            MenadzerPocetna pocetna = new MenadzerPocetna();
+            this.Close();
+            pocetna.Show();
+        }
+
+
+        private void OdjaviMe_Click(object sender, RoutedEventArgs e)
+        {
+            OdjavaMenadzer logout = new OdjavaMenadzer();
+            this.Close();
+            logout.Show();
+        }
     }
 }

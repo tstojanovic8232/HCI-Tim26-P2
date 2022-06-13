@@ -47,5 +47,38 @@ namespace Projeakt2Interakcija.Model
         {
             return naziv;
         }
+
+        public string stanice_string()
+        {
+            string stanice = "";
+            foreach (Stanica stanica in this.stanice)
+            {
+                stanice += stanica.mesto + ",";
+            }
+            stanice = stanice.Substring(0, stanice.Length - 1);
+            return stanice;
+        }
+
+        public string polasci_string()
+        {
+            string polasci = "";
+            foreach (DateTime polazak in this.polasci)
+            {
+                polasci += polazak.ToShortTimeString() + ",";
+            }
+            polasci = polasci.Substring(0, polasci.Length - 1);
+            return polasci;
+        }
+
+        public string cene_string()
+        {
+            string cene = "";
+            foreach (double cena in this.cene)
+            {
+                cene += cena.ToString() + ",";
+            }
+            cene = cene.Substring(0, cene.Length - 1);
+            return cene;
+        }
     }
 }

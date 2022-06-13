@@ -1,0 +1,68 @@
+﻿<Window x:Class="Projeakt2Interakcija.DodavanjeIzmenaLinije"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projeakt2Interakcija"
+        mc:Ignorable="d"
+        Loaded="ucitaj" 
+        Background="#4d4847"
+        Title="Srbija Voz - ">
+    
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,0,15,0" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="UNESITE NAZIV:" HorizontalAlignment="Left" Grid.Column="1"/>
+            <TextBox x:Name="naziv" TextWrapping="Wrap" FontSize="22px" MouseDoubleClick="OcistiTekst" Grid.Column="2" HorizontalAlignment="Stretch"/>
+        </Grid>
+
+        <Grid Margin="0,0,15,0" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="IZABERITE VOZ:" HorizontalAlignment="Left" Grid.Column="1"/>
+            <ComboBox x:Name="vozovi" Grid.Column="2" FontSize="22px" HorizontalAlignment="Stretch"/>
+        </Grid>
+
+        <Grid Margin="0,0,15,0" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label  FontSize="25px" FontWeight="ExtraBold" Foreground="#6abd53" Content="UNESITE STANICE:" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+            <DataGrid x:Name="unosStanica" FontSize="20px" Grid.Column="2" Margin="0,0,5,0" CanUserAddRows="True" CanUserResizeColumns="False" ColumnWidth="1*" />
+        </Grid>
+
+        <Grid Margin="0,0,0,0" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847"  Width="200" Content="OK" Margin="15,15,15,15" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="Ok_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>
+<!--
+    
+    
+    -->
