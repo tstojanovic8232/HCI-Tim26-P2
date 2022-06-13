@@ -33,17 +33,19 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></ComboBox>
+        <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Margin="0,0,0,23" SelectionChanged="polaziste_SelectionChanged"/>
 
-        <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></ComboBox>
 
-        <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4"></ListBox>
+        <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="polaziste_SelectionChanged"></ComboBox>
 
-        <DatePicker x:Name="datumVreme" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></DatePicker>
+        <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4" SelectionChanged="linija_SelectionChanged"></ListBox>
 
-        <TextBlock TextDecorations="Underline" TextAlignment="Right" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" DataContext="{Binding cena}">Ukupno: 000.00</TextBlock>
+        <DatePicker x:Name="datumVreme"   Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top"></DatePicker>
 
-        <Button VerticalAlignment="Bottom" Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" FontSize="16" Padding="5" >Rezerviši</Button>
-        
+        <TextBlock TextDecorations="Underline" x:Name="price" TextAlignment="Right" FontSize="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3" DataContext="{Binding cena}">Ukupno: 000.00</TextBlock>
+
+        <Button VerticalAlignment="Bottom" Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" FontSize="16" Padding="5" Click="Button_Click">Rezerviši</Button>
+        <ComboBox  x:Name="vreme"  Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Grid.Column="6" Margin="0,23,0,0" Grid.Row="5"/>
+
     </Grid>
 </Page>

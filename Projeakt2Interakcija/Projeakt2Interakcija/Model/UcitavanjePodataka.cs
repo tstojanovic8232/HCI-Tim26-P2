@@ -143,10 +143,10 @@ namespace Projeakt2Interakcija.Model
 
         public void UcitavanjeKarata()
         {
-
+          
             using (StreamReader reader = File.OpenText("..\\..\\Podaci\\Karte.txt"))
             {
-
+                
                 while (!reader.EndOfStream)
                 {
 

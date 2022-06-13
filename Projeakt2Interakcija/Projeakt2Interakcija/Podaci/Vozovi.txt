@@ -6,3 +6,4 @@
 6|regio voz|200
 7|stari voz|110
 8|regio voz|120
+9|soko|400

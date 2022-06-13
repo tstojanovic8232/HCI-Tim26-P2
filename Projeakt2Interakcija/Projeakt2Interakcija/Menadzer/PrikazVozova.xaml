@@ -10,6 +10,7 @@
         Title="Srbija Voz" Height="598.404" Width="1037.404">
 
     <Grid HorizontalAlignment="Left" Width="1017" Margin="10,0,0,-4">
+
         <!-- zaglavlje-->
         <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg" Margin="0,4,936,502"/>
         <Label FontWeight="UltraBold" Foreground="#6abd53" Content="NAŠI VOZOVI" FontSize="60" Margin="83,-4,379,500" />
@@ -29,6 +30,8 @@
         <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Content="OBRISI" HorizontalAlignment="Left" Margin="600,460,0,0" VerticalAlignment="Top" Width="126" Height="75" Click="Obrisi_Click"/>
         <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Content="IZMENI" HorizontalAlignment="Left" Margin="800,460,0,0" VerticalAlignment="Top" Width="126" Height="75" Click="Izmeni_Click"/>
         <CheckBox Content="Soko" x:Name="soko" HorizontalAlignment="Left" Margin="520,394,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Checked="soko_checkd" Unchecked="uncheck">
+
+
             <CheckBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

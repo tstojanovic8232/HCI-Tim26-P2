@@ -24,8 +24,7 @@ namespace Projeakt2Interakcija
         public KlijentPocetna()
         {
             InitializeComponent();
-            var window = Application.Current.MainWindow;
-            username = (window as MainWindow).korisnciko_ime.Text;
+           
             frame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             MrezniPrikazKlijent mp = new MrezniPrikazKlijent();
             frame.Content = mp;
@@ -33,7 +32,8 @@ namespace Projeakt2Interakcija
 
         private void PrikaziKarte_Click(object sender, RoutedEventArgs e)
         {
-            PregledKarataKlijent pk = new PregledKarataKlijent();
+              PregledKarataKlijent pk = new PregledKarataKlijent();
+       
             frame.Content = pk;
         }
 
