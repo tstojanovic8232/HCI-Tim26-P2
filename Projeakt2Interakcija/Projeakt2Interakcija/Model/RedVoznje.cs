@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeakt2Interakcija.Model
 {
-    internal class RedVoznje
+    public class RedVoznje
     {
         public DanUNedelji danUNedelji { get; set; }
         public List<Linija> linije;
@@ -40,7 +40,7 @@ namespace Projeakt2Interakcija.Model
 
     }
 
-    enum DanUNedelji
+    public enum DanUNedelji
     {
         Ponedeljak = 1,
         Utorak,

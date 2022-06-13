@@ -78,6 +78,9 @@
     <Compile Include="Menadzer\DodajNoviRedVoznje.xaml.cs">
       <DependentUpon>DodajNoviRedVoznje.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menadzer\IzmijeniRedVoznje.xaml.cs">
+      <DependentUpon>IzmijeniRedVoznje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menadzer\MenadzerPocetna.xaml.cs">
       <DependentUpon>MenadzerPocetna.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menadzer\DodajNoviRedVoznje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menadzer\IzmijeniRedVoznje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

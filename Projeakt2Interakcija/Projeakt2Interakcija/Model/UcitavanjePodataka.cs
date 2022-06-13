@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projeakt2Interakcija.Model
 {
-    class UcitavanjePodataka
+    public class UcitavanjePodataka
     {
         public List<Voz> vozovi = new List<Voz>();
         public List<Klijent> korisnici = new List<Klijent>();

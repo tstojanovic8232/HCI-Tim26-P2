@@ -23,14 +23,19 @@ namespace Projeakt2Interakcija
     public partial class PregledRedaVoznje : Window
     {
 
-        UcitavanjePodataka podaci = new UcitavanjePodataka();
+        public static UcitavanjePodataka podaci = new UcitavanjePodataka();
         DataTable tabela_reda_voznji = new DataTable();
+        public static DataRowView odabraniRed;
         public PregledRedaVoznje()
         {
             InitializeComponent();
             SetProperties();
+
+            
             tabela_reda_voznji.Columns.Add("dan u sedmici", typeof(string));
             tabela_reda_voznji.Columns.Add("Linija", typeof(string));
+            tabela_reda_voznji.Columns.Add("Vrijeme polaska:", typeof(string));
+            
         }
 
         void SetProperties()
@@ -52,7 +57,6 @@ namespace Projeakt2Interakcija
 
         private void Prikazi_Click(object sender, RoutedEventArgs e)
         {
-
             tabela_reda_voznji.Clear();
             
             //redovi_voznji.Items.Clear();
@@ -61,7 +65,18 @@ namespace Projeakt2Interakcija
             {
                 case "":
                 {
-                    redVoznji = podaci.redoviVoznje;
+                    redVoznji = new List<RedVoznje>();
+                    for(int i = 0; i< podaci.redoviVoznje.Count;i++)
+                    {
+                            for(int j = 0; j < podaci.redoviVoznje[i].linije.Count; j++)
+                            {
+                                List<Linija> voznaLinija = new List<Linija>();
+                                voznaLinija.Add(podaci.redoviVoznje[i].linije[j]);
+                                redVoznji.Add(new RedVoznje(podaci.redoviVoznje[i].danUNedelji, voznaLinija));
+                            }
+                    }
+                    //redVoznji = podaci.redoviVoznje;
+
                     break;
                 }
                 case "ponedeljak":
@@ -73,13 +88,13 @@ namespace Projeakt2Interakcija
                 case "nedelja":
                 {
                     redVoznji = redVoznjiPoDanu(linija.Text);
-                    MessageBox.Show("redvoznji po danu");
+                    //MessageBox.Show("redvoznji po danu");
                     break;
                 }
                 default:
                 {
                     redVoznji = redVoznjiPoLiniji(linija.Text);
-                    MessageBox.Show("redvoznji po liniji");
+                    //MessageBox.Show("redvoznji po liniji");
                     break;
                 }
             }
@@ -89,10 +104,10 @@ namespace Projeakt2Interakcija
             {
                 //.Columns.Add(redVoznji[i].danUNedelji.ToString());
 
-                tabela_reda_voznji.Rows.Add(redVoznji[i].danUNedelji.ToString(), redVoznji[i].linije_string());
+                tabela_reda_voznji.Rows.Add(redVoznji[i].danUNedelji.ToString(), redVoznji[i].linije_string(), redVoznji[i].linije[0].polasci[0].ToShortTimeString());
                 
             }
-            MessageBox.Show("Prikaz!");
+            //MessageBox.Show("Prikaz!");
             redovi_voznji.ItemsSource = tabela_reda_voznji.DefaultView;
             
         }
@@ -107,7 +122,6 @@ namespace Projeakt2Interakcija
         private void DodajRedVoznje_Click(object sender, RoutedEventArgs e)
         {
             DodajNoviRedVoznje dodajRedVoznje = new DodajNoviRedVoznje();
-            this.Close();
             dodajRedVoznje.Show();
         }
 
@@ -116,8 +130,13 @@ namespace Projeakt2Interakcija
             List<RedVoznje> rezultat = new List<RedVoznje>();
             for (int i = 0; i < podaci.redoviVoznje.Count; i++)
             {
-                if (podaci.redoviVoznje[i].danUNedelji.ToString().ToLower().Equals(linija.ToLower()))
-                    rezultat.Add(podaci.redoviVoznje[i]);
+                for(int j =0; j< podaci.redoviVoznje[i].linije.Count; j++)
+                    if (podaci.redoviVoznje[i].danUNedelji.ToString().ToLower().Equals(linija.ToLower()))
+                    {
+                        List<Linija> linije = new List<Linija>();
+                        linije.Add(podaci.redoviVoznje[i].linije[j]);
+                        rezultat.Add(new RedVoznje(podaci.redoviVoznje[i].danUNedelji, linije));
+                    }
             }
             return rezultat;
         }
@@ -142,6 +161,100 @@ namespace Projeakt2Interakcija
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void IzmijeniRedVoznje_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (redovi_voznji.SelectedIndex == -1)
+            {
+                MessageBox.Show("Morate odabrati red Voznje koji zelite da mijenjate!");
+            }
+            else
+            {
+                odabraniRed = redovi_voznji.SelectedItem as DataRowView;
+                IzmijeniRedVoznje izmijeniRed = new IzmijeniRedVoznje();
+                izmijeniRed.Show();
+
+                /*
+                DataRowView redVoznjeTabela = redovi_voznji.SelectedItem as DataRowView;
+                
+                if (MessageBox.Show("Sigurni ste da želite da brišete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                {
+                    //vrati nazad na pregled
+                }
+                else
+                {
+
+                }
+                {
+                    for (int i = 0; i < podaci.redoviVoznje.Count; i++)
+                    {
+                        
+                        if (redVoznjeTabela!=null &&
+                        podaci.redoviVoznje[i].danUNedelji.ToString().Equals(redVoznjeTabela[0] ) )
+                        for (int j = 0; j < podaci.redoviVoznje[i].linije.Count; j++)
+                        {
+                            if (podaci.redoviVoznje[i].linije[j].naziv.Equals(redVoznjeTabela[1]) )
+                            {
+                                    podaci.redoviVoznje[i].linije.RemoveAt(j);
+                                    podaci.UpisRedovaVoznje();
+                                    Prikazi_Click(this, e);
+                                    obrisan = true;
+                                    break;
+                            }
+                                
+                        }
+                        if (obrisan) break;
+                        else continue;
+
+                    } 
+                }
+                */
+            }
+        }
+
+        private void ObrisiRedVoznje_Click(object sender, RoutedEventArgs e)
+        {
+            bool obrisan = false;
+            if (redovi_voznji.SelectedIndex == -1)
+            {
+                MessageBox.Show("Morate odabrati red Voznje koji zelite da brišete!");
+            }
+            else
+            {
+
+                DataRowView redVoznjeTabela = redovi_voznji.SelectedItem as DataRowView;
+                
+                if (MessageBox.Show("Sigurni ste da želite da brišete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                {
+                    //vrati nazad na pregled
+                }
+                else
+                {
+                    for (int i = 0; i < podaci.redoviVoznje.Count; i++)
+                    {
+
+                        if (redVoznjeTabela != null &&
+                        podaci.redoviVoznje[i].danUNedelji.ToString().Equals(redVoznjeTabela[0]))
+                            for (int j = 0; j < podaci.redoviVoznje[i].linije.Count; j++)
+                            {
+                                if (podaci.redoviVoznje[i].linije[j].naziv.Equals(redVoznjeTabela[1]))
+                                {
+                                    podaci.redoviVoznje[i].linije.RemoveAt(j);
+                                    podaci.UpisRedovaVoznje();
+                                    Prikazi_Click(this, e);
+                                    obrisan = true;
+                                    break;
+                                }
+
+                            }
+                        if (obrisan) break;
+                        else continue;
+
+                    }
+                }
+            }
         }
     }
 

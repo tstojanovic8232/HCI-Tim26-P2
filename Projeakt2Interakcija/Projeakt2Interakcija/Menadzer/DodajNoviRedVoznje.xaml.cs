@@ -22,7 +22,7 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class DodajNoviRedVoznje : Window
     {
-        UcitavanjePodataka podaci = new UcitavanjePodataka();
+        UcitavanjePodataka podaci = PregledRedaVoznje.podaci;
 
         public DodajNoviRedVoznje()
         {
@@ -69,16 +69,17 @@ namespace Projeakt2Interakcija
 
         private void NazadNaPocetnu_Click(object sender, RoutedEventArgs e)
         {
+            
+            //PregledRedaVoznje pregledRedaVoznje = new PregledRedaVoznje();
+            //pregledRedaVoznje.Show();
             this.Close();
-            MenadzerPocetna pocetna = new MenadzerPocetna();
-            pocetna.Show();
         }
 
         private void OdjaviMe_Click(object sender, RoutedEventArgs e)
         {
             OdjavaMenadzer logout = new OdjavaMenadzer();
-            this.Close();
             logout.Show();
+            this.Close();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeakt2Interakcija.Model
 {    
-    internal class Linija
+    public class Linija
     {
         public string naziv { get; set; }
         public Voz Voz { get; set; }

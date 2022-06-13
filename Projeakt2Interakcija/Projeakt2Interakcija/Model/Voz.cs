@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeakt2Interakcija.Model
 {
-    internal class Voz
+    public class Voz
     {
         public int  id { get; set; }
         public string tip { get; set; }

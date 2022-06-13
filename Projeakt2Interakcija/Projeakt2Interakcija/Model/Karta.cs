@@ -2,7 +2,7 @@
 
 namespace Projeakt2Interakcija.Model
 {
-    internal class Karta
+    public class Karta
     {
         public int id { get; set; }
         public DateTime datumVreme { get; set; }

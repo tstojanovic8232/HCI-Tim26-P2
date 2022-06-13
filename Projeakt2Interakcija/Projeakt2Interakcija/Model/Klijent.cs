@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeakt2Interakcija.Model
 {
-    internal class Klijent
+    public class Klijent
     {
         public string ime { get; set; }
         public string prezime { get; set; }

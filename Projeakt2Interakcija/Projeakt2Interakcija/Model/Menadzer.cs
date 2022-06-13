@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeakt2Interakcija.Model
 {
-    internal class Menadzer
+    public class Menadzer
     {
         
        
