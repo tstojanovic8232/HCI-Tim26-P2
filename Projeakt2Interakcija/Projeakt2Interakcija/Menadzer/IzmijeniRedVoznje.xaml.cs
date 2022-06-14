@@ -29,6 +29,7 @@ namespace Projeakt2Interakcija
         public IzmijeniRedVoznje()
         {
             InitializeComponent();
+            SetProperties();
 
             List<DanUNedelji> dani = Enum.GetValues(typeof(DanUNedelji)).Cast<DanUNedelji>().ToList();
             danUsedmici.ItemsSource = dani;
@@ -39,6 +40,12 @@ namespace Projeakt2Interakcija
                     danUsedmici.SelectedIndex = i;
                     danID = i;
                 }
+            }
+
+            void SetProperties()
+            {
+                Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+                this.Icon = BitmapFrame.Create(iconUri);
             }
 
             vozneLinije.ItemsSource = podaci.linije;
@@ -73,7 +80,7 @@ namespace Projeakt2Interakcija
             Linija promijenjena = podaci.redoviVoznje[danID].linije[linijaID];
             //MessageBox.Show(promijenjena.naziv);
 
-            podaci.redoviVoznje[danID].linije.Remove(promijenjena);
+            podaci.redoviVoznje[danID].linije.RemoveAt(linijaID);
             promijenjena = podaci.linije[vozneLinije.SelectedIndex];
 
             if (!podaci.redoviVoznje[danUsedmici.SelectedIndex].linije.Contains(promijenjena))

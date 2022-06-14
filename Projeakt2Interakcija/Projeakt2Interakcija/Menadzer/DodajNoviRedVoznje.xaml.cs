@@ -27,13 +27,20 @@ namespace Projeakt2Interakcija
         public DodajNoviRedVoznje()
         {
             InitializeComponent();
-            
+            SetProperties();
+
+
             vozneLinije.ItemsSource = podaci.linije;
             List <DanUNedelji> dani = Enum.GetValues(typeof(DanUNedelji)).Cast<DanUNedelji>().ToList();
             //danUsedmici.ItemsSource = dani;
 
         }
 
+        void SetProperties()
+        {
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
 
         private void DodajRedVoznje_Click(object sender, RoutedEventArgs e)
         {

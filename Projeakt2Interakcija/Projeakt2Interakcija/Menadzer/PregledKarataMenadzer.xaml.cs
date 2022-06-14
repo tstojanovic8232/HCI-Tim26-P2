@@ -30,7 +30,7 @@ namespace Projeakt2Interakcija
         {
             InitializeComponent();
             SetProperties();
-            
+
         }
 
         void SetProperties()

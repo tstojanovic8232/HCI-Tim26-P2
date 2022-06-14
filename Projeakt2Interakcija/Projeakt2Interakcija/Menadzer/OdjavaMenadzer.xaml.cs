@@ -19,15 +19,28 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class OdjavaMenadzer : Window
     {
+
         public OdjavaMenadzer()
         {
             InitializeComponent();
+            SetProperties();
+
             foreach (Window item in App.Current.Windows)
             {
                 if (item != this)
                     item.Close();
             }
         }
+
+        void SetProperties()
+        {
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+        }
+
+
+
+
 
         private void PrijaviMe_Click(object sender, RoutedEventArgs e)
         {

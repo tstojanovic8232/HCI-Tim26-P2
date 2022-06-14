@@ -117,14 +117,14 @@
     <Compile Include="Menadzer\PregledKarataMenadzer.xaml.cs">
       <DependentUpon>PregledKarataMenadzer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menadzer\PregledRedaVoznje.xaml.cs">
-      <DependentUpon>PregledRedaVoznje.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Menadzer\PrikazVozova.xaml.cs">
       <DependentUpon>PrikazVozova.xaml</DependentUpon>
     </Compile>
     <Compile Include="Korisnik\Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPregledRedaVoznje.xaml.cs">
+      <DependentUpon>VideoPregledRedaVoznje.xaml</DependentUpon>
     </Compile>
     <Page Include="Korisnik\BrisanjeRezervacija.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -202,15 +202,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Menadzer\PregledRedaVoznje.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Menadzer\PrikazVozova.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Korisnik\Registracija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VideoPregledRedaVoznje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,6 +309,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Slike\kanta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PregledRedaVoznje.avi" />
+    <Content Include="Video\PregledRedaVoznje.avi" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

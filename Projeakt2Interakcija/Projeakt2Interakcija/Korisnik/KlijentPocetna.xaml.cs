@@ -67,7 +67,6 @@ namespace Projeakt2Interakcija
         private void Odjava_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            this.username = "";
             main.Show();
             this.Close();
         }

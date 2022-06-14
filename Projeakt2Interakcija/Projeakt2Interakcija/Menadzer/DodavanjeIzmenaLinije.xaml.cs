@@ -22,6 +22,9 @@ namespace Projeakt2Interakcija
         {
             InitializeComponent();
             SetProperties();
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
+
             rowView = PrikazLinija.selectedRow;
         }
 
