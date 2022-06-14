@@ -24,7 +24,7 @@
         <Label FontWeight="Bold" Foreground="#6abd53" Content="USPEŠNO STE SE ODJAVILI!" FontSize="50" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top"/>
 
         <!-- Dugme za MainWindow -->
-        <Button FontWeight="Bold" Content="NAZAD NA POČETNU" HorizontalAlignment="Center" VerticalAlignment="Top" Width="381" Height="91" Grid.Row="2" FontSize="35" Click="PrijaviMe_Click" />
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" Background="#4d4847" FontWeight="Bold" Content="NAZAD NA POČETNU" HorizontalAlignment="Center" VerticalAlignment="Top" Width="381" Height="91" Grid.Row="2" FontSize="35" Click="PrijaviMe_Click" />
 
     </Grid>
 </Window>

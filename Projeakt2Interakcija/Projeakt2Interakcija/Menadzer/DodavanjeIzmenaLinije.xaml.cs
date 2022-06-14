@@ -55,9 +55,10 @@ namespace Projeakt2Interakcija
             noveStanice.Columns.Add("Mesto", typeof(string));
             noveStanice.Columns.Add("Polazak", typeof(string));
             noveStanice.Columns.Add("Cena", typeof(double));
-
+            ok.Content = "DODAJ";
             if (rowView != null)
             {
+                ok.Content = "IZMENI";
                 naziv.Text = rowView[0].ToString();
                 vozovi.SelectedItem = ucitavanje.vozovi.Find(x => x.getVozInfo().Equals(rowView[1])).ToString();
 

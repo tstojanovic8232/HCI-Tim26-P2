@@ -20,13 +20,23 @@ namespace Projeakt2Interakcija
     /// </summary>
     public partial class KlijentPocetna : Window
     {
-        public string username;
         public KlijentPocetna()
         {
             InitializeComponent();
+            SetProperties();
             frame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             MrezniPrikazKlijent mp = new MrezniPrikazKlijent();
             frame.Content = mp;
+        }
+
+        void SetProperties()
+        {
+            this.Title = "Srbija Voz - Klijent";
+
+            this.MinHeight = 600;
+            this.MinWidth = 800;
+            Uri iconUri = new Uri("../../Slike/SrbijaVozLogo.jpg", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri);
         }
 
         private void PrikaziKarte_Click(object sender, RoutedEventArgs e)

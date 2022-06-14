@@ -5,6 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Projeakt2Interakcija.Model;
+using System.Windows.Controls.Primitives;
+using System.Windows.Automation;
+using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace Projeakt2Interakcija
 {
@@ -18,6 +22,7 @@ namespace Projeakt2Interakcija
         string username;
         string password;
         UcitavanjePodataka u=new UcitavanjePodataka();
+
         public MainWindow()
         {
             InitializeComponent();

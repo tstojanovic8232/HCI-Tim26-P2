@@ -38,11 +38,11 @@
         <ComboBox Grid.Column="1" FontSize="20" Grid.Row="4" x:Name="danUsedmici" Margin="30,39,30,42" Grid.RowSpan="2"/>
 
         <!-- Prikaz -->
-        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="IZMIJENI RED VOŽNJE" Background="#4d4847" Margin="36,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="6" Click="Izmijeni_Click" Grid.Column="1"/>
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="IZMENI" Background="#4d4847" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Click="Izmijeni_Click" Grid.Column="1"/>
 
 
         <!-- Pocetna -->
-        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA PREGLED" Background="#4d4847" Margin="81,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="6" Click="NazadNaPocetnu_Click"/>
+        <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="NAZAD NA PREGLED" Background="#4d4847" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="NazadNaPocetnu_Click"/>
 
         <!-- Odjava -->
         <Button BorderThickness="5" Foreground="Orange" BorderBrush="Orange" FontWeight="Bold" FontSize="30" Content="ODJAVI ME" Background="#4d4847" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Click="OdjaviMe_Click"/>

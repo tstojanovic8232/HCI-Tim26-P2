@@ -55,7 +55,7 @@
         <!-- StackPanel za sliku i tekst da bi bili jedno do drugog -->
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1">
             <Image Source="/Slike/ZelezniceSrbijeLogo2.jpg"></Image>
-            <Label Margin="30,0,30,0" FontWeight="UltraBold" Foreground="#6abd53" Content="NASI VOZOVI" FontSize="65" VerticalAlignment="Center"/>
+            <Label Margin="30,0,30,0" FontWeight="UltraBold" Foreground="#6abd53" Content="NAŠI VOZOVI" FontSize="65" VerticalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Margin="30,0,30,0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -138,7 +138,7 @@
             </Grid.ColumnDefinitions>
             <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847"  Width="200" Content="DODAJ" Margin="5,5,5,5" VerticalAlignment="Stretch" HorizontalAlignment="Right" Click="Dodaj_Click"/>
             <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847"  Width="200" Content="IZMENI" Margin="5,5,5,5" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="Izmeni_Click"/>
-            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Width="200" Content="OBRISI" Margin="5,5,5,5" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="Obrisi_Click"/>
+            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Background="#4d4847" Width="200" Content="OBRIŠI" Margin="5,5,5,5" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="Obrisi_Click"/>
         </Grid>
     </Grid>
 </Window>
