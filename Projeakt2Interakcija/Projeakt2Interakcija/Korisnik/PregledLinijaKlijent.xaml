@@ -12,7 +12,7 @@
 
             <Grid>
                 <Border x:Name="OkvirSlike" BorderBrush="#0c203b">
-                    <Image x:Name="slika"  Source="{TemplateBinding Tag}" Height="25" Width="25"/>
+                    <Image x:Name="slika"  Source="{TemplateBinding Tag}"/>
                 </Border>
             </Grid>
             <ControlTemplate.Triggers>
@@ -51,11 +51,15 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
+
+        <TextBlock Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="Polazište:" FontSize="16"/>
         <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="stanica_SelectionChanged"></ComboBox>
 
+        <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="Odredište:" FontSize="16"/>
         <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="stanica_SelectionChanged"></ComboBox>
 
-        <Grid Height="40" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top">
+        <TextBlock Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" Text="Tip voza:" FontSize="18"/>
+        <Grid x:Name="tipovi" Height="40" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -63,61 +67,42 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <CheckBox Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox x:Name="soko" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/Soko.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox Grid.Column="1" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox x:Name="regio" Grid.Column="1" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/RegioVoz.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox Grid.Column="2" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox x:Name="brzi" Grid.Column="2" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/BrziVoz.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox Grid.Column="3" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox x:Name="inter" Grid.Column="3" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/InterCity.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
-            <CheckBox Grid.Column="4" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}">
+            <CheckBox x:Name="stari" Grid.Column="4" Margin="5,5,5,5" Template="{StaticResource CheckBoxSlika}" Checked="tip_Checked" Unchecked="uncheck">
                 <CheckBox.Tag>
                     <ImageSource>/Slike/StariVoz.jpg</ImageSource>
                 </CheckBox.Tag>
             </CheckBox>
         </Grid>
 
-        <!--
-        <ListBox x:Name="kartaTest" Grid.Row="5" Grid.RowSpan="3" Grid.Column="6" Grid.ColumnSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Width="200" Height="50">
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding id}"></TextBlock>
-                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding linija}"></TextBlock>
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding datumVreme}"></TextBlock>
-                        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-60,0,0,0" Text="{Binding polaziste}"></TextBlock>
-                        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="60,0,0,0" Text="{Binding odrediste}"></TextBlock>
-                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Right" Text="{Binding brojSedista}"></TextBlock>
-                        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding cena}"></TextBlock>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        -->
-        
         <Button Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Click="ResetujFilter_Click">Resetuj filter</Button>
-        
-        <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4"></ListBox>
-        
 
-        <!-- TODO: Forma za filtriranje -->
-        <!-- Linije filtriramo po: 
-             1) tipu voza
-             2) rang cena
-             3) vreme polaska (sa polazista!)-->
-        <!-- Pretraga po nazivu(stanici)-->
+
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Text="Dostupne linije:" FontSize="16"/>
+        <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4"></ListBox>
+
+
+        <Label Content="Pretraga:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="5" FontSize="16"/>
+        <TextBox x:Name="pretraga" VerticalAlignment="Top" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="6" TextWrapping="Wrap" TextChanged="txtChange" HorizontalAlignment="Stretch"/>
+
     </Grid>
 </Page>

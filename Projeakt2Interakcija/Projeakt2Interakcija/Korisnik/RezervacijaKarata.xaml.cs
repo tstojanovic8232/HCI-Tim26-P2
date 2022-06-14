@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +29,9 @@ namespace Projeakt2Interakcija
         public RezervacijaKarata()
         {
             InitializeComponent();
+            CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
+            ci.DateTimeFormat.ShortDatePattern = "d.M.yyyy";
+            Thread.CurrentThread.CurrentCulture = ci;
 
             foreach (var item in ucitavanje.stanice)
             {
@@ -37,7 +42,6 @@ namespace Projeakt2Interakcija
                
                 //polaziste.ItemsSource = ucitavanje.stanice;
                 //odrediste.ItemsSource = ucitavanje.stanice;
-                linija.ItemsSource = ucitavanje.linije;
             
            
         }
@@ -60,6 +64,7 @@ namespace Projeakt2Interakcija
         {
             if (polaziste.SelectedItem != null && odrediste.SelectedItem != null && datumVreme.SelectedDate != null)
             {
+                linija.ItemsSource = ucitavanje.linije;
                 linija.SelectedIndex = -1;
                 Stanica pol_stanica = ucitavanje.stanice.Find(x => x.mesto.Equals(polaziste.SelectedItem.ToString()));
                 Stanica odr_stanica = ucitavanje.stanice.Find(x => x.mesto.Equals(odrediste.SelectedItem.ToString()));

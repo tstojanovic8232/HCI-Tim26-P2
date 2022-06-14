@@ -33,14 +33,20 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
+
+        <TextBlock Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="Polazište:" FontSize="16"/>
         <ComboBox x:Name="polaziste" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="polaziste_SelectionChanged"/>
 
 
+
+        <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="Odredište:" FontSize="16"/>
         <ComboBox x:Name="odrediste" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="polaziste_SelectionChanged"></ComboBox>
 
+
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Text="Dostupne linije:" FontSize="16"/>
         <ListBox x:Name="linija" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4" SelectionChanged="linija_SelectionChanged"></ListBox>
 
-        <DatePicker x:Name="datumVreme"   Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectedDateChanged="polaziste_SelectionChanged"></DatePicker>
+        <DatePicker x:Name="datumVreme"   Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectedDateChanged="polaziste_SelectionChanged" Text="Izaberite datum"></DatePicker>
 
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="5" Grid.RowSpan="2" Grid.Column="6" Grid.ColumnSpan="2">
             <TextBlock x:Name="time" TextAlignment="Right" FontSize="15">Polazi u:</TextBlock>

@@ -33,10 +33,16 @@
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
+
+        <TextBlock Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="Za dan:" FontSize="16"/>
         <ComboBox x:Name="danUNedelji" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="danUNedelji_SelectionChanged"></ComboBox>
-        
+
+
+        <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Top" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="Za liniju:" FontSize="16"/>
         <ComboBox x:Name="linija" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="linija_SelectionChanged"></ComboBox>
-        
+
+
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Text="Aktuelni red vožnje:" FontSize="16"/>
         <DataGrid x:Name="redVoznje" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="4"></DataGrid>
 
         <!-- TODO: Forma za filtriranje -->
