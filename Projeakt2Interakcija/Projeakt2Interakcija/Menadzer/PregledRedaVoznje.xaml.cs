@@ -257,6 +257,12 @@ namespace Projeakt2Interakcija
                 }
             }
         }
+
+        private void Video_Click(object sender, RoutedEventArgs e)
+        {
+            VideoPregledRedaVoznje videoRed = new VideoPregledRedaVoznje();
+            videoRed.Show();
+        }
     }
 
 

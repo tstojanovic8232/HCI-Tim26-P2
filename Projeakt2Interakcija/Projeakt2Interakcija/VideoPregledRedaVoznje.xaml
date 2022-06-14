@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="VideoPregledRedaVoznje" Height="450" Width="800">
     <Grid>
-        <MediaElement Source = "/Video/PregledRedaVoznje.avi" x:Name="mojVideo" />
+        <MediaElement Height="300" Source="/Video/PregledRedaVoznje.avi" x:Name="mojVideo" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
     </Grid>
 </Window>

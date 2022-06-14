@@ -91,6 +91,9 @@
     <Compile Include="Menadzer\DodavanjeIzmenaLinije.xaml.cs">
       <DependentUpon>DodavanjeIzmenaLinije.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menadzer\PregledRedaVoznje.xaml.cs">
+      <DependentUpon>PregledRedaVoznje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menadzer\PrikazLinija.xaml.cs">
       <DependentUpon>PrikazLinija.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Menadzer\DodavanjeIzmenaLinije.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menadzer\PregledRedaVoznje.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

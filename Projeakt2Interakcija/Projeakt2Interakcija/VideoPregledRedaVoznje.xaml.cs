@@ -22,6 +22,11 @@ namespace Projeakt2Interakcija
         public VideoPregledRedaVoznje()
         {
             InitializeComponent();
+            //mojVideo.Stop();
+            //mojVideo.AutoPlay = true;
+            //var mySourceUri = new Uri("../../Video/PregledRedaVoznje.avi");
+            //mojVideo.Source = mySourceUri;
+            mojVideo.Play();
         }
     }
 }

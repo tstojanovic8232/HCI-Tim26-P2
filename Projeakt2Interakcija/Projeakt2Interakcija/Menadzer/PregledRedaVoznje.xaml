@@ -49,10 +49,17 @@
 
 
         <!-- Glavni prikaz-->
-        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <Grid Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="25,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <DataGrid IsReadOnly="True" FontSize="20" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged" x:Name="redovi_voznji" Margin="0,0,15,0"/>
-            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Margin="15,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" Click="Prikazi_Click"/>
-        </StackPanel>
+            <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="30" Content="PRIKAŽI" Background="#4d4847" Margin="15,0,0,0" VerticalAlignment="Center" Grid.Column="1" Click="Prikazi_Click"/>
+        </Grid>
         
+        <!-- Video pomoc-->
+        <Button BorderThickness="8" Foreground="#6abd53" BorderBrush="#6abd53" FontWeight="Bold" FontSize="40" Content="?" Background="#4d4847" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Click="Video_Click" Height="65" Width="60" Margin="30,0"/>
+
     </Grid>
 </Window>
