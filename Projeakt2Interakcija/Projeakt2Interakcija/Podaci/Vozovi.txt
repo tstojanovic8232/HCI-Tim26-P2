@@ -2,8 +2,10 @@
 2|inter city|300
 3|regio voz|250
 4|brzi voz|300
-5|stari voz|200
-6|regio voz|200
 7|stari voz|110
+-5|TIP|100
+6|TIP|100
 8|regio voz|120
+6|regio voz|200
 9|soko|400
+5|stari voz|200

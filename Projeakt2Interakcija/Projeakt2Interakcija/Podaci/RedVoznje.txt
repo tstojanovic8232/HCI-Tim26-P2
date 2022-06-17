@@ -1,7 +1,7 @@
-1|NoviSad-Beograd
+1|
 2|NoviSad-Beograd
 3|NoviSad-Beograd
 4|NoviSad-Nis
 5|NoviSad-Beograd,Bujanovac-Beograd,NoviSad-Nis
-6|
-7|Bujanovac-Beograd
+6|NoviSad-Beograd
+7|Bujanovac-Beograd,NoviSad-Beograd,NoviSad-Nis

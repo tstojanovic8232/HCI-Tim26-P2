@@ -101,13 +101,14 @@ namespace Projeakt2Interakcija
 
         DateTime vremePolaska = new DateTime();
 
+        double cena = 0;
+
         private void linija_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(linija.SelectedItem != null)
             {
                 Console.WriteLine(linija.SelectedItem.ToString());
                 string lines = linija.SelectedItem.ToString();
-                double cena = 0;
                 string voz = "";
                 DateTime vremeDolaska = new DateTime();
                 foreach (var item in ucitavanje.linije)
@@ -147,7 +148,7 @@ namespace Projeakt2Interakcija
                 brsed += 10;
             }
 
-            File.AppendAllText("..\\..\\Podaci\\Karte.txt", id + "|" + s + " " + vremePolaska.ToShortTimeString() + "|" + linija.SelectedItem.ToString() + "|" + polaziste.SelectedItem.ToString() + "|" + odrediste.SelectedItem.ToString() + "|" + brsed + "|" + price.Text + "|" + "false" + "|" + klijentmail + "\n");
+            File.AppendAllText("..\\..\\Podaci\\Karte.txt", id + "|" + s + " " + vremePolaska.ToShortTimeString() + "|" + linija.SelectedItem.ToString() + "|" + polaziste.SelectedItem.ToString() + "|" + odrediste.SelectedItem.ToString() + "|" + brsed + "|" + cena + "|" + "false" + "|" + klijentmail + "\n");
             MessageBox.Show("Uspesno ste rezervisali kartu");
         }
 
