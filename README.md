@@ -1,17 +1,17 @@
 # HCI-Tim26-P2
 
-Aplikacija (Projeakt2Interakcija.exe) se pokreće ili iz Debug foldera ili kroz Visual Studio.
+<p>Aplikacija (Projeakt2Interakcija.exe) se pokreće ili iz Debug foldera ili kroz Visual Studio.</p>
 
-Menadžer se loguje sa:
-Korisničko ime: ana
-Lozinka: 123
+<p>Menadžer se loguje sa:<br>
+Korisničko ime: ana<br>
+Lozinka: 123</p>
 
-Dostupni klijenti:
+<p>Dostupni klijenti:<br>
 Korisničko ime: tea
-Lozinka: tea
+Lozinka: tea<br>
 
-Korisničko ime: k
-Lozinka: k
+<p>Korisničko ime: k<br>
+Lozinka: k</p>
 
-Program uopšte nije hteo da se pokrene nakon rezervacije karata.
-Da ne bi dolazilo do problema sa aplikacijom pri evaluaciji, promenili smo tu liniju koda da bi program mogao da se pokrene.
+<p>Program uopšte nije hteo da se pokrene nakon rezervacije karata.<br>
+Da ne bi dolazilo do problema sa aplikacijom pri evaluaciji, promenili smo tu liniju koda da bi program mogao da se pokrene.</p>
